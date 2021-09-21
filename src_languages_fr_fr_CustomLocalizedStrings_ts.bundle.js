@@ -1,5 +1,5 @@
 "use strict";
-(self["webpackChunkpanscript"] = self["webpackChunkpanscript"] || []).push([["src_languages_pt_br_CustomLocalizedStrings_ts"],{
+(self["webpackChunkpanscript"] = self["webpackChunkpanscript"] || []).push([["src_languages_fr_fr_CustomLocalizedStrings_ts"],{
 
 /***/ "./src/languages/common/CommonLocalizedStrings.ts":
 /*!********************************************************!*\
@@ -168,9 +168,9 @@ var CommonLocalizedStrings = function CommonLocalizedStrings() {
 
 /***/ }),
 
-/***/ "./src/languages/pt_br/CustomLocalizedStrings.ts":
+/***/ "./src/languages/fr_fr/CustomLocalizedStrings.ts":
 /*!*******************************************************!*\
-  !*** ./src/languages/pt_br/CustomLocalizedStrings.ts ***!
+  !*** ./src/languages/fr_fr/CustomLocalizedStrings.ts ***!
   \*******************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -204,154 +204,154 @@ var CustomLocalizedStrings = /*#__PURE__*/function (_CommonLocalizedStrin) {
     (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_0__["default"])(this, CustomLocalizedStrings);
 
     _this = _super.apply(this, arguments);
-    _this.PANSCRIPT_HEADLINE = "PanScript – programe no seu idioma";
-    _this.LANGUAGE_SELECT_PROMPT = "Idioma:";
-    _this.THEME_SELECT_PROMPT = "Tema:";
-    _this.RUN_BUTTON_LABEL = "Executar";
-    _this.UNDO_BUTTON_LABEL = "Desfazer";
-    _this.REDO_BUTTON_LABEL = "Refazer";
-    _this.RELOAD_BUTTON_LABEL = "Recarregar";
-    _this.SAVE_BUTTON_LABEL = "Salvar";
-    _this.LOAD_BUTTON_LABEL = "Carregar";
-    _this.CLEAR_BUTTON_LABEL = "Limpar";
-    _this.EXPLORER_FOLDER_YOUR_FILES = "Seus Arquivos";
-    _this.EXPLORER_FOLDER_EXAMPLES = "Exemplos";
-    _this.EXPLORER_FOLDER_BASICS = "1 - Básico";
-    _this.EXPLORER_FOLDER_STANDARD_FUNCTIONS = "2 - Funções Padrão";
-    _this.EXPLORER_FOLDER_EXPRESSIONS = "3 - Expressões";
-    _this.EXPLORER_FOLDER_CONDITIONALS = "4 - Condicionais";
-    _this.EXPLORER_FOLDER_LOOPS = "5 - Loops";
-    _this.EXPLORER_FOLDER_USER_FUNCTIONS = "6 - Funções de Usuário";
-    _this.EXPLORER_FILE_MAIN = "Principal";
-    _this.EXPLORER_FILE_VARIABLES = "Variáveis";
-    _this.EXPLORER_FILE_TYPES = "Tipos";
+    _this.PANSCRIPT_HEADLINE = "PanScript – programme dans votre langue";
+    _this.LANGUAGE_SELECT_PROMPT = "Langue:";
+    _this.THEME_SELECT_PROMPT = "Thème:";
+    _this.RUN_BUTTON_LABEL = "Éxécuter";
+    _this.UNDO_BUTTON_LABEL = "Anuler";
+    _this.REDO_BUTTON_LABEL = "Refaire";
+    _this.RELOAD_BUTTON_LABEL = "Recharger";
+    _this.SAVE_BUTTON_LABEL = "Enregistrer";
+    _this.LOAD_BUTTON_LABEL = "Télécharger";
+    _this.CLEAR_BUTTON_LABEL = "Effacer";
+    _this.EXPLORER_FOLDER_YOUR_FILES = "Vos Fichiers";
+    _this.EXPLORER_FOLDER_EXAMPLES = "Exemples";
+    _this.EXPLORER_FOLDER_BASICS = "1 - Basique";
+    _this.EXPLORER_FOLDER_STANDARD_FUNCTIONS = "2 - Fonctions standard";
+    _this.EXPLORER_FOLDER_EXPRESSIONS = "3 - Expressions";
+    _this.EXPLORER_FOLDER_CONDITIONALS = "4 - Conditionnels";
+    _this.EXPLORER_FOLDER_LOOPS = "5 - Boucles";
+    _this.EXPLORER_FOLDER_USER_FUNCTIONS = "6 - Fonctions d'utilisateur";
+    _this.EXPLORER_FILE_MAIN = "Principale";
+    _this.EXPLORER_FILE_VARIABLES = "Variables";
+    _this.EXPLORER_FILE_TYPES = "Types";
     _this.EXPLORER_FILE_CONSTANTS = "Constantes";
-    _this.EXPLORER_FILE_TEXT_INTERPOLATION = "Interpolação de Texto";
-    _this.EXPLORER_FILE_CONSOLE_FUNCTIONS = "Funções de Console";
-    _this.EXPLORER_FILE_TEXT_FUNCTIONS = "Funções de Texto";
-    _this.EXPLORER_FILE_MATH_FUNCTIONS = "Funções Matemáticas";
-    _this.EXPLORER_FILE_EXPRESSIONS = "Expressões";
-    _this.EXPLORER_FILE_IF = "Se";
-    _this.EXPLORER_FILE_ELSE = "Senão";
-    _this.EXPLORER_FILE_ELSE_IF = "Senão Se";
-    _this.EXPLORER_FILE_LOOPS = "Loops";
-    _this.EXPLORER_FILE_BREAK_AND_CONTINUE = "Interrompa e Continue";
-    _this.EXPLORER_FILE_FUNCTIONS = "Funções";
-    _this.EXPLORER_FILE_RECURSION = "Recursão";
-    _this.KEYWORD_TRUE = "verdadeiro";
-    _this.KEYWORD_FALSE = "falso";
-    _this.KEYWORD_BREAK = "interrompa";
-    _this.KEYWORD_CONSTANT = "constante";
+    _this.EXPLORER_FILE_TEXT_INTERPOLATION = "Interpolation de texte";
+    _this.EXPLORER_FILE_CONSOLE_FUNCTIONS = "Fonctions de la console";
+    _this.EXPLORER_FILE_TEXT_FUNCTIONS = "Fonctions de texte";
+    _this.EXPLORER_FILE_MATH_FUNCTIONS = "Fonctions mathematiques";
+    _this.EXPLORER_FILE_EXPRESSIONS = "Expressions";
+    _this.EXPLORER_FILE_IF = "Si";
+    _this.EXPLORER_FILE_ELSE = "Sinon";
+    _this.EXPLORER_FILE_ELSE_IF = "Sinon si";
+    _this.EXPLORER_FILE_LOOPS = "Boucles";
+    _this.EXPLORER_FILE_BREAK_AND_CONTINUE = "Arrêter et Continuer";
+    _this.EXPLORER_FILE_FUNCTIONS = "Fonctions";
+    _this.EXPLORER_FILE_RECURSION = "Recursion";
+    _this.KEYWORD_TRUE = "vrai";
+    _this.KEYWORD_FALSE = "faux";
+    _this.KEYWORD_BREAK = "interromps";
+    _this.KEYWORD_CONSTANT = "constant";
     _this.KEYWORD_CONTINUE = "continue";
-    _this.KEYWORD_ELSE = "senão";
-    _this.KEYWORD_END = "fim";
-    _this.KEYWORD_FOR = "para";
-    _this.KEYWORD_FOREVER = "para sempre";
-    _this.KEYWORD_FUNCTION = "função";
+    _this.KEYWORD_ELSE = "sinon";
+    _this.KEYWORD_END = "fin";
+    _this.KEYWORD_FOR = "pour";
+    _this.KEYWORD_FOREVER = "toujours";
+    _this.KEYWORD_FUNCTION = "function";
     _this.KEYWORD_GLOBAL = "global";
-    _this.KEYWORD_IF = "se";
-    _this.KEYWORD_IN = "em";
-    _this.KEYWORD_RETURN = "retorne";
-    _this.KEYWORD_RETURNS = "retorna";
-    _this.KEYWORD_WHILE = "enquanto";
-    _this.KEYWORD_NOT = "não";
-    _this.KEYWORD_AND = "e";
+    _this.KEYWORD_IF = "si";
+    _this.KEYWORD_IN = "en";
+    _this.KEYWORD_RETURN = "retourne";
+    _this.KEYWORD_RETURNS = "renvoie";
+    _this.KEYWORD_WHILE = "tant que";
+    _this.KEYWORD_NOT = "non";
+    _this.KEYWORD_AND = "et";
     _this.KEYWORD_OR = "ou";
     _this.KEYWORD_TYPES = {
-      logical: "lógico",
-      number: "número",
-      text: "texto",
-      list: "lista",
-      none: "nenhum",
-      any: "qualquer",
+      logical: "logique",
+      number: "nombre",
+      text: "texte",
+      list: "liste",
+      none: "rien",
+      any: "tout",
       "...T": "...T"
     };
-    _this.FUNCTION_WRITE = "escreva";
-    _this.FUNCTION_WRITE_INLINE = "escreva_na_linha";
-    _this.FUNCTION_NEW_LINE = "nova_linha";
-    _this.FUNCTION_CLEAR = "limpe";
-    _this.FUNCTION_TO_TEXT = "para_texto";
-    _this.FUNCTION_PAD_LEFT = "preencha_esquerda";
-    _this.FUNCTION_PAD_RIGHT = "preencha_direita";
-    _this.FUNCTION_LENGTH = "comprimento";
-    _this.FUNCTION_REPEAT = "repita";
-    _this.FUNCTION_UPPER_CASE = "maiúsculas";
-    _this.FUNCTION_LOWER_CASE = "minúsculas";
-    _this.FUNCTION_SENTENCE_CASE = "sentença";
-    _this.FUNCTION_LEFT = "esquerda";
-    _this.FUNCTION_RIGHT = "direita";
-    _this.FUNCTION_MIDDLE = "meio";
-    _this.FUNCTION_SLICE_TEXT = "fatie_texto";
-    _this.FUNCTION_REVERSE_TEXT = "inverta_texto";
-    _this.FUNCTION_SPLIT = "quebre";
-    _this.FUNCTION_IN_TEXT = "no_texto";
-    _this.FUNCTION_POSITION = "posição";
-    _this.FUNCTION_TRIM = "aparar";
-    _this.FUNCTION_TRIM_LEFT = "aparar_esquerda";
-    _this.FUNCTION_TRIM_RIGHT = "aparar_direita";
+    _this.FUNCTION_WRITE = "écrire";
+    _this.FUNCTION_WRITE_INLINE = "écrire_dans_la_ligne";
+    _this.FUNCTION_NEW_LINE = "nouvelle_ligne";
+    _this.FUNCTION_CLEAR = "nettoyer";
+    _this.FUNCTION_TO_TEXT = "vers_texte";
+    _this.FUNCTION_PAD_LEFT = "remplir_gauche";
+    _this.FUNCTION_PAD_RIGHT = "remplir_droite";
+    _this.FUNCTION_LENGTH = "longueur";
+    _this.FUNCTION_REPEAT = "répéter";
+    _this.FUNCTION_UPPER_CASE = "majuscules";
+    _this.FUNCTION_LOWER_CASE = "minuscule";
+    _this.FUNCTION_SENTENCE_CASE = "phrase";
+    _this.FUNCTION_LEFT = "gauche";
+    _this.FUNCTION_RIGHT = "droite";
+    _this.FUNCTION_MIDDLE = "milieu";
+    _this.FUNCTION_SLICE_TEXT = "trancher_le_texte";
+    _this.FUNCTION_REVERSE_TEXT = "inverser_le_texte";
+    _this.FUNCTION_SPLIT = "diviser";
+    _this.FUNCTION_IN_TEXT = "dans_le_texte";
+    _this.FUNCTION_POSITION = "position";
+    _this.FUNCTION_TRIM = "couper";
+    _this.FUNCTION_TRIM_LEFT = "couper_gauche";
+    _this.FUNCTION_TRIM_RIGHT = "couper_droite";
     _this.FUNCTION_PI = "pi";
-    _this.FUNCTION_ABSOLUTE = "absoluto";
-    _this.FUNCTION_POWER = "potência";
-    _this.FUNCTION_SQUARE_ROOT = "raiz_quadrada";
-    _this.FUNCTION_SINE = "seno";
-    _this.FUNCTION_COSINE = "cosseno";
-    _this.FUNCTION_TANGENT = "tangente";
-    _this.FUNCTION_ARC_SINE = "arco_seno";
-    _this.FUNCTION_ARC_COSINE = "arco_cosseno";
-    _this.FUNCTION_ARC_TANGENT = "arco_tangente";
-    _this.FUNCTION_EXPONENTIAL = "exponencial";
-    _this.FUNCTION_NATURAL_LOGARITHM = "logaritmo_natural";
-    _this.FUNCTION_LOGARITHM = "logaritmo";
-    _this.FUNCTION_FLOOR = "piso";
-    _this.FUNCTION_CEILING = "teto";
-    _this.FUNCTION_TRUNCATE = "trunque";
-    _this.FUNCTION_MINIMUM = "mínimo";
-    _this.FUNCTION_MAXIMUM = "máximo";
-    _this.FUNCTION_RANDOM_REAL = "real_aleatório";
-    _this.FUNCTION_RANDOM_INTEGER = "inteiro_aleatório";
-    _this.FUNCTION_ROUND = "arredonde";
-    _this.FUNCTION_ROUND_N_PLACES = "arredonde_n_casas";
-    _this.FUNCTION_TRUNCATE_N_PLACES = "trunque_n_casas";
-    _this.FUNCTION_LIST = "lista";
-    _this.FUNCTION_IS_EMPTY = "está_vazia";
-    _this.FUNCTION_COUNT = "contagem";
-    _this.FUNCTION_HEAD = "cabeça";
-    _this.FUNCTION_TAIL = "cauda";
-    _this.FUNCTION_FIRST_N = "primeiros_n";
-    _this.FUNCTION_LAST_N = "últimos_n";
-    _this.FUNCTION_IN_LIST = "na_lista";
-    _this.FUNCTION_COUNT_OCCURRENCES = "conte_ocorrências";
-    _this.FUNCTION_REMOVE = "remova";
-    _this.FUNCTION_APPEND = "acrescente";
-    _this.FUNCTION_JOIN = "junte";
-    _this.FUNCTION_MINIMUM_ELEMENT = "elemento_mínimo";
-    _this.FUNCTION_MAXIMUM_ELEMENT = "elemento_máximo";
-    _this.FUNCTION_SORT = "ordene";
-    _this.FUNCTION_REVERSE = "inverta";
-    _this.FUNCTION_UNIQUE = "único";
-    _this.FUNCTION_SLICE = "fatie_lista";
-    _this.FUNCTION_SUM = "some";
-    _this.FUNCTION_RANGE = "intervalo";
-    _this.FUNCTION_ELEMENT_AT = "elemento_em";
-    _this.FUNCTION_REMOVE_AT = "remova_em";
-    _this.FUNCTION_RANDOM_ELEMENT = "elemento_aleatório";
-    _this.FUNCTION_AVERAGE = "média";
-    _this.FUNCTION_MEDIAN = "mediana";
-    _this.FUNCTION_MODE = "moda";
-    _this.FUNCTION_SHUFFLE = "embaralhe";
-    _this.ERROR = "Erro";
-    _this.ERROR_MESSAGE_END_OF_CODE_TOKEN = "o fim do código";
-    _this.ERROR_MESSAGE_END_OF_LINE_TOKEN = "o fim da linha";
-    _this.ERROR_MESSAGE_EMPTY_LIST = "Erro: a lista está vazia";
-    _this.ERROR_MESSAGE_TEMPLATE_INDEX_OUT_OF_BOUNDS = "Erro: a lista não contém um item na posição ${position}";
-    _this.ERROR_MESSAGE_TEMPLATE_UNKNOWN_TOKEN = "Erro: Não consegui entender o código na linha ${line}, coluna ${charPositionInLine}";
-    _this.ERROR_MESSAGE_TEMPLATE_INVALID_SYNTAX = "Erro na linha ${line}:\r\nNão esperava encontrar ${symbolDescription}";
-    _this.ERROR_MESSAGE_TEMPLATE_NAME_ALREADY_DEFINED = "Erro na linha ${line}:\r\nO identificador de nome ${name} está sendo definido uma segunda vez";
-    _this.ERROR_MESSAGE_TEMPLATE_TYPE_MISMATCH = "Erro na linha ${line}:\r\nEsperava que o tipo de ${name} fosse ${expectedType}, mas era ${actualType}";
-    _this.ERROR_MESSAGE_TEMPLATE_CONSTANT_REASSIGNMENT = 'Erro na linha ${line}:\r\nNão posso alterar o valor de ${name} porque foi declarado como "${constantKeyword}"';
-    _this.ERROR_MESSAGE_TEMPLATE_UNDECLARED_IDENTIFIER = "Erro na linha ${line}:\r\nNão pude encontrar o identificador de nome ${name} no escopo atual";
-    _this.ERROR_MESSAGE_GLOBAL_HINT = '\r\nPara acessar uma variável global dentro de uma função, vincule-a usando a palavra-chave "${globalKeyword}":\r\n${globalKeyword} ${name}';
-    _this.ERROR_MESSAGE_WRITE_HINT = "\r\nTalvez você tenha tentado usar a função ${write}() ou ${write_inline}()?";
+    _this.FUNCTION_ABSOLUTE = "absolute";
+    _this.FUNCTION_POWER = "puissance";
+    _this.FUNCTION_SQUARE_ROOT = "racine_carrée";
+    _this.FUNCTION_SINE = "sine";
+    _this.FUNCTION_COSINE = "cosine";
+    _this.FUNCTION_TANGENT = "tangent";
+    _this.FUNCTION_ARC_SINE = "arc_sine";
+    _this.FUNCTION_ARC_COSINE = "arc_cosine";
+    _this.FUNCTION_ARC_TANGENT = "arco_tangent";
+    _this.FUNCTION_EXPONENTIAL = "exponentiel";
+    _this.FUNCTION_NATURAL_LOGARITHM = "logarithme_naturel";
+    _this.FUNCTION_LOGARITHM = "logarithm";
+    _this.FUNCTION_FLOOR = "plancher";
+    _this.FUNCTION_CEILING = "plafond";
+    _this.FUNCTION_TRUNCATE = "tronquer";
+    _this.FUNCTION_MINIMUM = "minimum";
+    _this.FUNCTION_MAXIMUM = "maximum";
+    _this.FUNCTION_RANDOM_REAL = "aléatoire_réel";
+    _this.FUNCTION_RANDOM_INTEGER = "aleatório_entier";
+    _this.FUNCTION_ROUND = "arrondir";
+    _this.FUNCTION_ROUND_N_PLACES = "arrondir_n_places";
+    _this.FUNCTION_TRUNCATE_N_PLACES = "tronquer_n_places";
+    _this.FUNCTION_LIST = "list";
+    _this.FUNCTION_IS_EMPTY = "est_vide";
+    _this.FUNCTION_COUNT = "comptage";
+    _this.FUNCTION_HEAD = "tête";
+    _this.FUNCTION_TAIL = "queue";
+    _this.FUNCTION_FIRST_N = "premières_n";
+    _this.FUNCTION_LAST_N = "dernières_n";
+    _this.FUNCTION_IN_LIST = "dans_la_liste";
+    _this.FUNCTION_COUNT_OCCURRENCES = "compte_les_occurrences";
+    _this.FUNCTION_REMOVE = "retirer";
+    _this.FUNCTION_APPEND = "ajouter";
+    _this.FUNCTION_JOIN = "joindre";
+    _this.FUNCTION_MINIMUM_ELEMENT = "element_minimum";
+    _this.FUNCTION_MAXIMUM_ELEMENT = "element_maximum";
+    _this.FUNCTION_SORT = "trier";
+    _this.FUNCTION_REVERSE = "inverser";
+    _this.FUNCTION_UNIQUE = "unique";
+    _this.FUNCTION_SLICE = "trancher_la_liste";
+    _this.FUNCTION_SUM = "additionner";
+    _this.FUNCTION_RANGE = "intervalle";
+    _this.FUNCTION_ELEMENT_AT = "element_en";
+    _this.FUNCTION_REMOVE_AT = "retirer_en";
+    _this.FUNCTION_RANDOM_ELEMENT = "élément_aléatoire";
+    _this.FUNCTION_AVERAGE = "moyenne";
+    _this.FUNCTION_MEDIAN = "médiane";
+    _this.FUNCTION_MODE = "mode";
+    _this.FUNCTION_SHUFFLE = "mélanger";
+    _this.ERROR = "Erreur";
+    _this.ERROR_MESSAGE_END_OF_CODE_TOKEN = "la fin du code";
+    _this.ERROR_MESSAGE_END_OF_LINE_TOKEN = "la fin de la ligne";
+    _this.ERROR_MESSAGE_EMPTY_LIST = "Erreur: la liste est vide";
+    _this.ERROR_MESSAGE_TEMPLATE_INDEX_OUT_OF_BOUNDS = "Erreur: la liste ne contient pas d'élément dans la position ${position}";
+    _this.ERROR_MESSAGE_TEMPLATE_UNKNOWN_TOKEN = "Erreur: je n'ai pas compris le code de la ligne ${line}, colone ${charPositionInLine}";
+    _this.ERROR_MESSAGE_TEMPLATE_INVALID_SYNTAX = "Erreur dans la ligne ${line}:\r\nJe ne m'attendais pas à trouver ${symbolDescription}";
+    _this.ERROR_MESSAGE_TEMPLATE_NAME_ALREADY_DEFINED = "Erreur dans la ligne ${line}:\r\nL'identifiant qui porte le nom ${name} est défini une deuxième fois";
+    _this.ERROR_MESSAGE_TEMPLATE_TYPE_MISMATCH = "Erreur dans la ligne ${line}:\r\nJe m'attendais que le type de ${name} soit ${expectedType}, mais c'était ${actualType}";
+    _this.ERROR_MESSAGE_TEMPLATE_CONSTANT_REASSIGNMENT = 'Erreur dans la ligne ${line}:\r\nJe ne peux pas changer la valeur de ${name} parce que qu\'il a été declaré comme "${constantKeyword}"';
+    _this.ERROR_MESSAGE_TEMPLATE_UNDECLARED_IDENTIFIER = "Erreur dans la ligne ${line}:\r\nJe n'ai pas trouvé l'identifiant avec le nom ${name} dans la portée actuelle";
+    _this.ERROR_MESSAGE_GLOBAL_HINT = '\r\nPour accéder à une variable globale dans une fonction, associez-la à l\'aide du mot-clé "${globalKeyword}":\r\n${globalKeyword} ${name}';
+    _this.ERROR_MESSAGE_WRITE_HINT = "\r\nPeut-être avez-vous essayé d'utiliser la fonction ${write}() ou bien ${write_inline}()?";
     return _this;
   }
 
