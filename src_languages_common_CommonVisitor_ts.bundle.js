@@ -246,12 +246,14 @@ var CommonLocalizedStrings = function CommonLocalizedStrings() {
   this.KEYWORD_END = "end";
   this.KEYWORD_FOR = "for";
   this.KEYWORD_FOREVER = "forever";
+  this.KEYWORD_FROM = "from";
   this.KEYWORD_FUNCTION = "function";
   this.KEYWORD_GLOBAL = "global";
   this.KEYWORD_IF = "if";
   this.KEYWORD_IN = "in";
   this.KEYWORD_RETURN = "return";
   this.KEYWORD_RETURNS = "returns";
+  this.KEYWORD_TO = "to";
   this.KEYWORD_WHILE = "while";
   this.KEYWORD_NOT = "not";
   this.KEYWORD_AND = "and";
@@ -260,7 +262,6 @@ var CommonLocalizedStrings = function CommonLocalizedStrings() {
     logical: "logical",
     number: "number",
     text: "text",
-    list: "list",
     none: "none",
     any: "any",
     "...T": "...T"
@@ -282,7 +283,6 @@ var CommonLocalizedStrings = function CommonLocalizedStrings() {
   this.FUNCTION_MIDDLE = "middle";
   this.FUNCTION_SLICE_TEXT = "slice_text";
   this.FUNCTION_REVERSE_TEXT = "reverse_text";
-  this.FUNCTION_SPLIT = "split";
   this.FUNCTION_IN_TEXT = "in_text";
   this.FUNCTION_POSITION = "position";
   this.FUNCTION_TRIM = "trim";
@@ -311,44 +311,16 @@ var CommonLocalizedStrings = function CommonLocalizedStrings() {
   this.FUNCTION_ROUND = "round";
   this.FUNCTION_ROUND_N_PLACES = "round_n_places";
   this.FUNCTION_TRUNCATE_N_PLACES = "truncate_n_places";
-  this.FUNCTION_LIST = "list";
-  this.FUNCTION_IS_EMPTY = "is_empty";
-  this.FUNCTION_COUNT = "count";
-  this.FUNCTION_HEAD = "head";
-  this.FUNCTION_TAIL = "tail";
-  this.FUNCTION_FIRST_N = "first_n";
-  this.FUNCTION_LAST_N = "last_n";
-  this.FUNCTION_IN_LIST = "in_list";
-  this.FUNCTION_COUNT_OCCURRENCES = "count_occurrences";
-  this.FUNCTION_REMOVE = "remove";
-  this.FUNCTION_APPEND = "append";
-  this.FUNCTION_JOIN = "join";
-  this.FUNCTION_MINIMUM_ELEMENT = "minimum_element";
-  this.FUNCTION_MAXIMUM_ELEMENT = "maximum_element";
-  this.FUNCTION_SORT = "sort";
-  this.FUNCTION_REVERSE = "reverse";
-  this.FUNCTION_UNIQUE = "unique";
-  this.FUNCTION_SLICE = "slice";
-  this.FUNCTION_SUM = "sum";
-  this.FUNCTION_RANGE = "range";
-  this.FUNCTION_ELEMENT_AT = "element_at";
-  this.FUNCTION_REMOVE_AT = "remove_at";
-  this.FUNCTION_RANDOM_ELEMENT = "random_element";
-  this.FUNCTION_AVERAGE = "average";
-  this.FUNCTION_MEDIAN = "median";
-  this.FUNCTION_MODE = "mode";
-  this.FUNCTION_SHUFFLE = "shuffle";
   this.ERROR = "Error";
   this.ERROR_MESSAGE_END_OF_CODE_TOKEN = "the end of the code";
   this.ERROR_MESSAGE_END_OF_LINE_TOKEN = "the end of the line";
-  this.ERROR_MESSAGE_EMPTY_LIST = "Error: the given list is empty";
-  this.ERROR_MESSAGE_TEMPLATE_INDEX_OUT_OF_BOUNDS = "Error: the given list does not contain an item at position ${position}";
   this.ERROR_MESSAGE_TEMPLATE_UNKNOWN_TOKEN = "Error: I could not understand the code at line ${line}, column ${charPositionInLine}";
   this.ERROR_MESSAGE_TEMPLATE_INVALID_SYNTAX = "Error at line ${line}:\r\nI was not expecting to find ${symbolDescription}";
   this.ERROR_MESSAGE_TEMPLATE_NAME_ALREADY_DEFINED = "Error at line ${line}:\r\nThe identifier ${name} is being defined a second time";
   this.ERROR_MESSAGE_TEMPLATE_TYPE_MISMATCH = "Error at line ${line}:\r\nI was expecting the type of ${name} to be ${expectedType}, but it was ${actualType}";
   this.ERROR_MESSAGE_TEMPLATE_CONSTANT_REASSIGNMENT = 'Error at line ${line}:\r\nI cannot modify the value of ${name} because it was declared as "${constantKeyword}"';
   this.ERROR_MESSAGE_TEMPLATE_UNDECLARED_IDENTIFIER = "Error at line ${line}:\r\nI could not find the identifier ${name} in the current scope";
+  this.ERROR_MESSAGE_TEMPLATE_ARGUMENTS_NUMBER = "Error at line ${line}:\r\nFunction ${name} expects ${argumentsExpected} argument(s), but I have found ${argumentsGiven} instead";
   this.ERROR_MESSAGE_GLOBAL_HINT = '\r\nTo access a global variable in a function, bind it using the "${globalKeyword}" keyword:\r\n${globalKeyword} ${name}';
   this.ERROR_MESSAGE_WRITE_HINT = "\r\nPerhaps you've meant to use function ${write}() or ${write_inline}()?";
 };
@@ -399,7 +371,6 @@ var CommonStandardLibrary = /*#__PURE__*/function () {
       table.pushNode(this.getMiddleDefinitionNode());
       table.pushNode(this.getSliceTextDefinitionNode());
       table.pushNode(this.getReverseTextDefinitionNode());
-      table.pushNode(this.getSplitDefinitionNode());
       table.pushNode(this.getInTextDefinitionNode());
       table.pushNode(this.getPositionDefinitionNode());
       table.pushNode(this.getTrimDefinitionNode());
@@ -428,33 +399,6 @@ var CommonStandardLibrary = /*#__PURE__*/function () {
       table.pushNode(this.getRoundDefinitionNode());
       table.pushNode(this.getRoundNPlacesDefinitionNode());
       table.pushNode(this.getTruncateNPlacesDefinitionNode());
-      table.pushNode(this.getListDefinitionNode());
-      table.pushNode(this.getIsEmptyDefinitionNode());
-      table.pushNode(this.getCountDefinitionNode());
-      table.pushNode(this.getHeadDefinitionNode());
-      table.pushNode(this.getTailDefinitionNode());
-      table.pushNode(this.getFirstNDefinitionNode());
-      table.pushNode(this.getLastNDefinitionNode());
-      table.pushNode(this.getInListDefinitionNode());
-      table.pushNode(this.getCountOccurrencesDefinitionNode());
-      table.pushNode(this.getRemoveDefinitionNode());
-      table.pushNode(this.getAppendDefinitionNode());
-      table.pushNode(this.getJoinDefinitionNode());
-      table.pushNode(this.getMinimumElementDefinitionNode());
-      table.pushNode(this.getMaximumElementDefinitionNode());
-      table.pushNode(this.getSortDefinitionNode());
-      table.pushNode(this.getReverseDefinitionNode());
-      table.pushNode(this.getUniqueDefinitionNode());
-      table.pushNode(this.getSliceDefinitionNode());
-      table.pushNode(this.getSumDefinitionNode());
-      table.pushNode(this.getRangeDefinitionNode());
-      table.pushNode(this.getElementAtDefinitionNode());
-      table.pushNode(this.getRemoveAtDefinitionNode());
-      table.pushNode(this.getRandomElementDefinitionNode());
-      table.pushNode(this.getAverageDefinitionNode());
-      table.pushNode(this.getMedianDefinitionNode());
-      table.pushNode(this.getModeDefinitionNode());
-      table.pushNode(this.getShuffleDefinitionNode());
       return table;
     }
   }, {
@@ -625,16 +569,6 @@ var CommonStandardLibrary = /*#__PURE__*/function () {
       node.code = "\n      function ".concat(node.name, "(text) {\n        return text.split(\"\").reverse().join(\"\");\n      }\n    ");
       node.type = _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanType.textType();
       node.argList = [["text", _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanType.textType()]];
-      return node;
-    }
-  }, {
-    key: "getSplitDefinitionNode",
-    value: function getSplitDefinitionNode() {
-      var node = new _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.ASTNode();
-      node.name = "__standard_split";
-      node.code = "\n      function ".concat(node.name, "(text, delimiter) {\n        return text.split(delimiter);\n      }\n    ");
-      node.type = new _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanType([_CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanTypePart.List, _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanTypePart.Text]);
-      node.argList = [["text", _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanType.textType()], ["delimiter", _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanType.textType()]];
       return node;
     }
   }, {
@@ -917,276 +851,6 @@ var CommonStandardLibrary = /*#__PURE__*/function () {
       node.argList = [["x", _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanType.numberType()], ["n", _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanType.numberType()]];
       return node;
     }
-  }, {
-    key: "getListDefinitionNode",
-    value: function getListDefinitionNode() {
-      var node = new _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.ASTNode();
-      node.name = "__standard_list";
-      node.code = "\n      function ".concat(node.name, "(...l) {\n        return l;\n      }\n    ");
-      node.type = new _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanType([_CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanTypePart.List, _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanTypePart.Any]);
-      node.argList = [["l", new _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanType([_CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanTypePart.VariadicZeroOrMore])]];
-      return node;
-    }
-  }, {
-    key: "getIsEmptyDefinitionNode",
-    value: function getIsEmptyDefinitionNode() {
-      var node = new _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.ASTNode();
-      node.name = "__standard_is_empty";
-      node.code = "\n      function ".concat(node.name, "(l) {\n        return l.length === 0;\n      }\n    ");
-      node.type = _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanType.logicalType();
-      node.argList = [["l", new _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanType([_CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanTypePart.List, _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanTypePart.Any])]];
-      return node;
-    }
-  }, {
-    key: "getCountDefinitionNode",
-    value: function getCountDefinitionNode() {
-      var node = new _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.ASTNode();
-      node.name = "__standard_count";
-      node.code = "\n      function ".concat(node.name, "(l) {\n        return l.length;\n      }\n    ");
-      node.type = _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanType.numberType();
-      node.argList = [["l", new _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanType([_CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanTypePart.List, _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanTypePart.Any])]];
-      return node;
-    }
-  }, {
-    key: "getHeadDefinitionNode",
-    value: function getHeadDefinitionNode() {
-      var node = new _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.ASTNode();
-      node.name = "__standard_head";
-      node.code = "\n      function ".concat(node.name, "(l) {\n        if (l.length < 1) {\n          throw \"ERROR: the given list is empty\";\n        }\n\n        return l.slice(0, 1);\n      }\n    ");
-      node.type = new _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanType([_CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanTypePart.Any]);
-      node.argList = [["l", new _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanType([_CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanTypePart.List, _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanTypePart.Any])]];
-      return node;
-    }
-  }, {
-    key: "getTailDefinitionNode",
-    value: function getTailDefinitionNode() {
-      var node = new _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.ASTNode();
-      node.name = "__standard_tail";
-      node.code = "\n      function ".concat(node.name, "(l) {\n        return l.slice(1);\n      }\n    ");
-      node.type = new _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanType([_CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanTypePart.List, _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanTypePart.Any]);
-      node.argList = [["l", new _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanType([_CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanTypePart.List, _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanTypePart.Any])]];
-      return node;
-    }
-  }, {
-    key: "getFirstNDefinitionNode",
-    value: function getFirstNDefinitionNode() {
-      var node = new _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.ASTNode();
-      node.name = "__standard_first_n";
-      node.code = "\n      function ".concat(node.name, "(l, n) {\n        if (l.length < 1) {\n          throw \"ERROR: the given list is empty\";\n        }\n\n        return l.slice(0, n);\n      }\n    ");
-      node.type = new _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanType([_CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanTypePart.List, _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanTypePart.Any]);
-      node.argList = [["l", new _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanType([_CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanTypePart.List, _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanTypePart.Any])], ["n", _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanType.numberType()]];
-      return node;
-    }
-  }, {
-    key: "getLastNDefinitionNode",
-    value: function getLastNDefinitionNode() {
-      var node = new _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.ASTNode();
-      node.name = "__standard_last_n";
-      node.code = "\n      function ".concat(node.name, "(l, n) {\n        if (l.length < 1) {\n          throw \"ERROR: the given list is empty\";\n        }\n\n        return l.slice(-n);\n      }\n    ");
-      node.type = new _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanType([_CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanTypePart.List, _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanTypePart.Any]);
-      node.argList = [["l", new _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanType([_CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanTypePart.List, _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanTypePart.Any])], ["n", _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanType.numberType()]];
-      return node;
-    }
-  }, {
-    key: "getInListDefinitionNode",
-    value: function getInListDefinitionNode() {
-      var node = new _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.ASTNode();
-      node.name = "__standard_in_list";
-      node.code = "\n      function ".concat(node.name, "(l, e) {\n        return l.includes(e);\n      }\n    ");
-      node.type = _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanType.logicalType();
-      node.argList = [["l", new _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanType([_CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanTypePart.List, _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanTypePart.Any])], ["e", new _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanType([_CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanTypePart.Any])]];
-      return node;
-    }
-  }, {
-    key: "getCountOccurrencesDefinitionNode",
-    value: function getCountOccurrencesDefinitionNode() {
-      var node = new _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.ASTNode();
-      node.name = "__standard_count_occurrences";
-      node.code = "\n      function ".concat(node.name, "(l, e) {\n        return l.reduce((a, v) => (v === e ? a + 1 : a), 0);\n      }\n    ");
-      node.type = _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanType.numberType();
-      node.argList = [["l", new _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanType([_CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanTypePart.List, _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanTypePart.Any])], ["e", new _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanType([_CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanTypePart.Any])]];
-      return node;
-    }
-  }, {
-    key: "getRemoveDefinitionNode",
-    value: function getRemoveDefinitionNode() {
-      var node = new _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.ASTNode();
-      node.name = "__standard_remove";
-      node.code = "\n      function ".concat(node.name, "(l, e) {\n        return l.filter((v) => v !== e);\n      }\n    ");
-      node.type = new _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanType([_CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanTypePart.List, _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanTypePart.Any]);
-      node.argList = [["l", new _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanType([_CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanTypePart.List, _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanTypePart.Any])], ["e", new _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanType([_CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanTypePart.Any])]];
-      return node;
-    }
-  }, {
-    key: "getAppendDefinitionNode",
-    value: function getAppendDefinitionNode() {
-      var node = new _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.ASTNode();
-      node.name = "__standard_append";
-      node.code = "\n      function ".concat(node.name, "(l, e) {\n        return l.concat(e);\n      }\n    ");
-      node.type = new _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanType([_CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanTypePart.List, _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanTypePart.Any]);
-      node.argList = [["l", new _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanType([_CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanTypePart.List, _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanTypePart.Any])], ["e", new _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanType([_CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanTypePart.Any])]];
-      return node;
-    }
-  }, {
-    key: "getJoinDefinitionNode",
-    value: function getJoinDefinitionNode() {
-      var node = new _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.ASTNode();
-      node.name = "__standard_join";
-      node.code = "\n      function ".concat(node.name, "(l, s) {\n        return l.join(s);\n      }\n    ");
-      node.type = _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanType.textType();
-      node.argList = [["l", new _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanType([_CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanTypePart.List, _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanTypePart.Text])], ["s", _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanType.textType()]];
-      return node;
-    }
-  }, {
-    key: "getMinimumElementDefinitionNode",
-    value: function getMinimumElementDefinitionNode() {
-      var node = new _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.ASTNode();
-      node.name = "__standard_minimum_element";
-      node.code = "\n      function ".concat(node.name, "(l) {\n        if (l.length < 1) {\n          throw \"ERROR: the given list is empty\";\n        }\n\n        return Math.min(...l)\n      }\n    ");
-      node.type = _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanType.numberType();
-      node.argList = [["l", new _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanType([_CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanTypePart.List, _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanTypePart.Number])]];
-      return node;
-    }
-  }, {
-    key: "getMaximumElementDefinitionNode",
-    value: function getMaximumElementDefinitionNode() {
-      var node = new _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.ASTNode();
-      node.name = "__standard_maximum_element";
-      node.code = "\n      function ".concat(node.name, "(l) {\n        if (l.length < 1) {\n          throw \"ERROR: the given list is empty\";\n        }\n\n        return Math.max(...l);\n      }\n    ");
-      node.type = _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanType.numberType();
-      node.argList = [["l", new _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanType([_CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanTypePart.List, _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanTypePart.Number])]];
-      return node;
-    }
-  }, {
-    key: "getSortDefinitionNode",
-    value: function getSortDefinitionNode() {
-      var node = new _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.ASTNode();
-      node.name = "__standard_sort";
-      node.code = "\n      function ".concat(node.name, "(l) {\n        return l.sort();\n      }\n    ");
-      node.type = new _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanType([_CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanTypePart.List, _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanTypePart.Any]);
-      node.argList = [["l", new _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanType([_CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanTypePart.List, _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanTypePart.Any])]];
-      return node;
-    }
-  }, {
-    key: "getReverseDefinitionNode",
-    value: function getReverseDefinitionNode() {
-      var node = new _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.ASTNode();
-      node.name = "__standard_reverse";
-      node.code = "\n      function ".concat(node.name, "(l) {\n        return l.reverse();\n      }\n    ");
-      node.type = new _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanType([_CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanTypePart.List, _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanTypePart.Any]);
-      node.argList = [["l", new _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanType([_CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanTypePart.List, _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanTypePart.Any])]];
-      return node;
-    }
-  }, {
-    key: "getUniqueDefinitionNode",
-    value: function getUniqueDefinitionNode() {
-      var node = new _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.ASTNode();
-      node.name = "__standard_unique";
-      node.code = "\n      function ".concat(node.name, "(l) {\n        return Array.from(new Set(l));\n      }\n    ");
-      node.type = new _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanType([_CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanTypePart.List, _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanTypePart.Any]);
-      node.argList = [["l", new _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanType([_CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanTypePart.List, _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanTypePart.Any])]];
-      return node;
-    }
-  }, {
-    key: "getSliceDefinitionNode",
-    value: function getSliceDefinitionNode() {
-      var node = new _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.ASTNode();
-      node.name = "__standard_slice";
-      node.code = "\n      function ".concat(node.name, "(l, a, b) {\n        return l.slice(a, b);\n      }\n    ");
-      node.type = new _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanType([_CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanTypePart.List, _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanTypePart.Any]);
-      node.argList = [["l", new _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanType([_CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanTypePart.List, _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanTypePart.Any])], ["a", _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanType.numberType()], ["b", _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanType.numberType()]];
-      return node;
-    }
-  }, {
-    key: "getSumDefinitionNode",
-    value: function getSumDefinitionNode() {
-      var node = new _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.ASTNode();
-      node.name = "__standard_sum";
-      node.code = "\n      function ".concat(node.name, "(l) {\n        return l.reduce((a, b) => a + b, 0);\n      }\n    ");
-      node.type = _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanType.numberType();
-      node.argList = [["l", new _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanType([_CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanTypePart.List, _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanTypePart.Number])]];
-      return node;
-    }
-  }, {
-    key: "getRangeDefinitionNode",
-    value: function getRangeDefinitionNode() {
-      var node = new _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.ASTNode();
-      node.name = "__standard_range";
-      node.code = "\n      function ".concat(node.name, "(a, b, s) {\n        const min = Math.min(a, b);\n        const max = Math.max(a, b);\n        const count = Math.ceil((max - min) / s);\n        return Array(count).fill(a).map((x, y) => x + y * s);\n      }\n    ");
-      node.type = new _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanType([_CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanTypePart.List, _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanTypePart.Number]);
-      node.argList = [["a", _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanType.numberType()], ["b", _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanType.numberType()], ["s", _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanType.numberType()]];
-      return node;
-    }
-  }, {
-    key: "getElementAtDefinitionNode",
-    value: function getElementAtDefinitionNode() {
-      var node = new _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.ASTNode();
-      node.name = "__standard_element_at";
-      node.code = "\n      function ".concat(node.name, "(l, p) {\n        if (p > l.length - 1) {\n          throw \"ERROR: the given list does not contain an index \" + p;\n        }\n\n        return l[p];\n      }\n    ");
-      node.type = new _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanType([_CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanTypePart.Any]);
-      node.argList = [["l", new _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanType([_CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanTypePart.List, _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanTypePart.Any])], ["p", _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanType.numberType()]];
-      return node;
-    }
-  }, {
-    key: "getRemoveAtDefinitionNode",
-    value: function getRemoveAtDefinitionNode() {
-      var node = new _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.ASTNode();
-      node.name = "__standard_remove_at";
-      node.code = "\n      function ".concat(node.name, "(l, p) {\n        if (p > l.length - 1) {\n          throw \"ERROR: the given list does not contain an index \" + p;\n        }\n\n        let copy = [...l];\n        copy.splice(p, 1);\n        return copy;\n      }\n    ");
-      node.type = new _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanType([_CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanTypePart.List, _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanTypePart.Any]);
-      node.argList = [["l", new _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanType([_CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanTypePart.List, _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanTypePart.Any])], ["p", _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanType.numberType()]];
-      return node;
-    }
-  }, {
-    key: "getRandomElementDefinitionNode",
-    value: function getRandomElementDefinitionNode() {
-      var node = new _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.ASTNode();
-      node.name = "__standard_random_element";
-      node.code = "\n      function ".concat(node.name, "(l) {\n        if (l.length < 1) {\n          throw \"ERROR: the given list is empty\";\n        }\n\n        return l[Math.floor(Math.random() * l.length)];\n      }\n    ");
-      node.type = new _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanType([_CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanTypePart.Any]);
-      node.argList = [["l", new _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanType([_CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanTypePart.List, _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanTypePart.Any])], ["p", _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanType.numberType()]];
-      return node;
-    }
-  }, {
-    key: "getAverageDefinitionNode",
-    value: function getAverageDefinitionNode() {
-      var node = new _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.ASTNode();
-      node.name = "__standard_average";
-      node.code = "\n      function ".concat(node.name, "(l) {\n        if (l.length < 1) {\n          throw \"ERROR: the given list is empty\";\n        }\n\n        return __standard_sum(l) / l.length;\n      }\n    ");
-      node.type = _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanType.numberType();
-      node.argList = [["l", new _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanType([_CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanTypePart.List, _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanTypePart.Number])]];
-      return node;
-    }
-  }, {
-    key: "getMedianDefinitionNode",
-    value: function getMedianDefinitionNode() {
-      var node = new _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.ASTNode();
-      node.name = "__standard_median";
-      node.code = "\n      function ".concat(node.name, "(l) {\n        if (l.length < 1) {\n          throw \"ERROR: the given list is empty\";\n        }\n\n        const sorted = [...l].sort();\n        const half = Math.floor(l.length / 2);\n\n        if (l.length % 2 === 1) {\n          return sorted[half];\n        }\n\n        return (sorted[half - 1] + sorted[half]) / 2;\n      }\n    ");
-      node.type = _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanType.numberType();
-      node.argList = [["l", new _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanType([_CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanTypePart.List, _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanTypePart.Number])]];
-      return node;
-    }
-  }, {
-    key: "getModeDefinitionNode",
-    value: function getModeDefinitionNode() {
-      var node = new _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.ASTNode();
-      node.name = "__standard_mode";
-      node.code = "\n      function ".concat(node.name, "(l) {\n        var m = new Map();\n        var max_count = 0;\n        for (const v of l) {\n          const count = (m.get(v) || 0) + 1;\n          m.set(v, count);\n          max_count = Math.max(count, max_count);\n        }\n\n        var mode = [];\n        m.forEach((v, k) => {\n          if (v === max_count) {\n            mode.push(k);\n          }\n        });\n\n        return mode;\n      }\n    ");
-      node.type = _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanType.numberType();
-      node.argList = [["l", new _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanType([_CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanTypePart.List, _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanTypePart.Number])]];
-      return node;
-    }
-  }, {
-    key: "getShuffleDefinitionNode",
-    value: function getShuffleDefinitionNode() {
-      var node = new _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.ASTNode();
-      node.name = "__standard_shuffle";
-      node.code = "\n      function ".concat(node.name, "(l) {\n        let copy = [...l];\n\n        for (let i = copy.length - 1; i > 0; i--) {\n          const j = Math.floor(Math.random() * (i + 1));\n          [copy[i], copy[j]] = [copy[j], copy[i]];\n        }\n      }\n    ");
-      node.type = new _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanType([_CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanTypePart.List, _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanTypePart.Any]);
-      node.argList = [["l", new _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanType([_CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanTypePart.List, _CommonASTNode__WEBPACK_IMPORTED_MODULE_2__.PanTypePart.Any])]];
-      return node;
-    }
   }]);
 
   return CommonStandardLibrary;
@@ -1270,8 +934,8 @@ var CommonVisitor = /*#__PURE__*/function (_AbstractParseTreeVis) {
       var newNode = new _CommonASTNode__WEBPACK_IMPORTED_MODULE_8__.ASTNode();
       newNode.code = "{\r\n";
       newNode.code += this.symbolTable.getCode();
-      ctx.topStatement().map(function (topStatement) {
-        newNode.code += (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", _this2).call(_this2, topStatement).code + "\r\n";
+      ctx.topStatement().map(function (topStatementCtx) {
+        newNode.code += (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", _this2).call(_this2, topStatementCtx).code + "\r\n";
       });
       newNode.code += "\r\n}";
       return newNode;
@@ -1280,32 +944,32 @@ var CommonVisitor = /*#__PURE__*/function (_AbstractParseTreeVis) {
     key: "visitTopStatement",
     value: function visitTopStatement(ctx) {
       var newNode = new _CommonASTNode__WEBPACK_IMPORTED_MODULE_8__.ASTNode();
-      var statement = ctx.getChild(0);
-      newNode.code = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, statement).code;
+      var statementCtx = ctx.getChild(0);
+      newNode.code = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, statementCtx).code;
       return newNode;
     }
   }, {
     key: "visitInnerStatement",
     value: function visitInnerStatement(ctx) {
       var newNode = new _CommonASTNode__WEBPACK_IMPORTED_MODULE_8__.ASTNode();
-      var statement = ctx.getChild(0);
-      newNode.code = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, statement).code;
+      var statementCtx = ctx.getChild(0);
+      newNode.code = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, statementCtx).code;
       return newNode;
     }
   }, {
     key: "visitStatement",
     value: function visitStatement(ctx) {
       var newNode = new _CommonASTNode__WEBPACK_IMPORTED_MODULE_8__.ASTNode();
-      var statement = ctx.getChild(0);
-      newNode.code = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, statement).code + ";";
+      var statementCtx = ctx.getChild(0);
+      newNode.code = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, statementCtx).code + ";";
       return newNode;
     }
   }, {
     key: "visitGlobalStatement",
     value: function visitGlobalStatement(ctx) {
       var newNode = new _CommonASTNode__WEBPACK_IMPORTED_MODULE_8__.ASTNode();
-      var id = ctx.IDENTIFIER();
-      var node = this.errorHandler.assertNameDefinedInGlobalScope(this.symbolTable, id.text, id.symbol);
+      var idTerminal = ctx.IDENTIFIER();
+      var node = this.errorHandler.assertNameDefinedInGlobalScope(this.symbolTable, idTerminal.text, idTerminal.symbol);
 
       if (node) {
         this.symbolTable.pushNode(node);
@@ -1319,35 +983,35 @@ var CommonVisitor = /*#__PURE__*/function (_AbstractParseTreeVis) {
       var _this3 = this;
 
       var newNode = new _CommonASTNode__WEBPACK_IMPORTED_MODULE_8__.ASTNode();
-      var id = ctx.IDENTIFIER();
-      this.errorHandler.assertNameNotDefined(this.symbolTable, id.text, id.symbol);
-      var optionalType = ctx.type();
-      var optionalParamList = ctx.parameterList();
-      var paramList;
-      this.symbolTable.pushScope(id.text);
-      newNode.name = id.text;
+      var idTerminal = ctx.IDENTIFIER();
+      this.errorHandler.assertNameNotDefined(this.symbolTable, idTerminal.text, idTerminal.symbol);
+      var optionalTypeCtx = ctx.type();
+      var optionalParamListCtx = ctx.parameterList();
+      var paramListNode;
+      this.symbolTable.pushScope(idTerminal.text);
+      newNode.name = idTerminal.text;
 
-      if (optionalParamList) {
-        paramList = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, optionalParamList);
-        newNode.argList = paramList.argList;
+      if (optionalParamListCtx) {
+        paramListNode = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, optionalParamListCtx);
+        newNode.argList = paramListNode.argList;
       }
 
-      if (optionalType) {
-        var type = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, optionalType);
+      if (optionalTypeCtx) {
+        var typeNode = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, optionalTypeCtx);
 
-        newNode.type = type.type;
+        newNode.type = typeNode.type;
       }
 
       this.symbolTable.pushGlobalNode(newNode);
-      newNode.code = "function ".concat(id.text, "(");
+      newNode.code = "function ".concat(idTerminal.text, "(");
 
-      if (optionalParamList && paramList) {
-        newNode.code += paramList.code;
+      if (optionalParamListCtx && paramListNode) {
+        newNode.code += paramListNode.code;
       }
 
       newNode.code += ") {\r\n";
-      ctx.innerStatement().map(function (innerStatement) {
-        newNode.code += (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", _this3).call(_this3, innerStatement).code + "\r\n";
+      ctx.innerStatement().map(function (innerStatementCtx) {
+        newNode.code += (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", _this3).call(_this3, innerStatementCtx).code + "\r\n";
       });
       newNode.code += "}";
       this.symbolTable.popScope();
@@ -1359,22 +1023,22 @@ var CommonVisitor = /*#__PURE__*/function (_AbstractParseTreeVis) {
       var _this4 = this;
 
       var newNode = new _CommonASTNode__WEBPACK_IMPORTED_MODULE_8__.ASTNode();
-      var ids = ctx.IDENTIFIER();
-      var types = ctx.type();
-      ids.map(function (id, i) {
-        _this4.errorHandler.assertNameNotDefined(_this4.symbolTable, id.text, id.symbol);
+      var idsTerminalList = ctx.IDENTIFIER();
+      var typesCtxList = ctx.type();
+      idsTerminalList.map(function (idTerminal, i) {
+        _this4.errorHandler.assertNameNotDefined(_this4.symbolTable, idTerminal.text, idTerminal.symbol);
 
-        var type = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", _this4).call(_this4, types[i]);
+        var typeNode = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", _this4).call(_this4, typesCtxList[i]);
 
         var node = new _CommonASTNode__WEBPACK_IMPORTED_MODULE_8__.ASTNode();
-        node.code = id.text;
-        node.type = type.type;
-        node.name = id.text;
+        node.code = idTerminal.text;
+        node.type = typeNode.type;
+        node.name = idTerminal.text;
 
         _this4.symbolTable.pushNode(node);
 
-        newNode.argList.concat([id.text, type.type]);
-        newNode.code += id.text + ",";
+        newNode.argList.push([idTerminal.text, typeNode.type]);
+        newNode.code += idTerminal.text + ",";
       });
       return newNode;
     }
@@ -1382,28 +1046,28 @@ var CommonVisitor = /*#__PURE__*/function (_AbstractParseTreeVis) {
     key: "visitVariableDeclaration",
     value: function visitVariableDeclaration(ctx) {
       var newNode = new _CommonASTNode__WEBPACK_IMPORTED_MODULE_8__.ASTNode();
-      var id = ctx.IDENTIFIER();
-      this.errorHandler.assertNameNotDefined(this.symbolTable, id.text, id.symbol);
+      var idTerminal = ctx.IDENTIFIER();
+      this.errorHandler.assertNameNotDefined(this.symbolTable, idTerminal.text, idTerminal.symbol);
 
-      var type = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, ctx.type());
+      var typeNode = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, ctx.type());
 
-      var expr = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, ctx.expression());
+      var exprNode = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, ctx.expression());
 
-      this.errorHandler.assertNodeType(expr, type.type, ctx.expression());
-      newNode.name = id.text;
-      newNode.type = type.type;
-      var constant = ctx.CONSTANT();
+      this.errorHandler.assertNodeType(exprNode, typeNode.type, ctx.expression());
+      newNode.name = idTerminal.text;
+      newNode.type = typeNode.type;
+      var constantTerminal = ctx.CONSTANT();
 
-      if (constant) {
+      if (constantTerminal) {
         newNode.type.isConst = true;
       }
 
       this.symbolTable.pushNode(newNode);
 
-      if (constant) {
-        newNode.code = "const ".concat(id.text, " = ").concat(expr.code);
+      if (constantTerminal) {
+        newNode.code = "const ".concat(idTerminal.text, " = ").concat(exprNode.code);
       } else {
-        newNode.code = "let ".concat(id.text, " = ").concat(expr.code);
+        newNode.code = "let ".concat(idTerminal.text, " = ").concat(exprNode.code);
       }
 
       return newNode;
@@ -1430,25 +1094,14 @@ var CommonVisitor = /*#__PURE__*/function (_AbstractParseTreeVis) {
       return newNode;
     }
   }, {
-    key: "visitListType",
-    value: function visitListType(ctx) {
-      var newNode = new _CommonASTNode__WEBPACK_IMPORTED_MODULE_8__.ASTNode();
-
-      var subType = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, ctx.type());
-
-      var typeList = [_CommonASTNode__WEBPACK_IMPORTED_MODULE_8__.PanTypePart.List].concat(subType.type.type);
-      newNode.type = new _CommonASTNode__WEBPACK_IMPORTED_MODULE_8__.PanType(typeList);
-      return newNode;
-    }
-  }, {
     key: "visitParenthesisExpression",
     value: function visitParenthesisExpression(ctx) {
       var newNode = new _CommonASTNode__WEBPACK_IMPORTED_MODULE_8__.ASTNode();
 
-      var expr = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, ctx.expression());
+      var exprNode = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, ctx.expression());
 
-      newNode.code = "(".concat(expr.code, ")");
-      newNode.type = expr.type;
+      newNode.code = "(".concat(exprNode.code, ")");
+      newNode.type = exprNode.type;
       return newNode;
     }
   }, {
@@ -1456,11 +1109,11 @@ var CommonVisitor = /*#__PURE__*/function (_AbstractParseTreeVis) {
     value: function visitPlusExpression(ctx) {
       var newNode = new _CommonASTNode__WEBPACK_IMPORTED_MODULE_8__.ASTNode();
 
-      var expr = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, ctx.expression());
+      var exprNode = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, ctx.expression());
 
-      this.errorHandler.assertNodeTypeNumber(expr, ctx.expression());
-      newNode.code = "+".concat(expr.code);
-      newNode.type = expr.type;
+      this.errorHandler.assertNodeTypeNumber(exprNode, ctx.expression());
+      newNode.code = "+".concat(exprNode.code);
+      newNode.type = exprNode.type;
       return newNode;
     }
   }, {
@@ -1468,11 +1121,11 @@ var CommonVisitor = /*#__PURE__*/function (_AbstractParseTreeVis) {
     value: function visitMinusExpression(ctx) {
       var newNode = new _CommonASTNode__WEBPACK_IMPORTED_MODULE_8__.ASTNode();
 
-      var expr = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, ctx.expression());
+      var exprNode = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, ctx.expression());
 
-      this.errorHandler.assertNodeTypeNumber(expr, ctx.expression());
-      newNode.code = "-".concat(expr.code);
-      newNode.type = expr.type;
+      this.errorHandler.assertNodeTypeNumber(exprNode, ctx.expression());
+      newNode.code = "-".concat(exprNode.code);
+      newNode.type = exprNode.type;
       return newNode;
     }
   }, {
@@ -1480,137 +1133,137 @@ var CommonVisitor = /*#__PURE__*/function (_AbstractParseTreeVis) {
     value: function visitNotExpression(ctx) {
       var newNode = new _CommonASTNode__WEBPACK_IMPORTED_MODULE_8__.ASTNode();
 
-      var expr = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, ctx.expression());
+      var exprNode = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, ctx.expression());
 
-      this.errorHandler.assertNodeTypeLogical(expr, ctx.expression());
-      newNode.code = "!".concat(expr.code);
-      newNode.type = expr.type;
+      this.errorHandler.assertNodeTypeLogical(exprNode, ctx.expression());
+      newNode.code = "!".concat(exprNode.code);
+      newNode.type = exprNode.type;
       return newNode;
     }
   }, {
     key: "visitPowerExpression",
     value: function visitPowerExpression(ctx) {
       var newNode = new _CommonASTNode__WEBPACK_IMPORTED_MODULE_8__.ASTNode();
-      var leftChild = ctx.expression(0);
+      var leftCtx = ctx.expression(0);
 
-      var leftExpr = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, leftChild);
+      var leftExprNode = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, leftCtx);
 
-      this.errorHandler.assertNodeTypeNumber(leftExpr, leftChild);
-      var rightChild = ctx.expression(1);
+      this.errorHandler.assertNodeTypeNumber(leftExprNode, leftCtx);
+      var rightCtx = ctx.expression(1);
 
-      var rightExpr = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, rightChild);
+      var rightExprNode = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, rightCtx);
 
-      this.errorHandler.assertNodeTypeNumber(rightExpr, rightChild);
-      newNode.code = "Math.pow(".concat(leftExpr.code, ", ").concat(rightExpr.code, ")");
-      newNode.type = leftExpr.type;
+      this.errorHandler.assertNodeTypeNumber(rightExprNode, rightCtx);
+      newNode.code = "Math.pow(".concat(leftExprNode.code, ", ").concat(rightExprNode.code, ")");
+      newNode.type = leftExprNode.type;
       return newNode;
     }
   }, {
     key: "visitMultiplyExpression",
     value: function visitMultiplyExpression(ctx) {
       var newNode = new _CommonASTNode__WEBPACK_IMPORTED_MODULE_8__.ASTNode();
-      var leftChild = ctx.expression(0);
+      var leftCtx = ctx.expression(0);
 
-      var leftExpr = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, leftChild);
+      var leftExprNode = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, leftCtx);
 
-      this.errorHandler.assertNodeTypeNumber(leftExpr, leftChild);
-      var rightChild = ctx.expression(1);
+      this.errorHandler.assertNodeTypeNumber(leftExprNode, leftCtx);
+      var rightCtx = ctx.expression(1);
 
-      var rightExpr = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, rightChild);
+      var rightExprNode = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, rightCtx);
 
-      this.errorHandler.assertNodeTypeNumber(rightExpr, rightChild);
-      newNode.code = "".concat(leftExpr.code, "*").concat(rightExpr.code);
-      newNode.type = leftExpr.type;
+      this.errorHandler.assertNodeTypeNumber(rightExprNode, rightCtx);
+      newNode.code = "".concat(leftExprNode.code, "*").concat(rightExprNode.code);
+      newNode.type = leftExprNode.type;
       return newNode;
     }
   }, {
     key: "visitDivideExpression",
     value: function visitDivideExpression(ctx) {
       var newNode = new _CommonASTNode__WEBPACK_IMPORTED_MODULE_8__.ASTNode();
-      var leftChild = ctx.expression(0);
+      var leftCtx = ctx.expression(0);
 
-      var leftExpr = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, leftChild);
+      var leftExprNode = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, leftCtx);
 
-      this.errorHandler.assertNodeTypeNumber(leftExpr, leftChild);
-      var rightChild = ctx.expression(1);
+      this.errorHandler.assertNodeTypeNumber(leftExprNode, leftCtx);
+      var rightCtx = ctx.expression(1);
 
-      var rightExpr = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, rightChild);
+      var rightExprNode = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, rightCtx);
 
-      this.errorHandler.assertNodeTypeNumber(rightExpr, rightChild);
-      newNode.code = "".concat(leftExpr.code, "/").concat(rightExpr.code);
-      newNode.type = leftExpr.type;
+      this.errorHandler.assertNodeTypeNumber(rightExprNode, rightCtx);
+      newNode.code = "".concat(leftExprNode.code, "/").concat(rightExprNode.code);
+      newNode.type = leftExprNode.type;
       return newNode;
     }
   }, {
     key: "visitRemainderExpression",
     value: function visitRemainderExpression(ctx) {
       var newNode = new _CommonASTNode__WEBPACK_IMPORTED_MODULE_8__.ASTNode();
-      var leftChild = ctx.expression(0);
+      var leftCtx = ctx.expression(0);
 
-      var leftExpr = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, leftChild);
+      var leftExprNode = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, leftCtx);
 
-      this.errorHandler.assertNodeTypeNumber(leftExpr, leftChild);
-      var rightChild = ctx.expression(1);
+      this.errorHandler.assertNodeTypeNumber(leftExprNode, leftCtx);
+      var rightCtx = ctx.expression(1);
 
-      var rightExpr = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, rightChild);
+      var rightExprNode = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, rightCtx);
 
-      this.errorHandler.assertNodeTypeNumber(rightExpr, rightChild);
-      newNode.code = "".concat(leftExpr.code, "%").concat(rightExpr.code);
-      newNode.type = leftExpr.type;
+      this.errorHandler.assertNodeTypeNumber(rightExprNode, rightCtx);
+      newNode.code = "".concat(leftExprNode.code, "%").concat(rightExprNode.code);
+      newNode.type = leftExprNode.type;
       return newNode;
     }
   }, {
     key: "visitAddExpression",
     value: function visitAddExpression(ctx) {
       var newNode = new _CommonASTNode__WEBPACK_IMPORTED_MODULE_8__.ASTNode();
-      var leftChild = ctx.expression(0);
+      var leftCtx = ctx.expression(0);
 
-      var leftExpr = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, leftChild);
+      var leftExprNode = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, leftCtx);
 
       var allowedTypes = [_CommonASTNode__WEBPACK_IMPORTED_MODULE_8__.PanType.numberType(), _CommonASTNode__WEBPACK_IMPORTED_MODULE_8__.PanType.textType()];
-      this.errorHandler.assertNodeTypeAnyOf(leftExpr, allowedTypes, leftChild);
-      var rightChild = ctx.expression(1);
+      this.errorHandler.assertNodeTypeAnyOf(leftExprNode, allowedTypes, leftCtx);
+      var rightCtx = ctx.expression(1);
 
-      var rightExpr = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, rightChild);
+      var rightExprNode = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, rightCtx);
 
-      this.errorHandler.assertNodeType(rightExpr, leftExpr.type, rightChild);
-      newNode.code = "".concat(leftExpr.code, "+").concat(rightExpr.code);
-      newNode.type = leftExpr.type;
+      this.errorHandler.assertNodeType(rightExprNode, leftExprNode.type, rightCtx);
+      newNode.code = "".concat(leftExprNode.code, "+").concat(rightExprNode.code);
+      newNode.type = leftExprNode.type;
       return newNode;
     }
   }, {
     key: "visitSubtractExpression",
     value: function visitSubtractExpression(ctx) {
       var newNode = new _CommonASTNode__WEBPACK_IMPORTED_MODULE_8__.ASTNode();
-      var leftChild = ctx.expression(0);
+      var leftCtx = ctx.expression(0);
 
-      var leftExpr = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, leftChild);
+      var leftExprNode = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, leftCtx);
 
-      this.errorHandler.assertNodeTypeNumber(leftExpr, leftChild);
-      var rightChild = ctx.expression(1);
+      this.errorHandler.assertNodeTypeNumber(leftExprNode, leftCtx);
+      var rightCtx = ctx.expression(1);
 
-      var rightExpr = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, rightChild);
+      var rightExprNode = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, rightCtx);
 
-      this.errorHandler.assertNodeTypeNumber(rightExpr, rightChild);
-      newNode.code = "".concat(leftExpr.code, "-").concat(rightExpr.code);
-      newNode.type = leftExpr.type;
+      this.errorHandler.assertNodeTypeNumber(rightExprNode, rightCtx);
+      newNode.code = "".concat(leftExprNode.code, "-").concat(rightExprNode.code);
+      newNode.type = leftExprNode.type;
       return newNode;
     }
   }, {
     key: "visitLessExpression",
     value: function visitLessExpression(ctx) {
       var newNode = new _CommonASTNode__WEBPACK_IMPORTED_MODULE_8__.ASTNode();
-      var leftChild = ctx.expression(0);
+      var leftCtx = ctx.expression(0);
 
-      var leftExpr = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, leftChild);
+      var leftExprNode = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, leftCtx);
 
-      this.errorHandler.assertNodeTypeNumber(leftExpr, leftChild);
-      var rightChild = ctx.expression(1);
+      this.errorHandler.assertNodeTypeNumber(leftExprNode, leftCtx);
+      var rightCtx = ctx.expression(1);
 
-      var rightExpr = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, rightChild);
+      var rightExprNode = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, rightCtx);
 
-      this.errorHandler.assertNodeTypeNumber(rightExpr, rightChild);
-      newNode.code = "".concat(leftExpr.code, " < ").concat(rightExpr.code);
+      this.errorHandler.assertNodeTypeNumber(rightExprNode, rightCtx);
+      newNode.code = "".concat(leftExprNode.code, " < ").concat(rightExprNode.code);
       newNode.type = _CommonASTNode__WEBPACK_IMPORTED_MODULE_8__.PanType.logicalType();
       return newNode;
     }
@@ -1618,17 +1271,17 @@ var CommonVisitor = /*#__PURE__*/function (_AbstractParseTreeVis) {
     key: "visitLessEqualExpression",
     value: function visitLessEqualExpression(ctx) {
       var newNode = new _CommonASTNode__WEBPACK_IMPORTED_MODULE_8__.ASTNode();
-      var leftChild = ctx.expression(0);
+      var leftCtx = ctx.expression(0);
 
-      var leftExpr = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, leftChild);
+      var leftExprNode = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, leftCtx);
 
-      this.errorHandler.assertNodeTypeNumber(leftExpr, leftChild);
-      var rightChild = ctx.expression(1);
+      this.errorHandler.assertNodeTypeNumber(leftExprNode, leftCtx);
+      var rightCtx = ctx.expression(1);
 
-      var rightExpr = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, rightChild);
+      var rightExprNode = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, rightCtx);
 
-      this.errorHandler.assertNodeTypeNumber(rightExpr, rightChild);
-      newNode.code = "".concat(leftExpr.code, " <= ").concat(rightExpr.code);
+      this.errorHandler.assertNodeTypeNumber(rightExprNode, rightCtx);
+      newNode.code = "".concat(leftExprNode.code, " <= ").concat(rightExprNode.code);
       newNode.type = _CommonASTNode__WEBPACK_IMPORTED_MODULE_8__.PanType.logicalType();
       return newNode;
     }
@@ -1636,17 +1289,17 @@ var CommonVisitor = /*#__PURE__*/function (_AbstractParseTreeVis) {
     key: "visitGreaterExpression",
     value: function visitGreaterExpression(ctx) {
       var newNode = new _CommonASTNode__WEBPACK_IMPORTED_MODULE_8__.ASTNode();
-      var leftChild = ctx.expression(0);
+      var leftCtx = ctx.expression(0);
 
-      var leftExpr = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, leftChild);
+      var leftExprNode = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, leftCtx);
 
-      this.errorHandler.assertNodeTypeNumber(leftExpr, leftChild);
-      var rightChild = ctx.expression(1);
+      this.errorHandler.assertNodeTypeNumber(leftExprNode, leftCtx);
+      var rightCtx = ctx.expression(1);
 
-      var rightExpr = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, rightChild);
+      var rightExprNode = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, rightCtx);
 
-      this.errorHandler.assertNodeTypeNumber(rightExpr, rightChild);
-      newNode.code = "".concat(leftExpr.code, " > ").concat(rightExpr.code);
+      this.errorHandler.assertNodeTypeNumber(rightExprNode, rightCtx);
+      newNode.code = "".concat(leftExprNode.code, " > ").concat(rightExprNode.code);
       newNode.type = _CommonASTNode__WEBPACK_IMPORTED_MODULE_8__.PanType.logicalType();
       return newNode;
     }
@@ -1654,17 +1307,17 @@ var CommonVisitor = /*#__PURE__*/function (_AbstractParseTreeVis) {
     key: "visitGreaterEqualExpression",
     value: function visitGreaterEqualExpression(ctx) {
       var newNode = new _CommonASTNode__WEBPACK_IMPORTED_MODULE_8__.ASTNode();
-      var leftChild = ctx.expression(0);
+      var leftCtx = ctx.expression(0);
 
-      var leftExpr = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, leftChild);
+      var leftExprNode = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, leftCtx);
 
-      this.errorHandler.assertNodeTypeNumber(leftExpr, leftChild);
-      var rightChild = ctx.expression(1);
+      this.errorHandler.assertNodeTypeNumber(leftExprNode, leftCtx);
+      var rightCtx = ctx.expression(1);
 
-      var rightExpr = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, rightChild);
+      var rightExprNode = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, rightCtx);
 
-      this.errorHandler.assertNodeTypeNumber(rightExpr, rightChild);
-      newNode.code = "".concat(leftExpr.code, " >= ").concat(rightExpr.code);
+      this.errorHandler.assertNodeTypeNumber(rightExprNode, rightCtx);
+      newNode.code = "".concat(leftExprNode.code, " >= ").concat(rightExprNode.code);
       newNode.type = _CommonASTNode__WEBPACK_IMPORTED_MODULE_8__.PanType.logicalType();
       return newNode;
     }
@@ -1672,16 +1325,16 @@ var CommonVisitor = /*#__PURE__*/function (_AbstractParseTreeVis) {
     key: "visitEqualExpression",
     value: function visitEqualExpression(ctx) {
       var newNode = new _CommonASTNode__WEBPACK_IMPORTED_MODULE_8__.ASTNode();
-      var leftChild = ctx.expression(0);
+      var leftCtx = ctx.expression(0);
 
-      var leftExpr = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, leftChild);
+      var leftExprNode = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, leftCtx);
 
-      var rightChild = ctx.expression(1);
+      var rightCtx = ctx.expression(1);
 
-      var rightExpr = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, rightChild);
+      var rightExprNode = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, rightCtx);
 
-      this.errorHandler.assertNodeType(rightExpr, leftExpr.type, rightChild);
-      newNode.code = "".concat(leftExpr.code, " == ").concat(rightExpr.code);
+      this.errorHandler.assertNodeType(rightExprNode, leftExprNode.type, rightCtx);
+      newNode.code = "".concat(leftExprNode.code, " == ").concat(rightExprNode.code);
       newNode.type = _CommonASTNode__WEBPACK_IMPORTED_MODULE_8__.PanType.logicalType();
       return newNode;
     }
@@ -1689,16 +1342,16 @@ var CommonVisitor = /*#__PURE__*/function (_AbstractParseTreeVis) {
     key: "visitDifferentExpression",
     value: function visitDifferentExpression(ctx) {
       var newNode = new _CommonASTNode__WEBPACK_IMPORTED_MODULE_8__.ASTNode();
-      var leftChild = ctx.expression(0);
+      var leftCtx = ctx.expression(0);
 
-      var leftExpr = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, leftChild);
+      var leftExprNode = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, leftCtx);
 
-      var rightChild = ctx.expression(1);
+      var rightCtx = ctx.expression(1);
 
-      var rightExpr = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, rightChild);
+      var rightExprNode = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, rightCtx);
 
-      this.errorHandler.assertNodeType(rightExpr, leftExpr.type, rightChild);
-      newNode.code = "".concat(leftExpr.code, " != ").concat(rightExpr.code);
+      this.errorHandler.assertNodeType(rightExprNode, leftExprNode.type, rightCtx);
+      newNode.code = "".concat(leftExprNode.code, " != ").concat(rightExprNode.code);
       newNode.type = _CommonASTNode__WEBPACK_IMPORTED_MODULE_8__.PanType.logicalType();
       return newNode;
     }
@@ -1706,17 +1359,17 @@ var CommonVisitor = /*#__PURE__*/function (_AbstractParseTreeVis) {
     key: "visitAndExpression",
     value: function visitAndExpression(ctx) {
       var newNode = new _CommonASTNode__WEBPACK_IMPORTED_MODULE_8__.ASTNode();
-      var leftChild = ctx.expression(0);
+      var leftCtx = ctx.expression(0);
 
-      var leftExpr = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, leftChild);
+      var leftExprNode = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, leftCtx);
 
-      this.errorHandler.assertNodeTypeLogical(leftExpr, leftChild);
-      var rightChild = ctx.expression(1);
+      this.errorHandler.assertNodeTypeLogical(leftExprNode, leftCtx);
+      var rightCtx = ctx.expression(1);
 
-      var rightExpr = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, rightChild);
+      var rightExprNode = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, rightCtx);
 
-      this.errorHandler.assertNodeTypeLogical(rightExpr, rightChild);
-      newNode.code = "".concat(leftExpr.code, " && ").concat(rightExpr.code);
+      this.errorHandler.assertNodeTypeLogical(rightExprNode, rightCtx);
+      newNode.code = "".concat(leftExprNode.code, " && ").concat(rightExprNode.code);
       newNode.type = _CommonASTNode__WEBPACK_IMPORTED_MODULE_8__.PanType.logicalType();
       return newNode;
     }
@@ -1724,17 +1377,17 @@ var CommonVisitor = /*#__PURE__*/function (_AbstractParseTreeVis) {
     key: "visitOrExpression",
     value: function visitOrExpression(ctx) {
       var newNode = new _CommonASTNode__WEBPACK_IMPORTED_MODULE_8__.ASTNode();
-      var leftChild = ctx.expression(0);
+      var leftCtx = ctx.expression(0);
 
-      var leftExpr = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, leftChild);
+      var leftExprNode = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, leftCtx);
 
-      this.errorHandler.assertNodeTypeLogical(leftExpr, leftChild);
-      var rightChild = ctx.expression(1);
+      this.errorHandler.assertNodeTypeLogical(leftExprNode, leftCtx);
+      var rightCtx = ctx.expression(1);
 
-      var rightExpr = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, rightChild);
+      var rightExprNode = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, rightCtx);
 
-      this.errorHandler.assertNodeTypeLogical(rightExpr, rightChild);
-      newNode.code = "".concat(leftExpr.code, " || ").concat(rightExpr.code);
+      this.errorHandler.assertNodeTypeLogical(rightExprNode, rightCtx);
+      newNode.code = "".concat(leftExprNode.code, " || ").concat(rightExprNode.code);
       newNode.type = _CommonASTNode__WEBPACK_IMPORTED_MODULE_8__.PanType.logicalType();
       return newNode;
     }
@@ -1778,8 +1431,8 @@ var CommonVisitor = /*#__PURE__*/function (_AbstractParseTreeVis) {
       var newNode = new _CommonASTNode__WEBPACK_IMPORTED_MODULE_8__.ASTNode();
       newNode.type = _CommonASTNode__WEBPACK_IMPORTED_MODULE_8__.PanType.textType();
       newNode.code = "'";
-      ctx.TEXT_CONTENT().map(function (textContent) {
-        newNode.code += textContent.text;
+      ctx.TEXT_CONTENT().map(function (textContentTerminal) {
+        newNode.code += textContentTerminal.text;
       });
       newNode.code += "'";
       return newNode;
@@ -1792,8 +1445,8 @@ var CommonVisitor = /*#__PURE__*/function (_AbstractParseTreeVis) {
       var newNode = new _CommonASTNode__WEBPACK_IMPORTED_MODULE_8__.ASTNode();
       newNode.type = _CommonASTNode__WEBPACK_IMPORTED_MODULE_8__.PanType.textType();
       newNode.code = "`";
-      ctx.interpolatedText().map(function (interpolatedText) {
-        newNode.code += (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", _this5).call(_this5, interpolatedText).code;
+      ctx.interpolatedText().map(function (interpolatedTextCtx) {
+        newNode.code += (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", _this5).call(_this5, interpolatedTextCtx).code;
       });
       newNode.code += "`";
       return newNode;
@@ -1811,11 +1464,11 @@ var CommonVisitor = /*#__PURE__*/function (_AbstractParseTreeVis) {
     value: function visitInterpolatedExpressionText(ctx) {
       var newNode = new _CommonASTNode__WEBPACK_IMPORTED_MODULE_8__.ASTNode();
 
-      var expr = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, ctx.expression());
+      var exprNode = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, ctx.expression());
 
       var toTextFunctionName = this.localizedStrings.FUNCTION_TO_TEXT;
-      newNode.code = "${" + toTextFunctionName + "(" + expr.code + ")}";
-      newNode.type = expr.type;
+      newNode.code = "${" + toTextFunctionName + "(" + exprNode.code + ")}";
+      newNode.type = exprNode.type;
       return newNode;
     }
   }, {
@@ -1839,16 +1492,16 @@ var CommonVisitor = /*#__PURE__*/function (_AbstractParseTreeVis) {
     key: "visitAssignment",
     value: function visitAssignment(ctx) {
       var newNode = new _CommonASTNode__WEBPACK_IMPORTED_MODULE_8__.ASTNode();
-      var id = ctx.IDENTIFIER();
-      var node = this.errorHandler.assertNameDefined(this.symbolTable, id.text, id.symbol);
+      var idTerminal = ctx.IDENTIFIER();
+      var node = this.errorHandler.assertNameDefined(this.symbolTable, idTerminal.text, idTerminal.symbol);
 
       if (node) {
-        this.errorHandler.assertIdentifierTypeNotConst(node, id.symbol);
+        this.errorHandler.assertIdentifierTypeNotConst(node, idTerminal.symbol);
 
-        var expr = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, ctx.expression());
+        var exprNode = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, ctx.expression());
 
-        this.errorHandler.assertNodeType(expr, node.type, ctx.expression());
-        newNode.code = "".concat(id.text, " = ").concat(expr.code);
+        this.errorHandler.assertNodeType(exprNode, node.type, ctx.expression());
+        newNode.code = "".concat(idTerminal.text, " = ").concat(exprNode.code);
       }
 
       return newNode;
@@ -1857,18 +1510,18 @@ var CommonVisitor = /*#__PURE__*/function (_AbstractParseTreeVis) {
     key: "visitAddAssignment",
     value: function visitAddAssignment(ctx) {
       var newNode = new _CommonASTNode__WEBPACK_IMPORTED_MODULE_8__.ASTNode();
-      var id = ctx.IDENTIFIER();
-      var node = this.errorHandler.assertNameDefined(this.symbolTable, id.text, id.symbol);
+      var idTerminal = ctx.IDENTIFIER();
+      var node = this.errorHandler.assertNameDefined(this.symbolTable, idTerminal.text, idTerminal.symbol);
 
       if (node) {
-        this.errorHandler.assertIdentifierTypeNotConst(node, id.symbol);
+        this.errorHandler.assertIdentifierTypeNotConst(node, idTerminal.symbol);
 
-        var expr = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, ctx.expression());
+        var exprNode = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, ctx.expression());
 
         var allowedTypes = [_CommonASTNode__WEBPACK_IMPORTED_MODULE_8__.PanType.numberType(), _CommonASTNode__WEBPACK_IMPORTED_MODULE_8__.PanType.textType()];
-        this.errorHandler.assertNodeTypeAnyOf(expr, allowedTypes, ctx.expression());
-        this.errorHandler.assertNodeType(expr, node.type, ctx.expression());
-        newNode.code = "".concat(id.text, " += ").concat(expr.code);
+        this.errorHandler.assertNodeTypeAnyOf(exprNode, allowedTypes, ctx.expression());
+        this.errorHandler.assertNodeType(exprNode, node.type, ctx.expression());
+        newNode.code = "".concat(idTerminal.text, " += ").concat(exprNode.code);
       }
 
       return newNode;
@@ -1877,17 +1530,17 @@ var CommonVisitor = /*#__PURE__*/function (_AbstractParseTreeVis) {
     key: "visitSubtractAssignment",
     value: function visitSubtractAssignment(ctx) {
       var newNode = new _CommonASTNode__WEBPACK_IMPORTED_MODULE_8__.ASTNode();
-      var id = ctx.IDENTIFIER();
-      var node = this.errorHandler.assertNameDefined(this.symbolTable, id.text, id.symbol);
+      var idTerminal = ctx.IDENTIFIER();
+      var node = this.errorHandler.assertNameDefined(this.symbolTable, idTerminal.text, idTerminal.symbol);
 
       if (node) {
-        this.errorHandler.assertIdentifierTypeNotConst(node, id.symbol);
+        this.errorHandler.assertIdentifierTypeNotConst(node, idTerminal.symbol);
 
-        var expr = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, ctx.expression());
+        var exprNode = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, ctx.expression());
 
-        this.errorHandler.assertNodeTypeNumber(expr, ctx.expression());
-        this.errorHandler.assertNodeType(expr, node.type, ctx.expression());
-        newNode.code = "".concat(id.text, " -= ").concat(expr.code);
+        this.errorHandler.assertNodeTypeNumber(exprNode, ctx.expression());
+        this.errorHandler.assertNodeType(exprNode, node.type, ctx.expression());
+        newNode.code = "".concat(idTerminal.text, " -= ").concat(exprNode.code);
       }
 
       return newNode;
@@ -1896,17 +1549,17 @@ var CommonVisitor = /*#__PURE__*/function (_AbstractParseTreeVis) {
     key: "visitMultiplyAssignment",
     value: function visitMultiplyAssignment(ctx) {
       var newNode = new _CommonASTNode__WEBPACK_IMPORTED_MODULE_8__.ASTNode();
-      var id = ctx.IDENTIFIER();
-      var node = this.errorHandler.assertNameDefined(this.symbolTable, id.text, id.symbol);
+      var idTerminal = ctx.IDENTIFIER();
+      var node = this.errorHandler.assertNameDefined(this.symbolTable, idTerminal.text, idTerminal.symbol);
 
       if (node) {
-        this.errorHandler.assertIdentifierTypeNotConst(node, id.symbol);
+        this.errorHandler.assertIdentifierTypeNotConst(node, idTerminal.symbol);
 
-        var expr = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, ctx.expression());
+        var exprNode = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, ctx.expression());
 
-        this.errorHandler.assertNodeTypeNumber(expr, ctx.expression());
-        this.errorHandler.assertNodeType(expr, node.type, ctx.expression());
-        newNode.code = "".concat(id.text, " *= ").concat(expr.code);
+        this.errorHandler.assertNodeTypeNumber(exprNode, ctx.expression());
+        this.errorHandler.assertNodeType(exprNode, node.type, ctx.expression());
+        newNode.code = "".concat(idTerminal.text, " *= ").concat(exprNode.code);
       }
 
       return newNode;
@@ -1915,17 +1568,17 @@ var CommonVisitor = /*#__PURE__*/function (_AbstractParseTreeVis) {
     key: "visitDivideAssignment",
     value: function visitDivideAssignment(ctx) {
       var newNode = new _CommonASTNode__WEBPACK_IMPORTED_MODULE_8__.ASTNode();
-      var id = ctx.IDENTIFIER();
-      var node = this.errorHandler.assertNameDefined(this.symbolTable, id.text, id.symbol);
+      var idTerminal = ctx.IDENTIFIER();
+      var node = this.errorHandler.assertNameDefined(this.symbolTable, idTerminal.text, idTerminal.symbol);
 
       if (node) {
-        this.errorHandler.assertIdentifierTypeNotConst(node, id.symbol);
+        this.errorHandler.assertIdentifierTypeNotConst(node, idTerminal.symbol);
 
-        var expr = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, ctx.expression());
+        var exprNode = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, ctx.expression());
 
-        this.errorHandler.assertNodeTypeNumber(expr, ctx.expression());
-        this.errorHandler.assertNodeType(expr, node.type, ctx.expression());
-        newNode.code = "".concat(id.text, " /= ").concat(expr.code);
+        this.errorHandler.assertNodeTypeNumber(exprNode, ctx.expression());
+        this.errorHandler.assertNodeType(exprNode, node.type, ctx.expression());
+        newNode.code = "".concat(idTerminal.text, " /= ").concat(exprNode.code);
       }
 
       return newNode;
@@ -1934,17 +1587,17 @@ var CommonVisitor = /*#__PURE__*/function (_AbstractParseTreeVis) {
     key: "visitRemainderAssignment",
     value: function visitRemainderAssignment(ctx) {
       var newNode = new _CommonASTNode__WEBPACK_IMPORTED_MODULE_8__.ASTNode();
-      var id = ctx.IDENTIFIER();
-      var node = this.errorHandler.assertNameDefined(this.symbolTable, id.text, id.symbol);
+      var idTerminal = ctx.IDENTIFIER();
+      var node = this.errorHandler.assertNameDefined(this.symbolTable, idTerminal.text, idTerminal.symbol);
 
       if (node) {
-        this.errorHandler.assertIdentifierTypeNotConst(node, id.symbol);
+        this.errorHandler.assertIdentifierTypeNotConst(node, idTerminal.symbol);
 
-        var expr = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, ctx.expression());
+        var exprNode = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, ctx.expression());
 
-        this.errorHandler.assertNodeTypeNumber(expr, ctx.expression());
-        this.errorHandler.assertNodeType(expr, node.type, ctx.expression());
-        newNode.code = "".concat(id.text, " %= ").concat(expr.code);
+        this.errorHandler.assertNodeTypeNumber(exprNode, ctx.expression());
+        this.errorHandler.assertNodeType(exprNode, node.type, ctx.expression());
+        newNode.code = "".concat(idTerminal.text, " %= ").concat(exprNode.code);
       }
 
       return newNode;
@@ -1953,17 +1606,17 @@ var CommonVisitor = /*#__PURE__*/function (_AbstractParseTreeVis) {
     key: "visitPowerAssignment",
     value: function visitPowerAssignment(ctx) {
       var newNode = new _CommonASTNode__WEBPACK_IMPORTED_MODULE_8__.ASTNode();
-      var id = ctx.IDENTIFIER();
-      var node = this.errorHandler.assertNameDefined(this.symbolTable, id.text, id.symbol);
+      var idTerminal = ctx.IDENTIFIER();
+      var node = this.errorHandler.assertNameDefined(this.symbolTable, idTerminal.text, idTerminal.symbol);
 
       if (node) {
-        this.errorHandler.assertIdentifierTypeNotConst(node, id.symbol);
+        this.errorHandler.assertIdentifierTypeNotConst(node, idTerminal.symbol);
 
-        var expr = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, ctx.expression());
+        var exprNode = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, ctx.expression());
 
-        this.errorHandler.assertNodeTypeNumber(expr, ctx.expression());
-        this.errorHandler.assertNodeType(expr, node.type, ctx.expression());
-        newNode.code = "".concat(id.text, " = Math.pow(").concat(id.text, ", ").concat(expr.code, ")");
+        this.errorHandler.assertNodeTypeNumber(exprNode, ctx.expression());
+        this.errorHandler.assertNodeType(exprNode, node.type, ctx.expression());
+        newNode.code = "".concat(idTerminal.text, " = Math.pow(").concat(idTerminal.text, ", ").concat(exprNode.code, ")");
       }
 
       return newNode;
@@ -1975,29 +1628,29 @@ var CommonVisitor = /*#__PURE__*/function (_AbstractParseTreeVis) {
 
       var newNode = new _CommonASTNode__WEBPACK_IMPORTED_MODULE_8__.ASTNode();
 
-      var expr = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, ctx.expression());
+      var exprNode = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, ctx.expression());
 
-      this.errorHandler.assertNodeTypeLogical(expr, ctx.expression());
+      this.errorHandler.assertNodeTypeLogical(exprNode, ctx.expression());
       this.symbolTable.pushScope();
-      newNode.code = "if (".concat(expr.code, ") {\r\n");
+      newNode.code = "if (".concat(exprNode.code, ") {\r\n");
       ctx.innerStatement().map(function (innerStatement) {
         newNode.code += (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", _this6).call(_this6, innerStatement).code + "\r\n";
       });
       newNode.code += "}";
       this.symbolTable.popScope();
-      var optionalElseIfPart = ctx.elseIfPart();
-      optionalElseIfPart.map(function (part) {
+      var optionalElseIfPartCtxList = ctx.elseIfPart();
+      optionalElseIfPartCtxList.map(function (elseIfPartCtx) {
         _this6.symbolTable.pushScope();
 
-        newNode.code += (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", _this6).call(_this6, part).code;
+        newNode.code += (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", _this6).call(_this6, elseIfPartCtx).code;
 
         _this6.symbolTable.popScope();
       });
-      var optionalElsePart = ctx.elsePart();
+      var optionalElsePartCtx = ctx.elsePart();
 
-      if (optionalElsePart) {
+      if (optionalElsePartCtx) {
         this.symbolTable.pushScope();
-        newNode.code += (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, optionalElsePart).code;
+        newNode.code += (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, optionalElsePartCtx).code;
         this.symbolTable.popScope();
       }
 
@@ -2010,12 +1663,12 @@ var CommonVisitor = /*#__PURE__*/function (_AbstractParseTreeVis) {
 
       var newNode = new _CommonASTNode__WEBPACK_IMPORTED_MODULE_8__.ASTNode();
 
-      var expr = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, ctx.expression());
+      var exprNode = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, ctx.expression());
 
-      this.errorHandler.assertNodeTypeLogical(expr, ctx.expression());
-      newNode.code = "\r\nelse if (".concat(expr.code, ") {\r\n");
-      ctx.innerStatement().map(function (innerStatement) {
-        newNode.code += (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", _this7).call(_this7, innerStatement).code + "\r\n";
+      this.errorHandler.assertNodeTypeLogical(exprNode, ctx.expression());
+      newNode.code = "\r\nelse if (".concat(exprNode.code, ") {\r\n");
+      ctx.innerStatement().map(function (innerStatementCtx) {
+        newNode.code += (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", _this7).call(_this7, innerStatementCtx).code + "\r\n";
       });
       newNode.code += "}";
       return newNode;
@@ -2027,36 +1680,44 @@ var CommonVisitor = /*#__PURE__*/function (_AbstractParseTreeVis) {
 
       var newNode = new _CommonASTNode__WEBPACK_IMPORTED_MODULE_8__.ASTNode();
       newNode.code = "\r\nelse {\r\n";
-      ctx.innerStatement().map(function (innerStatement) {
-        newNode.code += (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", _this8).call(_this8, innerStatement).code + "\r\n";
+      ctx.innerStatement().map(function (innerStatementCtx) {
+        newNode.code += (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", _this8).call(_this8, innerStatementCtx).code + "\r\n";
       });
       newNode.code += "}";
       return newNode;
     }
   }, {
-    key: "visitForInStatement",
-    value: function visitForInStatement(ctx) {
+    key: "visitForFromToStatement",
+    value: function visitForFromToStatement(ctx) {
       var _this9 = this;
 
       var newNode = new _CommonASTNode__WEBPACK_IMPORTED_MODULE_8__.ASTNode();
-      var id = ctx.IDENTIFIER();
-      this.errorHandler.assertNameNotDefined(this.symbolTable, id.text, id.symbol);
+      var idTerminal = ctx.IDENTIFIER();
+      this.errorHandler.assertNameNotDefined(this.symbolTable, idTerminal.text, idTerminal.symbol);
 
-      var expr = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, ctx.expression());
+      var typeNode = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, ctx.type());
 
-      var type = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, ctx.type());
-
-      var expectedExprType = [_CommonASTNode__WEBPACK_IMPORTED_MODULE_8__.PanTypePart.List].concat(type.type.type);
-      this.errorHandler.assertNodeType(expr, new _CommonASTNode__WEBPACK_IMPORTED_MODULE_8__.PanType(expectedExprType), ctx.expression());
-      this.symbolTable.pushScope();
       var innerNode = new _CommonASTNode__WEBPACK_IMPORTED_MODULE_8__.ASTNode();
-      innerNode.name = id.text;
-      innerNode.type = type.type;
-      innerNode.code = id.text;
+      innerNode.name = idTerminal.text;
+      innerNode.type = typeNode.type;
+      innerNode.code = idTerminal.text;
+      this.errorHandler.assertNodeTypeNumber(innerNode, ctx.type());
+
+      var exprFrom = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, ctx.expression(0));
+
+      this.errorHandler.assertNodeTypeNumber(exprFrom, ctx.expression(0));
+
+      var exprTo = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, ctx.expression(1));
+
+      this.errorHandler.assertNodeTypeNumber(exprTo, ctx.expression(1));
+      this.symbolTable.pushScope();
       this.symbolTable.pushNode(innerNode);
-      newNode.code = "for (let ".concat(id.text, " of ").concat(expr.code, ") {\r\n");
-      ctx.innerStatement().map(function (innerStatement) {
-        newNode.code += (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", _this9).call(_this9, innerStatement).code + "\r\n";
+      var sizePart = "Math.abs(".concat(exprTo.code, " - ").concat(exprFrom.code, ") + 1");
+      var stepPart = "(".concat(exprFrom.code, " > ").concat(exprTo.code, ") ? -1 : 1");
+      var arrayPart = "[...Array(".concat(sizePart, ").keys()].map(i => ").concat(exprFrom.code, " + i * (").concat(stepPart, "))");
+      newNode.code += "for (let ".concat(idTerminal.text, " of ").concat(arrayPart, ") {\r\n");
+      ctx.innerStatement().map(function (innerStatementCtx) {
+        newNode.code += (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", _this9).call(_this9, innerStatementCtx).code + "\r\n";
       });
       newNode.code += "}";
       this.symbolTable.popScope();
@@ -2069,13 +1730,13 @@ var CommonVisitor = /*#__PURE__*/function (_AbstractParseTreeVis) {
 
       var newNode = new _CommonASTNode__WEBPACK_IMPORTED_MODULE_8__.ASTNode();
 
-      var expr = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, ctx.expression());
+      var exprNode = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, ctx.expression());
 
-      this.errorHandler.assertNodeTypeLogical(expr, ctx.expression());
+      this.errorHandler.assertNodeTypeLogical(exprNode, ctx.expression());
       this.symbolTable.pushScope();
-      newNode.code = "while (".concat(expr.code, ") {\r\n");
-      ctx.innerStatement().map(function (innerStatement) {
-        newNode.code += (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", _this10).call(_this10, innerStatement).code + "\r\n";
+      newNode.code = "while (".concat(exprNode.code, ") {\r\n");
+      ctx.innerStatement().map(function (innerStatementCtx) {
+        newNode.code += (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", _this10).call(_this10, innerStatementCtx).code + "\r\n";
       });
       newNode.code += "}";
       this.symbolTable.popScope();
@@ -2089,8 +1750,8 @@ var CommonVisitor = /*#__PURE__*/function (_AbstractParseTreeVis) {
       var newNode = new _CommonASTNode__WEBPACK_IMPORTED_MODULE_8__.ASTNode();
       this.symbolTable.pushScope();
       newNode.code = "while (true) {\r\n";
-      ctx.innerStatement().map(function (innerStatement) {
-        newNode.code += (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", _this11).call(_this11, innerStatement).code + "\r\n";
+      ctx.innerStatement().map(function (innerStatementCtx) {
+        newNode.code += (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", _this11).call(_this11, innerStatementCtx).code + "\r\n";
       });
       newNode.code += "}";
       this.symbolTable.popScope();
@@ -2114,22 +1775,20 @@ var CommonVisitor = /*#__PURE__*/function (_AbstractParseTreeVis) {
     key: "visitFunctionCall",
     value: function visitFunctionCall(ctx) {
       var newNode = new _CommonASTNode__WEBPACK_IMPORTED_MODULE_8__.ASTNode();
-      var func = ctx.getChild(0);
-      this.errorHandler.assertNameDefinedInGlobalScope(this.symbolTable, func.text, ctx.start);
-      var node = this.symbolTable.findByNameInGlobalScope(func.text);
+      var idTerminal = ctx.IDENTIFIER();
+      this.errorHandler.assertNameDefinedInGlobalScope(this.symbolTable, idTerminal.text, ctx.start);
+      var node = this.symbolTable.findByNameInGlobalScope(idTerminal.text);
+      newNode.name = idTerminal.text;
 
       if (node) {
-        newNode.name = node.name;
         newNode.type = node.type;
-      } else {
-        newNode.name = func.text;
       }
 
-      var optionalArgList = ctx.argumentList();
-      newNode.code = "".concat(func.text, "(");
+      var optionalArgListCtx = ctx.argumentList();
+      newNode.code = "".concat(idTerminal.text, "(");
 
-      if (optionalArgList) {
-        newNode.code += (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, optionalArgList).code;
+      if (optionalArgListCtx) {
+        newNode.code += (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, optionalArgListCtx).code;
       }
 
       newNode.code += ")";
@@ -2141,8 +1800,25 @@ var CommonVisitor = /*#__PURE__*/function (_AbstractParseTreeVis) {
       var _this12 = this;
 
       var newNode = new _CommonASTNode__WEBPACK_IMPORTED_MODULE_8__.ASTNode();
-      ctx.expression().map(function (expr) {
-        newNode.code += (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", _this12).call(_this12, expr).code + ",";
+      var parentCtx = ctx.parent;
+      var funcIdTerminal = parentCtx.IDENTIFIER();
+      var funcNode = this.symbolTable.findByNameInGlobalScope(funcIdTerminal.text);
+      var exprCtxList = ctx.expression();
+
+      if (funcNode) {
+        this.errorHandler.assertArgumentsNumber(funcIdTerminal.text, funcNode.argList.length, exprCtxList.length, parentCtx);
+      }
+
+      var i = 0;
+      exprCtxList.map(function (exprCtx) {
+        var exprNode = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", _this12).call(_this12, exprCtx);
+
+        if (funcNode) {
+          _this12.errorHandler.assertNodeType(exprNode, funcNode.argList[i][1], exprCtx);
+        }
+
+        newNode.code += exprNode.code + ",";
+        i += 1;
       });
       return newNode;
     }
@@ -2150,15 +1826,15 @@ var CommonVisitor = /*#__PURE__*/function (_AbstractParseTreeVis) {
     key: "visitReturnStatement",
     value: function visitReturnStatement(ctx) {
       var newNode = new _CommonASTNode__WEBPACK_IMPORTED_MODULE_8__.ASTNode();
-      var optionalExpr = ctx.expression();
+      var optionalExprCtx = ctx.expression();
       var node = this.symbolTable.findCurrentFunction();
 
       if (node) {
-        if (optionalExpr) {
-          var expr = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, optionalExpr);
+        if (optionalExprCtx) {
+          var exprNode = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CommonVisitor.prototype), "visit", this).call(this, optionalExprCtx);
 
-          this.errorHandler.assertNodeType(expr, node.type, optionalExpr);
-          newNode.code = "return ".concat(expr.code);
+          this.errorHandler.assertNodeType(exprNode, node.type, optionalExprCtx);
+          newNode.code = "return ".concat(exprNode.code);
         } else {
           this.errorHandler.assertNodeType(node, new _CommonASTNode__WEBPACK_IMPORTED_MODULE_8__.PanType(), ctx);
           newNode.code = "return";

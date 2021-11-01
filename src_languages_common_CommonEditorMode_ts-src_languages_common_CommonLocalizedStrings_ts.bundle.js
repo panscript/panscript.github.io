@@ -35,7 +35,7 @@ var ModeState;
 })(ModeState || (ModeState = {}));
 
 var makeReservedWordsToStyles = function makeReservedWordsToStyles(localizedStrings) {
-  var reservedWordsToStyles = [[localizedStrings.KEYWORD_TRUE, "atom"], [localizedStrings.KEYWORD_FALSE, "atom"], [localizedStrings.KEYWORD_TYPES[_CommonASTNode__WEBPACK_IMPORTED_MODULE_1__.PanTypePart.List.toString()], "attribute"], [localizedStrings.KEYWORD_BREAK, "keyword"], [localizedStrings.KEYWORD_CONSTANT, "keyword"], [localizedStrings.KEYWORD_CONTINUE, "keyword"], [localizedStrings.KEYWORD_ELSE, "keyword"], [localizedStrings.KEYWORD_END, "keyword"], [localizedStrings.KEYWORD_FOR, "keyword"], [localizedStrings.KEYWORD_FOREVER, "keyword"], [localizedStrings.KEYWORD_FUNCTION, "keyword"], [localizedStrings.KEYWORD_GLOBAL, "keyword"], [localizedStrings.KEYWORD_IF, "keyword"], [localizedStrings.KEYWORD_IN, "keyword"], [localizedStrings.KEYWORD_RETURN, "keyword"], [localizedStrings.KEYWORD_RETURNS, "keyword"], [localizedStrings.KEYWORD_WHILE, "keyword"], [localizedStrings.KEYWORD_NOT, "operator"], [localizedStrings.KEYWORD_AND, "operator"], [localizedStrings.KEYWORD_OR, "operator"], [localizedStrings.KEYWORD_TYPES[_CommonASTNode__WEBPACK_IMPORTED_MODULE_1__.PanTypePart.Logical.toString()], "type"], [localizedStrings.KEYWORD_TYPES[_CommonASTNode__WEBPACK_IMPORTED_MODULE_1__.PanTypePart.Number.toString()], "type"], [localizedStrings.KEYWORD_TYPES[_CommonASTNode__WEBPACK_IMPORTED_MODULE_1__.PanTypePart.Text.toString()], "type"]];
+  var reservedWordsToStyles = [[localizedStrings.KEYWORD_TRUE, "atom"], [localizedStrings.KEYWORD_FALSE, "atom"], [localizedStrings.KEYWORD_BREAK, "keyword"], [localizedStrings.KEYWORD_CONSTANT, "keyword"], [localizedStrings.KEYWORD_CONTINUE, "keyword"], [localizedStrings.KEYWORD_ELSE, "keyword"], [localizedStrings.KEYWORD_END, "keyword"], [localizedStrings.KEYWORD_FOR, "keyword"], [localizedStrings.KEYWORD_FOREVER, "keyword"], [localizedStrings.KEYWORD_FROM, "keyword"], [localizedStrings.KEYWORD_FUNCTION, "keyword"], [localizedStrings.KEYWORD_GLOBAL, "keyword"], [localizedStrings.KEYWORD_IF, "keyword"], [localizedStrings.KEYWORD_IN, "keyword"], [localizedStrings.KEYWORD_RETURN, "keyword"], [localizedStrings.KEYWORD_RETURNS, "keyword"], [localizedStrings.KEYWORD_TO, "keyword"], [localizedStrings.KEYWORD_WHILE, "keyword"], [localizedStrings.KEYWORD_NOT, "operator"], [localizedStrings.KEYWORD_AND, "operator"], [localizedStrings.KEYWORD_OR, "operator"], [localizedStrings.KEYWORD_TYPES[_CommonASTNode__WEBPACK_IMPORTED_MODULE_1__.PanTypePart.Logical.toString()], "type"], [localizedStrings.KEYWORD_TYPES[_CommonASTNode__WEBPACK_IMPORTED_MODULE_1__.PanTypePart.Number.toString()], "type"], [localizedStrings.KEYWORD_TYPES[_CommonASTNode__WEBPACK_IMPORTED_MODULE_1__.PanTypePart.Text.toString()], "type"]];
   return reservedWordsToStyles.slice().sort(function (a, b) {
     return a[0].localeCompare(b[0]);
   }).reverse();
@@ -293,12 +293,14 @@ var CommonLocalizedStrings = function CommonLocalizedStrings() {
   this.KEYWORD_END = "end";
   this.KEYWORD_FOR = "for";
   this.KEYWORD_FOREVER = "forever";
+  this.KEYWORD_FROM = "from";
   this.KEYWORD_FUNCTION = "function";
   this.KEYWORD_GLOBAL = "global";
   this.KEYWORD_IF = "if";
   this.KEYWORD_IN = "in";
   this.KEYWORD_RETURN = "return";
   this.KEYWORD_RETURNS = "returns";
+  this.KEYWORD_TO = "to";
   this.KEYWORD_WHILE = "while";
   this.KEYWORD_NOT = "not";
   this.KEYWORD_AND = "and";
@@ -307,7 +309,6 @@ var CommonLocalizedStrings = function CommonLocalizedStrings() {
     logical: "logical",
     number: "number",
     text: "text",
-    list: "list",
     none: "none",
     any: "any",
     "...T": "...T"
@@ -329,7 +330,6 @@ var CommonLocalizedStrings = function CommonLocalizedStrings() {
   this.FUNCTION_MIDDLE = "middle";
   this.FUNCTION_SLICE_TEXT = "slice_text";
   this.FUNCTION_REVERSE_TEXT = "reverse_text";
-  this.FUNCTION_SPLIT = "split";
   this.FUNCTION_IN_TEXT = "in_text";
   this.FUNCTION_POSITION = "position";
   this.FUNCTION_TRIM = "trim";
@@ -358,44 +358,16 @@ var CommonLocalizedStrings = function CommonLocalizedStrings() {
   this.FUNCTION_ROUND = "round";
   this.FUNCTION_ROUND_N_PLACES = "round_n_places";
   this.FUNCTION_TRUNCATE_N_PLACES = "truncate_n_places";
-  this.FUNCTION_LIST = "list";
-  this.FUNCTION_IS_EMPTY = "is_empty";
-  this.FUNCTION_COUNT = "count";
-  this.FUNCTION_HEAD = "head";
-  this.FUNCTION_TAIL = "tail";
-  this.FUNCTION_FIRST_N = "first_n";
-  this.FUNCTION_LAST_N = "last_n";
-  this.FUNCTION_IN_LIST = "in_list";
-  this.FUNCTION_COUNT_OCCURRENCES = "count_occurrences";
-  this.FUNCTION_REMOVE = "remove";
-  this.FUNCTION_APPEND = "append";
-  this.FUNCTION_JOIN = "join";
-  this.FUNCTION_MINIMUM_ELEMENT = "minimum_element";
-  this.FUNCTION_MAXIMUM_ELEMENT = "maximum_element";
-  this.FUNCTION_SORT = "sort";
-  this.FUNCTION_REVERSE = "reverse";
-  this.FUNCTION_UNIQUE = "unique";
-  this.FUNCTION_SLICE = "slice";
-  this.FUNCTION_SUM = "sum";
-  this.FUNCTION_RANGE = "range";
-  this.FUNCTION_ELEMENT_AT = "element_at";
-  this.FUNCTION_REMOVE_AT = "remove_at";
-  this.FUNCTION_RANDOM_ELEMENT = "random_element";
-  this.FUNCTION_AVERAGE = "average";
-  this.FUNCTION_MEDIAN = "median";
-  this.FUNCTION_MODE = "mode";
-  this.FUNCTION_SHUFFLE = "shuffle";
   this.ERROR = "Error";
   this.ERROR_MESSAGE_END_OF_CODE_TOKEN = "the end of the code";
   this.ERROR_MESSAGE_END_OF_LINE_TOKEN = "the end of the line";
-  this.ERROR_MESSAGE_EMPTY_LIST = "Error: the given list is empty";
-  this.ERROR_MESSAGE_TEMPLATE_INDEX_OUT_OF_BOUNDS = "Error: the given list does not contain an item at position ${position}";
   this.ERROR_MESSAGE_TEMPLATE_UNKNOWN_TOKEN = "Error: I could not understand the code at line ${line}, column ${charPositionInLine}";
   this.ERROR_MESSAGE_TEMPLATE_INVALID_SYNTAX = "Error at line ${line}:\r\nI was not expecting to find ${symbolDescription}";
   this.ERROR_MESSAGE_TEMPLATE_NAME_ALREADY_DEFINED = "Error at line ${line}:\r\nThe identifier ${name} is being defined a second time";
   this.ERROR_MESSAGE_TEMPLATE_TYPE_MISMATCH = "Error at line ${line}:\r\nI was expecting the type of ${name} to be ${expectedType}, but it was ${actualType}";
   this.ERROR_MESSAGE_TEMPLATE_CONSTANT_REASSIGNMENT = 'Error at line ${line}:\r\nI cannot modify the value of ${name} because it was declared as "${constantKeyword}"';
   this.ERROR_MESSAGE_TEMPLATE_UNDECLARED_IDENTIFIER = "Error at line ${line}:\r\nI could not find the identifier ${name} in the current scope";
+  this.ERROR_MESSAGE_TEMPLATE_ARGUMENTS_NUMBER = "Error at line ${line}:\r\nFunction ${name} expects ${argumentsExpected} argument(s), but I have found ${argumentsGiven} instead";
   this.ERROR_MESSAGE_GLOBAL_HINT = '\r\nTo access a global variable in a function, bind it using the "${globalKeyword}" keyword:\r\n${globalKeyword} ${name}';
   this.ERROR_MESSAGE_WRITE_HINT = "\r\nPerhaps you've meant to use function ${write}() or ${write_inline}()?";
 };

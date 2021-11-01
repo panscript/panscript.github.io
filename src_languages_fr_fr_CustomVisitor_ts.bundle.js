@@ -79,13 +79,15 @@ var CustomLocalizedStrings = /*#__PURE__*/function (_CommonLocalizedStrin) {
     _this.KEYWORD_ELSE = "sinon";
     _this.KEYWORD_END = "fin";
     _this.KEYWORD_FOR = "pour";
-    _this.KEYWORD_FOREVER = "toujours";
-    _this.KEYWORD_FUNCTION = "function";
+    _this.KEYWORD_FOREVER = "pour toujours";
+    _this.KEYWORD_FROM = "de";
+    _this.KEYWORD_FUNCTION = "fonction";
     _this.KEYWORD_GLOBAL = "global";
     _this.KEYWORD_IF = "si";
     _this.KEYWORD_IN = "en";
     _this.KEYWORD_RETURN = "retourne";
     _this.KEYWORD_RETURNS = "renvoie";
+    _this.KEYWORD_TO = "jusqua";
     _this.KEYWORD_WHILE = "tant que";
     _this.KEYWORD_NOT = "non";
     _this.KEYWORD_AND = "et";
@@ -94,21 +96,20 @@ var CustomLocalizedStrings = /*#__PURE__*/function (_CommonLocalizedStrin) {
       logical: "logique",
       number: "nombre",
       text: "texte",
-      list: "liste",
       none: "rien",
       any: "tout",
       "...T": "...T"
     };
-    _this.FUNCTION_WRITE = "écrire";
-    _this.FUNCTION_WRITE_INLINE = "écrire_dans_la_ligne";
+    _this.FUNCTION_WRITE = "ecrire";
+    _this.FUNCTION_WRITE_INLINE = "ecrire_dans_la_ligne";
     _this.FUNCTION_NEW_LINE = "nouvelle_ligne";
     _this.FUNCTION_CLEAR = "nettoyer";
     _this.FUNCTION_TO_TEXT = "vers_texte";
     _this.FUNCTION_PAD_LEFT = "remplir_gauche";
     _this.FUNCTION_PAD_RIGHT = "remplir_droite";
     _this.FUNCTION_LENGTH = "longueur";
-    _this.FUNCTION_REPEAT = "répéter";
-    _this.FUNCTION_UPPER_CASE = "majuscules";
+    _this.FUNCTION_REPEAT = "repeter";
+    _this.FUNCTION_UPPER_CASE = "majuscule";
     _this.FUNCTION_LOWER_CASE = "minuscule";
     _this.FUNCTION_SENTENCE_CASE = "phrase";
     _this.FUNCTION_LEFT = "gauche";
@@ -116,7 +117,6 @@ var CustomLocalizedStrings = /*#__PURE__*/function (_CommonLocalizedStrin) {
     _this.FUNCTION_MIDDLE = "milieu";
     _this.FUNCTION_SLICE_TEXT = "trancher_le_texte";
     _this.FUNCTION_REVERSE_TEXT = "inverser_le_texte";
-    _this.FUNCTION_SPLIT = "diviser";
     _this.FUNCTION_IN_TEXT = "dans_le_texte";
     _this.FUNCTION_POSITION = "position";
     _this.FUNCTION_TRIM = "couper";
@@ -125,64 +125,36 @@ var CustomLocalizedStrings = /*#__PURE__*/function (_CommonLocalizedStrin) {
     _this.FUNCTION_PI = "pi";
     _this.FUNCTION_ABSOLUTE = "absolute";
     _this.FUNCTION_POWER = "puissance";
-    _this.FUNCTION_SQUARE_ROOT = "racine_carrée";
-    _this.FUNCTION_SINE = "sine";
-    _this.FUNCTION_COSINE = "cosine";
-    _this.FUNCTION_TANGENT = "tangent";
-    _this.FUNCTION_ARC_SINE = "arc_sine";
-    _this.FUNCTION_ARC_COSINE = "arc_cosine";
-    _this.FUNCTION_ARC_TANGENT = "arco_tangent";
+    _this.FUNCTION_SQUARE_ROOT = "racine_carree";
+    _this.FUNCTION_SINE = "sinus";
+    _this.FUNCTION_COSINE = "cosinus";
+    _this.FUNCTION_TANGENT = "tangente";
+    _this.FUNCTION_ARC_SINE = "arc_sinus";
+    _this.FUNCTION_ARC_COSINE = "arc_cosinus";
+    _this.FUNCTION_ARC_TANGENT = "arc_tangente";
     _this.FUNCTION_EXPONENTIAL = "exponentiel";
     _this.FUNCTION_NATURAL_LOGARITHM = "logarithme_naturel";
-    _this.FUNCTION_LOGARITHM = "logarithm";
+    _this.FUNCTION_LOGARITHM = "logarithme";
     _this.FUNCTION_FLOOR = "plancher";
     _this.FUNCTION_CEILING = "plafond";
     _this.FUNCTION_TRUNCATE = "tronquer";
     _this.FUNCTION_MINIMUM = "minimum";
     _this.FUNCTION_MAXIMUM = "maximum";
-    _this.FUNCTION_RANDOM_REAL = "aléatoire_réel";
-    _this.FUNCTION_RANDOM_INTEGER = "aleatório_entier";
+    _this.FUNCTION_RANDOM_REAL = "aleatoire_reel";
+    _this.FUNCTION_RANDOM_INTEGER = "aleatoire_entier";
     _this.FUNCTION_ROUND = "arrondir";
     _this.FUNCTION_ROUND_N_PLACES = "arrondir_n_places";
     _this.FUNCTION_TRUNCATE_N_PLACES = "tronquer_n_places";
-    _this.FUNCTION_LIST = "list";
-    _this.FUNCTION_IS_EMPTY = "est_vide";
-    _this.FUNCTION_COUNT = "comptage";
-    _this.FUNCTION_HEAD = "tête";
-    _this.FUNCTION_TAIL = "queue";
-    _this.FUNCTION_FIRST_N = "premières_n";
-    _this.FUNCTION_LAST_N = "dernières_n";
-    _this.FUNCTION_IN_LIST = "dans_la_liste";
-    _this.FUNCTION_COUNT_OCCURRENCES = "compte_les_occurrences";
-    _this.FUNCTION_REMOVE = "retirer";
-    _this.FUNCTION_APPEND = "ajouter";
-    _this.FUNCTION_JOIN = "joindre";
-    _this.FUNCTION_MINIMUM_ELEMENT = "element_minimum";
-    _this.FUNCTION_MAXIMUM_ELEMENT = "element_maximum";
-    _this.FUNCTION_SORT = "trier";
-    _this.FUNCTION_REVERSE = "inverser";
-    _this.FUNCTION_UNIQUE = "unique";
-    _this.FUNCTION_SLICE = "trancher_la_liste";
-    _this.FUNCTION_SUM = "additionner";
-    _this.FUNCTION_RANGE = "intervalle";
-    _this.FUNCTION_ELEMENT_AT = "element_en";
-    _this.FUNCTION_REMOVE_AT = "retirer_en";
-    _this.FUNCTION_RANDOM_ELEMENT = "élément_aléatoire";
-    _this.FUNCTION_AVERAGE = "moyenne";
-    _this.FUNCTION_MEDIAN = "médiane";
-    _this.FUNCTION_MODE = "mode";
-    _this.FUNCTION_SHUFFLE = "mélanger";
     _this.ERROR = "Erreur";
     _this.ERROR_MESSAGE_END_OF_CODE_TOKEN = "la fin du code";
     _this.ERROR_MESSAGE_END_OF_LINE_TOKEN = "la fin de la ligne";
-    _this.ERROR_MESSAGE_EMPTY_LIST = "Erreur: la liste est vide";
-    _this.ERROR_MESSAGE_TEMPLATE_INDEX_OUT_OF_BOUNDS = "Erreur: la liste ne contient pas d'élément dans la position ${position}";
     _this.ERROR_MESSAGE_TEMPLATE_UNKNOWN_TOKEN = "Erreur: je n'ai pas compris le code de la ligne ${line}, colone ${charPositionInLine}";
     _this.ERROR_MESSAGE_TEMPLATE_INVALID_SYNTAX = "Erreur dans la ligne ${line}:\r\nJe ne m'attendais pas à trouver ${symbolDescription}";
     _this.ERROR_MESSAGE_TEMPLATE_NAME_ALREADY_DEFINED = "Erreur dans la ligne ${line}:\r\nL'identifiant qui porte le nom ${name} est défini une deuxième fois";
     _this.ERROR_MESSAGE_TEMPLATE_TYPE_MISMATCH = "Erreur dans la ligne ${line}:\r\nJe m'attendais que le type de ${name} soit ${expectedType}, mais c'était ${actualType}";
     _this.ERROR_MESSAGE_TEMPLATE_CONSTANT_REASSIGNMENT = 'Erreur dans la ligne ${line}:\r\nJe ne peux pas changer la valeur de ${name} parce que qu\'il a été declaré comme "${constantKeyword}"';
     _this.ERROR_MESSAGE_TEMPLATE_UNDECLARED_IDENTIFIER = "Erreur dans la ligne ${line}:\r\nJe n'ai pas trouvé l'identifiant avec le nom ${name} dans la portée actuelle";
+    _this.ERROR_MESSAGE_TEMPLATE_ARGUMENTS_NUMBER = "Erreur dans la ligne ${line}:\r\nA função ${name} espera ${argumentsExpected} argumento(s), mas encontrei ${argumentsGiven} no lugar";
     _this.ERROR_MESSAGE_GLOBAL_HINT = '\r\nPour accéder à une variable globale dans une fonction, associez-la à l\'aide du mot-clé "${globalKeyword}":\r\n${globalKeyword} ${name}';
     _this.ERROR_MESSAGE_WRITE_HINT = "\r\nPeut-être avez-vous essayé d'utiliser la fonction ${write}() ou bien ${write_inline}()?";
     return _this;
@@ -275,8 +247,6 @@ var CustomStandardLibrary = /*#__PURE__*/function (_CommonStandardLibrar) {
       table.pushNode(this.getSliceTextDefinitionNode());
       table.pushNode((0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CustomStandardLibrary), "getReverseTextDefinitionNode", this).call(this));
       table.pushNode(this.getReverseTextDefinitionNode());
-      table.pushNode((0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CustomStandardLibrary), "getSplitDefinitionNode", this).call(this));
-      table.pushNode(this.getSplitDefinitionNode());
       table.pushNode((0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CustomStandardLibrary), "getInTextDefinitionNode", this).call(this));
       table.pushNode(this.getInTextDefinitionNode());
       table.pushNode((0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CustomStandardLibrary), "getPositionDefinitionNode", this).call(this));
@@ -333,60 +303,6 @@ var CustomStandardLibrary = /*#__PURE__*/function (_CommonStandardLibrar) {
       table.pushNode(this.getRoundNPlacesDefinitionNode());
       table.pushNode((0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CustomStandardLibrary), "getTruncateNPlacesDefinitionNode", this).call(this));
       table.pushNode(this.getTruncateNPlacesDefinitionNode());
-      table.pushNode((0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CustomStandardLibrary), "getListDefinitionNode", this).call(this));
-      table.pushNode(this.getListDefinitionNode());
-      table.pushNode((0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CustomStandardLibrary), "getIsEmptyDefinitionNode", this).call(this));
-      table.pushNode(this.getIsEmptyDefinitionNode());
-      table.pushNode((0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CustomStandardLibrary), "getCountDefinitionNode", this).call(this));
-      table.pushNode(this.getCountDefinitionNode());
-      table.pushNode((0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CustomStandardLibrary), "getHeadDefinitionNode", this).call(this));
-      table.pushNode(this.getHeadDefinitionNode());
-      table.pushNode((0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CustomStandardLibrary), "getTailDefinitionNode", this).call(this));
-      table.pushNode(this.getTailDefinitionNode());
-      table.pushNode((0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CustomStandardLibrary), "getFirstNDefinitionNode", this).call(this));
-      table.pushNode(this.getFirstNDefinitionNode());
-      table.pushNode((0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CustomStandardLibrary), "getLastNDefinitionNode", this).call(this));
-      table.pushNode(this.getLastNDefinitionNode());
-      table.pushNode((0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CustomStandardLibrary), "getInListDefinitionNode", this).call(this));
-      table.pushNode(this.getInListDefinitionNode());
-      table.pushNode((0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CustomStandardLibrary), "getCountOccurrencesDefinitionNode", this).call(this));
-      table.pushNode(this.getCountOccurrencesDefinitionNode());
-      table.pushNode((0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CustomStandardLibrary), "getRemoveDefinitionNode", this).call(this));
-      table.pushNode(this.getRemoveDefinitionNode());
-      table.pushNode((0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CustomStandardLibrary), "getAppendDefinitionNode", this).call(this));
-      table.pushNode(this.getAppendDefinitionNode());
-      table.pushNode((0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CustomStandardLibrary), "getJoinDefinitionNode", this).call(this));
-      table.pushNode(this.getJoinDefinitionNode());
-      table.pushNode((0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CustomStandardLibrary), "getMinimumElementDefinitionNode", this).call(this));
-      table.pushNode(this.getMinimumElementDefinitionNode());
-      table.pushNode((0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CustomStandardLibrary), "getMaximumElementDefinitionNode", this).call(this));
-      table.pushNode(this.getMaximumElementDefinitionNode());
-      table.pushNode((0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CustomStandardLibrary), "getSortDefinitionNode", this).call(this));
-      table.pushNode(this.getSortDefinitionNode());
-      table.pushNode((0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CustomStandardLibrary), "getReverseDefinitionNode", this).call(this));
-      table.pushNode(this.getReverseDefinitionNode());
-      table.pushNode((0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CustomStandardLibrary), "getUniqueDefinitionNode", this).call(this));
-      table.pushNode(this.getUniqueDefinitionNode());
-      table.pushNode((0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CustomStandardLibrary), "getSliceDefinitionNode", this).call(this));
-      table.pushNode(this.getSliceDefinitionNode());
-      table.pushNode((0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CustomStandardLibrary), "getSumDefinitionNode", this).call(this));
-      table.pushNode(this.getSumDefinitionNode());
-      table.pushNode((0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CustomStandardLibrary), "getRangeDefinitionNode", this).call(this));
-      table.pushNode(this.getRangeDefinitionNode());
-      table.pushNode((0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CustomStandardLibrary), "getElementAtDefinitionNode", this).call(this));
-      table.pushNode(this.getElementAtDefinitionNode());
-      table.pushNode((0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CustomStandardLibrary), "getRemoveAtDefinitionNode", this).call(this));
-      table.pushNode(this.getRemoveAtDefinitionNode());
-      table.pushNode((0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CustomStandardLibrary), "getRandomElementDefinitionNode", this).call(this));
-      table.pushNode(this.getRandomElementDefinitionNode());
-      table.pushNode((0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CustomStandardLibrary), "getAverageDefinitionNode", this).call(this));
-      table.pushNode(this.getAverageDefinitionNode());
-      table.pushNode((0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CustomStandardLibrary), "getMedianDefinitionNode", this).call(this));
-      table.pushNode(this.getMedianDefinitionNode());
-      table.pushNode((0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CustomStandardLibrary), "getModeDefinitionNode", this).call(this));
-      table.pushNode(this.getModeDefinitionNode());
-      table.pushNode((0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CustomStandardLibrary), "getShuffleDefinitionNode", this).call(this));
-      table.pushNode(this.getShuffleDefinitionNode());
       return table;
     }
   }, {
@@ -542,15 +458,6 @@ var CustomStandardLibrary = /*#__PURE__*/function (_CommonStandardLibrar) {
 
       node.name = this.localizedStrings.FUNCTION_REVERSE_TEXT;
       node.code = "\n      function ".concat(node.name, "(text) {\n        return __standard_reverse_text(text);\n      }\n    ");
-      return node;
-    }
-  }, {
-    key: "getSplitDefinitionNode",
-    value: function getSplitDefinitionNode() {
-      var node = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CustomStandardLibrary), "getSplitDefinitionNode", this).call(this);
-
-      node.name = this.localizedStrings.FUNCTION_SPLIT;
-      node.code = "\n      function ".concat(node.name, "(text, delimiter) {\n        return __standard_split(text, delimiter);\n      }\n    ");
       return node;
     }
   }, {
@@ -803,249 +710,6 @@ var CustomStandardLibrary = /*#__PURE__*/function (_CommonStandardLibrar) {
 
       node.name = this.localizedStrings.FUNCTION_TRUNCATE_N_PLACES;
       node.code = "\n      function ".concat(node.name, "(x, n) {\n        return __standard_truncate_n_places(x, n);\n      }\n    ");
-      return node;
-    }
-  }, {
-    key: "getListDefinitionNode",
-    value: function getListDefinitionNode() {
-      var node = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CustomStandardLibrary), "getListDefinitionNode", this).call(this);
-
-      node.name = this.localizedStrings.FUNCTION_LIST;
-      node.code = "\n      function ".concat(node.name, "(...l) {\n        return __standard_list(...l);\n      }\n    ");
-      return node;
-    }
-  }, {
-    key: "getIsEmptyDefinitionNode",
-    value: function getIsEmptyDefinitionNode() {
-      var node = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CustomStandardLibrary), "getIsEmptyDefinitionNode", this).call(this);
-
-      node.name = this.localizedStrings.FUNCTION_IS_EMPTY;
-      node.code = "\n      function ".concat(node.name, "(l) {\n        return __standard_is_empty(l);\n      }\n    ");
-      return node;
-    }
-  }, {
-    key: "getCountDefinitionNode",
-    value: function getCountDefinitionNode() {
-      var node = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CustomStandardLibrary), "getCountDefinitionNode", this).call(this);
-
-      node.name = this.localizedStrings.FUNCTION_COUNT;
-      node.code = "\n      function ".concat(node.name, "(l) {\n        return __standard_count(l);\n      }\n    ");
-      return node;
-    }
-  }, {
-    key: "getHeadDefinitionNode",
-    value: function getHeadDefinitionNode() {
-      var node = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CustomStandardLibrary), "getHeadDefinitionNode", this).call(this);
-
-      node.name = this.localizedStrings.FUNCTION_HEAD;
-      node.code = "\n      function ".concat(node.name, "(l) {\n        return __standard_head(l);\n      }\n    ");
-      return node;
-    }
-  }, {
-    key: "getTailDefinitionNode",
-    value: function getTailDefinitionNode() {
-      var node = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CustomStandardLibrary), "getTailDefinitionNode", this).call(this);
-
-      node.name = this.localizedStrings.FUNCTION_TAIL;
-      node.code = "\n      function ".concat(node.name, "(l) {\n        return __standard_tail(l);\n      }\n    ");
-      return node;
-    }
-  }, {
-    key: "getFirstNDefinitionNode",
-    value: function getFirstNDefinitionNode() {
-      var node = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CustomStandardLibrary), "getFirstNDefinitionNode", this).call(this);
-
-      node.name = this.localizedStrings.FUNCTION_FIRST_N;
-      node.code = "\n      function ".concat(node.name, "(l, n) {\n        return __standard_first_n(l, n);\n      }\n    ");
-      return node;
-    }
-  }, {
-    key: "getLastNDefinitionNode",
-    value: function getLastNDefinitionNode() {
-      var node = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CustomStandardLibrary), "getLastNDefinitionNode", this).call(this);
-
-      node.name = this.localizedStrings.FUNCTION_LAST_N;
-      node.code = "\n      function ".concat(node.name, "(l, n) {\n        return __standard_last_n(l, n);\n      }\n    ");
-      return node;
-    }
-  }, {
-    key: "getInListDefinitionNode",
-    value: function getInListDefinitionNode() {
-      var node = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CustomStandardLibrary), "getInListDefinitionNode", this).call(this);
-
-      node.name = this.localizedStrings.FUNCTION_IN_LIST;
-      node.code = "\n      function ".concat(node.name, "(l, e) {\n        return __standard_in_list(l, e);\n      }\n    ");
-      return node;
-    }
-  }, {
-    key: "getCountOccurrencesDefinitionNode",
-    value: function getCountOccurrencesDefinitionNode() {
-      var node = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CustomStandardLibrary), "getCountOccurrencesDefinitionNode", this).call(this);
-
-      node.name = this.localizedStrings.FUNCTION_COUNT_OCCURRENCES;
-      node.code = "\n      function ".concat(node.name, "(l, e) {\n        return __standard_count_occurrences(l, e);\n      }\n    ");
-      return node;
-    }
-  }, {
-    key: "getRemoveDefinitionNode",
-    value: function getRemoveDefinitionNode() {
-      var node = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CustomStandardLibrary), "getRemoveDefinitionNode", this).call(this);
-
-      node.name = this.localizedStrings.FUNCTION_REMOVE;
-      node.code = "\n      function ".concat(node.name, "(l, e) {\n        return __standard_remove(l, e);\n      }\n    ");
-      return node;
-    }
-  }, {
-    key: "getAppendDefinitionNode",
-    value: function getAppendDefinitionNode() {
-      var node = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CustomStandardLibrary), "getAppendDefinitionNode", this).call(this);
-
-      node.name = this.localizedStrings.FUNCTION_APPEND;
-      node.code = "\n      function ".concat(node.name, "(l, e) {\n        return __standard_append(l, e);\n      }\n    ");
-      return node;
-    }
-  }, {
-    key: "getJoinDefinitionNode",
-    value: function getJoinDefinitionNode() {
-      var node = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CustomStandardLibrary), "getJoinDefinitionNode", this).call(this);
-
-      node.name = this.localizedStrings.FUNCTION_JOIN;
-      node.code = "\n      function ".concat(node.name, "(l, s) {\n        return __standard_join(l, s);\n      }\n    ");
-      return node;
-    }
-  }, {
-    key: "getMinimumElementDefinitionNode",
-    value: function getMinimumElementDefinitionNode() {
-      var node = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CustomStandardLibrary), "getMinimumElementDefinitionNode", this).call(this);
-
-      node.name = this.localizedStrings.FUNCTION_MINIMUM_ELEMENT;
-      node.code = "\n      function ".concat(node.name, "(l) {\n        return __standard_minimum_element(l);\n      }\n    ");
-      return node;
-    }
-  }, {
-    key: "getMaximumElementDefinitionNode",
-    value: function getMaximumElementDefinitionNode() {
-      var node = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CustomStandardLibrary), "getMaximumElementDefinitionNode", this).call(this);
-
-      node.name = this.localizedStrings.FUNCTION_MAXIMUM_ELEMENT;
-      node.code = "\n      function ".concat(node.name, "(l) {\n        return __standard_maximum_element(l);\n      }\n    ");
-      return node;
-    }
-  }, {
-    key: "getSortDefinitionNode",
-    value: function getSortDefinitionNode() {
-      var node = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CustomStandardLibrary), "getSortDefinitionNode", this).call(this);
-
-      node.name = this.localizedStrings.FUNCTION_SORT;
-      node.code = "\n      function ".concat(node.name, "(l) {\n        return __standard_sort(l);\n      }\n    ");
-      return node;
-    }
-  }, {
-    key: "getReverseDefinitionNode",
-    value: function getReverseDefinitionNode() {
-      var node = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CustomStandardLibrary), "getReverseDefinitionNode", this).call(this);
-
-      node.name = this.localizedStrings.FUNCTION_REVERSE;
-      node.code = "\n      function ".concat(node.name, "(l) {\n        return __standard_reverse(l);\n      }\n    ");
-      return node;
-    }
-  }, {
-    key: "getUniqueDefinitionNode",
-    value: function getUniqueDefinitionNode() {
-      var node = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CustomStandardLibrary), "getUniqueDefinitionNode", this).call(this);
-
-      node.name = this.localizedStrings.FUNCTION_UNIQUE;
-      node.code = "\n      function ".concat(node.name, "(l) {\n        return __standard_unique(l);\n      }\n    ");
-      return node;
-    }
-  }, {
-    key: "getSliceDefinitionNode",
-    value: function getSliceDefinitionNode() {
-      var node = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CustomStandardLibrary), "getSliceDefinitionNode", this).call(this);
-
-      node.name = this.localizedStrings.FUNCTION_SLICE;
-      node.code = "\n      function ".concat(node.name, "(l, a, b) {\n        return __standard_slice(l, a, b);\n      }\n    ");
-      return node;
-    }
-  }, {
-    key: "getSumDefinitionNode",
-    value: function getSumDefinitionNode() {
-      var node = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CustomStandardLibrary), "getSumDefinitionNode", this).call(this);
-
-      node.name = this.localizedStrings.FUNCTION_SUM;
-      node.code = "\n      function ".concat(node.name, "(l) {\n        return __standard_sum(l);\n      }\n    ");
-      return node;
-    }
-  }, {
-    key: "getRangeDefinitionNode",
-    value: function getRangeDefinitionNode() {
-      var node = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CustomStandardLibrary), "getRangeDefinitionNode", this).call(this);
-
-      node.name = this.localizedStrings.FUNCTION_RANGE;
-      node.code = "\n      function ".concat(node.name, "(a, b, s) {\n        return __standard_range(a, b, s);\n      }\n    ");
-      return node;
-    }
-  }, {
-    key: "getElementAtDefinitionNode",
-    value: function getElementAtDefinitionNode() {
-      var node = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CustomStandardLibrary), "getElementAtDefinitionNode", this).call(this);
-
-      node.name = this.localizedStrings.FUNCTION_ELEMENT_AT;
-      node.code = "\n      function ".concat(node.name, "(l, p) {\n        return __standard_element_at(l, p);\n      }\n    ");
-      return node;
-    }
-  }, {
-    key: "getRemoveAtDefinitionNode",
-    value: function getRemoveAtDefinitionNode() {
-      var node = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CustomStandardLibrary), "getRemoveAtDefinitionNode", this).call(this);
-
-      node.name = this.localizedStrings.FUNCTION_REMOVE_AT;
-      node.code = "\n      function ".concat(node.name, "(l, p) {\n        return __standard_remove_at(l, p);\n      }\n    ");
-      return node;
-    }
-  }, {
-    key: "getRandomElementDefinitionNode",
-    value: function getRandomElementDefinitionNode() {
-      var node = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CustomStandardLibrary), "getRandomElementDefinitionNode", this).call(this);
-
-      node.name = this.localizedStrings.FUNCTION_RANDOM_ELEMENT;
-      node.code = "\n      function ".concat(node.name, "(l) {\n        return __random_element(l);\n      }\n    ");
-      return node;
-    }
-  }, {
-    key: "getAverageDefinitionNode",
-    value: function getAverageDefinitionNode() {
-      var node = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CustomStandardLibrary), "getAverageDefinitionNode", this).call(this);
-
-      node.name = this.localizedStrings.FUNCTION_AVERAGE;
-      node.code = "\n      function ".concat(node.name, "(l) {\n        return __standard_average(l);\n      }\n    ");
-      return node;
-    }
-  }, {
-    key: "getMedianDefinitionNode",
-    value: function getMedianDefinitionNode() {
-      var node = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CustomStandardLibrary), "getMedianDefinitionNode", this).call(this);
-
-      node.name = this.localizedStrings.FUNCTION_MEDIAN;
-      node.code = "\n      function ".concat(node.name, "(l) {\n        return __standard_median(l);\n      }\n    ");
-      return node;
-    }
-  }, {
-    key: "getModeDefinitionNode",
-    value: function getModeDefinitionNode() {
-      var node = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CustomStandardLibrary), "getModeDefinitionNode", this).call(this);
-
-      node.name = this.localizedStrings.FUNCTION_MODE;
-      node.code = "\n      function ".concat(node.name, "(l) {\n        return __standard_mode(l);\n      }\n    ");
-      return node;
-    }
-  }, {
-    key: "getShuffleDefinitionNode",
-    value: function getShuffleDefinitionNode() {
-      var node = (0,_babel_runtime_helpers_get__WEBPACK_IMPORTED_MODULE_2__["default"])((0,_babel_runtime_helpers_getPrototypeOf__WEBPACK_IMPORTED_MODULE_5__["default"])(CustomStandardLibrary), "getShuffleDefinitionNode", this).call(this);
-
-      node.name = this.localizedStrings.FUNCTION_SHUFFLE;
-      node.code = "\n      function ".concat(node.name, "(l) {\n        return __standard_shuffle(l);\n      }\n    ");
       return node;
     }
   }]);

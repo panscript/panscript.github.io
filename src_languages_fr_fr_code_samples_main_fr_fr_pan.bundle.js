@@ -11,7 +11,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("// Escreve 'Olá, mundo!' no console\r\nescreva(\"Olá, mundo!\")\r\n\r\n\r\n/*\r\n\r\nEm dúvida sobre o que fazer?\r\nDê uma olhada nos exemplos!\r\n<--------------------------\r\n\r\n*/");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("// Écrire 'Bonjour le monde !' dans la console\r\necrire(\"Bonjour le monde !\")\r\n\r\n\r\n/*\r\n\r\nVous ne savez pas quoi faire ?\r\nJetez un œil aux exemples !\r\n<--------------------------\r\n\r\n*/");
 
 /***/ })
 

@@ -22,7 +22,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "LogicalTypeContext": () => (/* binding */ LogicalTypeContext),
 /* harmony export */   "NumberTypeContext": () => (/* binding */ NumberTypeContext),
 /* harmony export */   "TextTypeContext": () => (/* binding */ TextTypeContext),
-/* harmony export */   "ListTypeContext": () => (/* binding */ ListTypeContext),
 /* harmony export */   "ExpressionContext": () => (/* binding */ ExpressionContext),
 /* harmony export */   "ParenthesisExpressionContext": () => (/* binding */ ParenthesisExpressionContext),
 /* harmony export */   "PlusExpressionContext": () => (/* binding */ PlusExpressionContext),
@@ -70,7 +69,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "IfStatementContext": () => (/* binding */ IfStatementContext),
 /* harmony export */   "ElseIfPartContext": () => (/* binding */ ElseIfPartContext),
 /* harmony export */   "ElsePartContext": () => (/* binding */ ElsePartContext),
-/* harmony export */   "ForInStatementContext": () => (/* binding */ ForInStatementContext),
+/* harmony export */   "ForFromToStatementContext": () => (/* binding */ ForFromToStatementContext),
 /* harmony export */   "WhileStatementContext": () => (/* binding */ WhileStatementContext),
 /* harmony export */   "ForeverStatementContext": () => (/* binding */ ForeverStatementContext),
 /* harmony export */   "BreakStatementContext": () => (/* binding */ BreakStatementContext),
@@ -205,7 +204,7 @@ var CustomParser = /*#__PURE__*/function (_Parser) {
 
           _la = this._input.LA(1);
 
-          while ((_la & ~0x1F) === 0 && (1 << _la & (1 << CustomParser.LIST | 1 << CustomParser.CONSTANT | 1 << CustomParser.FOR | 1 << CustomParser.FUNCTION | 1 << CustomParser.IF | 1 << CustomParser.FOREVER | 1 << CustomParser.WHILE)) !== 0 || (_la - 41 & ~0x1F) === 0 && (1 << _la - 41 & (1 << CustomParser.LOGICAL - 41 | 1 << CustomParser.NUMBER - 41 | 1 << CustomParser.TEXT - 41 | 1 << CustomParser.IDENTIFIER - 41)) !== 0) {
+          while ((_la & ~0x1F) === 0 && (1 << _la & (1 << CustomParser.CONSTANT | 1 << CustomParser.FOR | 1 << CustomParser.FOREVER | 1 << CustomParser.FUNCTION | 1 << CustomParser.IF | 1 << CustomParser.WHILE)) !== 0 || (_la - 41 & ~0x1F) === 0 && (1 << _la - 41 & (1 << CustomParser.LOGICAL - 41 | 1 << CustomParser.NUMBER - 41 | 1 << CustomParser.TEXT - 41 | 1 << CustomParser.IDENTIFIER - 41)) !== 0) {
             {
               {
                 this.state = 60;
@@ -258,11 +257,10 @@ var CustomParser = /*#__PURE__*/function (_Parser) {
             }
             break;
 
-          case CustomParser.LIST:
           case CustomParser.CONSTANT:
           case CustomParser.FOR:
-          case CustomParser.IF:
           case CustomParser.FOREVER:
+          case CustomParser.IF:
           case CustomParser.WHILE:
           case CustomParser.LOGICAL:
           case CustomParser.NUMBER:
@@ -347,11 +345,10 @@ var CustomParser = /*#__PURE__*/function (_Parser) {
             }
             break;
 
-          case CustomParser.LIST:
           case CustomParser.CONSTANT:
           case CustomParser.FOR:
-          case CustomParser.IF:
           case CustomParser.FOREVER:
+          case CustomParser.IF:
           case CustomParser.WHILE:
           case CustomParser.LOGICAL:
           case CustomParser.NUMBER:
@@ -430,7 +427,7 @@ var CustomParser = /*#__PURE__*/function (_Parser) {
             this.enterOuterAlt(_localctx, 4);
             {
               this.state = 96;
-              this.forInStatement();
+              this.forFromToStatement();
               this.state = 97;
               this.eos();
             }
@@ -537,7 +534,7 @@ var CustomParser = /*#__PURE__*/function (_Parser) {
 
           _la = this._input.LA(1);
 
-          if (_la === CustomParser.LIST || (_la - 41 & ~0x1F) === 0 && (1 << _la - 41 & (1 << CustomParser.LOGICAL - 41 | 1 << CustomParser.NUMBER - 41 | 1 << CustomParser.TEXT - 41)) !== 0) {
+          if ((_la - 41 & ~0x1F) === 0 && (1 << _la - 41 & (1 << CustomParser.LOGICAL - 41 | 1 << CustomParser.NUMBER - 41 | 1 << CustomParser.TEXT - 41)) !== 0) {
             {
               this.state = 116;
               this.parameterList();
@@ -587,7 +584,7 @@ var CustomParser = /*#__PURE__*/function (_Parser) {
 
           _la = this._input.LA(1);
 
-          while ((_la & ~0x1F) === 0 && (1 << _la & (1 << CustomParser.LIST | 1 << CustomParser.BREAK | 1 << CustomParser.CONSTANT | 1 << CustomParser.CONTINUE | 1 << CustomParser.FOR | 1 << CustomParser.GLOBAL | 1 << CustomParser.IF | 1 << CustomParser.FOREVER | 1 << CustomParser.RETURN | 1 << CustomParser.WHILE)) !== 0 || (_la - 41 & ~0x1F) === 0 && (1 << _la - 41 & (1 << CustomParser.LOGICAL - 41 | 1 << CustomParser.NUMBER - 41 | 1 << CustomParser.TEXT - 41 | 1 << CustomParser.IDENTIFIER - 41)) !== 0) {
+          while ((_la & ~0x1F) === 0 && (1 << _la & (1 << CustomParser.BREAK | 1 << CustomParser.CONSTANT | 1 << CustomParser.CONTINUE | 1 << CustomParser.FOR | 1 << CustomParser.FOREVER | 1 << CustomParser.GLOBAL | 1 << CustomParser.IF | 1 << CustomParser.RETURN | 1 << CustomParser.WHILE)) !== 0 || (_la - 41 & ~0x1F) === 0 && (1 << _la - 41 & (1 << CustomParser.LOGICAL - 41 | 1 << CustomParser.NUMBER - 41 | 1 << CustomParser.TEXT - 41 | 1 << CustomParser.IDENTIFIER - 41)) !== 0) {
             {
               {
                 this.state = 129;
@@ -734,7 +731,7 @@ var CustomParser = /*#__PURE__*/function (_Parser) {
       this.enterRule(_localctx, 16, CustomParser.RULE_type);
 
       try {
-        this.state = 164;
+        this.state = 159;
 
         this._errHandler.sync(this);
 
@@ -763,21 +760,6 @@ var CustomParser = /*#__PURE__*/function (_Parser) {
             {
               this.state = 158;
               this.match(CustomParser.TEXT);
-            }
-            break;
-
-          case CustomParser.LIST:
-            _localctx = new ListTypeContext(_localctx);
-            this.enterOuterAlt(_localctx, 4);
-            {
-              this.state = 159;
-              this.match(CustomParser.LIST);
-              this.state = 160;
-              this.match(CustomParser.OPEN_PARENTHESIS);
-              this.state = 161;
-              this.type();
-              this.state = 162;
-              this.match(CustomParser.CLOSE_PARENTHESIS);
             }
             break;
 
@@ -821,7 +803,7 @@ var CustomParser = /*#__PURE__*/function (_Parser) {
 
         this.enterOuterAlt(_localctx, 1);
         {
-          this.state = 178;
+          this.state = 173;
 
           this._errHandler.sync(this);
 
@@ -831,11 +813,11 @@ var CustomParser = /*#__PURE__*/function (_Parser) {
                 _localctx = new ParenthesisExpressionContext(_localctx);
                 this._ctx = _localctx;
                 _prevctx = _localctx;
-                this.state = 167;
+                this.state = 162;
                 this.match(CustomParser.OPEN_PARENTHESIS);
-                this.state = 168;
+                this.state = 163;
                 this.expression(0);
-                this.state = 169;
+                this.state = 164;
                 this.match(CustomParser.CLOSE_PARENTHESIS);
               }
               break;
@@ -845,9 +827,9 @@ var CustomParser = /*#__PURE__*/function (_Parser) {
                 _localctx = new PlusExpressionContext(_localctx);
                 this._ctx = _localctx;
                 _prevctx = _localctx;
-                this.state = 171;
+                this.state = 166;
                 this.match(CustomParser.ADD);
-                this.state = 172;
+                this.state = 167;
                 this.expression(18);
               }
               break;
@@ -857,9 +839,9 @@ var CustomParser = /*#__PURE__*/function (_Parser) {
                 _localctx = new MinusExpressionContext(_localctx);
                 this._ctx = _localctx;
                 _prevctx = _localctx;
-                this.state = 173;
+                this.state = 168;
                 this.match(CustomParser.SUBTRACT);
-                this.state = 174;
+                this.state = 169;
                 this.expression(17);
               }
               break;
@@ -869,16 +851,15 @@ var CustomParser = /*#__PURE__*/function (_Parser) {
                 _localctx = new NotExpressionContext(_localctx);
                 this._ctx = _localctx;
                 _prevctx = _localctx;
-                this.state = 175;
+                this.state = 170;
                 this.match(CustomParser.NOT);
-                this.state = 176;
+                this.state = 171;
                 this.expression(16);
               }
               break;
 
             case CustomParser.TRUE:
             case CustomParser.FALSE:
-            case CustomParser.LIST:
             case CustomParser.QUOTE_SINGLE:
             case CustomParser.QUOTE_DOUBLE:
             case CustomParser.IDENTIFIER:
@@ -889,7 +870,7 @@ var CustomParser = /*#__PURE__*/function (_Parser) {
                 _localctx = new AtomExpressionContext(_localctx);
                 this._ctx = _localctx;
                 _prevctx = _localctx;
-                this.state = 177;
+                this.state = 172;
                 this.atom();
               }
               break;
@@ -899,7 +880,7 @@ var CustomParser = /*#__PURE__*/function (_Parser) {
           }
 
           this._ctx._stop = this._input.tryLT(-1);
-          this.state = 224;
+          this.state = 219;
 
           this._errHandler.sync(this);
 
@@ -913,7 +894,7 @@ var CustomParser = /*#__PURE__*/function (_Parser) {
 
               _prevctx = _localctx;
               {
-                this.state = 222;
+                this.state = 217;
 
                 this._errHandler.sync(this);
 
@@ -922,15 +903,15 @@ var CustomParser = /*#__PURE__*/function (_Parser) {
                     {
                       _localctx = new PowerExpressionContext(new ExpressionContext(_parentctx, _parentState));
                       this.pushNewRecursionContext(_localctx, _startState, CustomParser.RULE_expression);
-                      this.state = 180;
+                      this.state = 175;
 
                       if (!this.precpred(this._ctx, 15)) {
                         throw this.createFailedPredicateException("this.precpred(this._ctx, 15)");
                       }
 
-                      this.state = 181;
+                      this.state = 176;
                       this.match(CustomParser.POWER);
-                      this.state = 182;
+                      this.state = 177;
                       this.expression(15);
                     }
                     break;
@@ -939,15 +920,15 @@ var CustomParser = /*#__PURE__*/function (_Parser) {
                     {
                       _localctx = new MultiplyExpressionContext(new ExpressionContext(_parentctx, _parentState));
                       this.pushNewRecursionContext(_localctx, _startState, CustomParser.RULE_expression);
-                      this.state = 183;
+                      this.state = 178;
 
                       if (!this.precpred(this._ctx, 14)) {
                         throw this.createFailedPredicateException("this.precpred(this._ctx, 14)");
                       }
 
-                      this.state = 184;
+                      this.state = 179;
                       this.match(CustomParser.MULTIPLY);
-                      this.state = 185;
+                      this.state = 180;
                       this.expression(15);
                     }
                     break;
@@ -956,15 +937,15 @@ var CustomParser = /*#__PURE__*/function (_Parser) {
                     {
                       _localctx = new DivideExpressionContext(new ExpressionContext(_parentctx, _parentState));
                       this.pushNewRecursionContext(_localctx, _startState, CustomParser.RULE_expression);
-                      this.state = 186;
+                      this.state = 181;
 
                       if (!this.precpred(this._ctx, 13)) {
                         throw this.createFailedPredicateException("this.precpred(this._ctx, 13)");
                       }
 
-                      this.state = 187;
+                      this.state = 182;
                       this.match(CustomParser.DIVIDE);
-                      this.state = 188;
+                      this.state = 183;
                       this.expression(14);
                     }
                     break;
@@ -973,15 +954,15 @@ var CustomParser = /*#__PURE__*/function (_Parser) {
                     {
                       _localctx = new RemainderExpressionContext(new ExpressionContext(_parentctx, _parentState));
                       this.pushNewRecursionContext(_localctx, _startState, CustomParser.RULE_expression);
-                      this.state = 189;
+                      this.state = 184;
 
                       if (!this.precpred(this._ctx, 12)) {
                         throw this.createFailedPredicateException("this.precpred(this._ctx, 12)");
                       }
 
-                      this.state = 190;
+                      this.state = 185;
                       this.match(CustomParser.REMAINDER);
-                      this.state = 191;
+                      this.state = 186;
                       this.expression(13);
                     }
                     break;
@@ -990,15 +971,15 @@ var CustomParser = /*#__PURE__*/function (_Parser) {
                     {
                       _localctx = new AddExpressionContext(new ExpressionContext(_parentctx, _parentState));
                       this.pushNewRecursionContext(_localctx, _startState, CustomParser.RULE_expression);
-                      this.state = 192;
+                      this.state = 187;
 
                       if (!this.precpred(this._ctx, 11)) {
                         throw this.createFailedPredicateException("this.precpred(this._ctx, 11)");
                       }
 
-                      this.state = 193;
+                      this.state = 188;
                       this.match(CustomParser.ADD);
-                      this.state = 194;
+                      this.state = 189;
                       this.expression(12);
                     }
                     break;
@@ -1007,15 +988,15 @@ var CustomParser = /*#__PURE__*/function (_Parser) {
                     {
                       _localctx = new SubtractExpressionContext(new ExpressionContext(_parentctx, _parentState));
                       this.pushNewRecursionContext(_localctx, _startState, CustomParser.RULE_expression);
-                      this.state = 195;
+                      this.state = 190;
 
                       if (!this.precpred(this._ctx, 10)) {
                         throw this.createFailedPredicateException("this.precpred(this._ctx, 10)");
                       }
 
-                      this.state = 196;
+                      this.state = 191;
                       this.match(CustomParser.SUBTRACT);
-                      this.state = 197;
+                      this.state = 192;
                       this.expression(11);
                     }
                     break;
@@ -1024,15 +1005,15 @@ var CustomParser = /*#__PURE__*/function (_Parser) {
                     {
                       _localctx = new LessExpressionContext(new ExpressionContext(_parentctx, _parentState));
                       this.pushNewRecursionContext(_localctx, _startState, CustomParser.RULE_expression);
-                      this.state = 198;
+                      this.state = 193;
 
                       if (!this.precpred(this._ctx, 9)) {
                         throw this.createFailedPredicateException("this.precpred(this._ctx, 9)");
                       }
 
-                      this.state = 199;
+                      this.state = 194;
                       this.match(CustomParser.LESS);
-                      this.state = 200;
+                      this.state = 195;
                       this.expression(10);
                     }
                     break;
@@ -1041,15 +1022,15 @@ var CustomParser = /*#__PURE__*/function (_Parser) {
                     {
                       _localctx = new LessEqualExpressionContext(new ExpressionContext(_parentctx, _parentState));
                       this.pushNewRecursionContext(_localctx, _startState, CustomParser.RULE_expression);
-                      this.state = 201;
+                      this.state = 196;
 
                       if (!this.precpred(this._ctx, 8)) {
                         throw this.createFailedPredicateException("this.precpred(this._ctx, 8)");
                       }
 
-                      this.state = 202;
+                      this.state = 197;
                       this.match(CustomParser.LESS_OR_EQUAL);
-                      this.state = 203;
+                      this.state = 198;
                       this.expression(9);
                     }
                     break;
@@ -1058,15 +1039,15 @@ var CustomParser = /*#__PURE__*/function (_Parser) {
                     {
                       _localctx = new GreaterExpressionContext(new ExpressionContext(_parentctx, _parentState));
                       this.pushNewRecursionContext(_localctx, _startState, CustomParser.RULE_expression);
-                      this.state = 204;
+                      this.state = 199;
 
                       if (!this.precpred(this._ctx, 7)) {
                         throw this.createFailedPredicateException("this.precpred(this._ctx, 7)");
                       }
 
-                      this.state = 205;
+                      this.state = 200;
                       this.match(CustomParser.GREATER);
-                      this.state = 206;
+                      this.state = 201;
                       this.expression(8);
                     }
                     break;
@@ -1075,15 +1056,15 @@ var CustomParser = /*#__PURE__*/function (_Parser) {
                     {
                       _localctx = new GreaterEqualExpressionContext(new ExpressionContext(_parentctx, _parentState));
                       this.pushNewRecursionContext(_localctx, _startState, CustomParser.RULE_expression);
-                      this.state = 207;
+                      this.state = 202;
 
                       if (!this.precpred(this._ctx, 6)) {
                         throw this.createFailedPredicateException("this.precpred(this._ctx, 6)");
                       }
 
-                      this.state = 208;
+                      this.state = 203;
                       this.match(CustomParser.GREATER_OR_EQUAL);
-                      this.state = 209;
+                      this.state = 204;
                       this.expression(7);
                     }
                     break;
@@ -1092,15 +1073,15 @@ var CustomParser = /*#__PURE__*/function (_Parser) {
                     {
                       _localctx = new EqualExpressionContext(new ExpressionContext(_parentctx, _parentState));
                       this.pushNewRecursionContext(_localctx, _startState, CustomParser.RULE_expression);
-                      this.state = 210;
+                      this.state = 205;
 
                       if (!this.precpred(this._ctx, 5)) {
                         throw this.createFailedPredicateException("this.precpred(this._ctx, 5)");
                       }
 
-                      this.state = 211;
+                      this.state = 206;
                       this.match(CustomParser.EQUAL);
-                      this.state = 212;
+                      this.state = 207;
                       this.expression(6);
                     }
                     break;
@@ -1109,15 +1090,15 @@ var CustomParser = /*#__PURE__*/function (_Parser) {
                     {
                       _localctx = new DifferentExpressionContext(new ExpressionContext(_parentctx, _parentState));
                       this.pushNewRecursionContext(_localctx, _startState, CustomParser.RULE_expression);
-                      this.state = 213;
+                      this.state = 208;
 
                       if (!this.precpred(this._ctx, 4)) {
                         throw this.createFailedPredicateException("this.precpred(this._ctx, 4)");
                       }
 
-                      this.state = 214;
+                      this.state = 209;
                       this.match(CustomParser.DIFFERENT);
-                      this.state = 215;
+                      this.state = 210;
                       this.expression(5);
                     }
                     break;
@@ -1126,15 +1107,15 @@ var CustomParser = /*#__PURE__*/function (_Parser) {
                     {
                       _localctx = new AndExpressionContext(new ExpressionContext(_parentctx, _parentState));
                       this.pushNewRecursionContext(_localctx, _startState, CustomParser.RULE_expression);
-                      this.state = 216;
+                      this.state = 211;
 
                       if (!this.precpred(this._ctx, 3)) {
                         throw this.createFailedPredicateException("this.precpred(this._ctx, 3)");
                       }
 
-                      this.state = 217;
+                      this.state = 212;
                       this.match(CustomParser.AND);
-                      this.state = 218;
+                      this.state = 213;
                       this.expression(4);
                     }
                     break;
@@ -1143,15 +1124,15 @@ var CustomParser = /*#__PURE__*/function (_Parser) {
                     {
                       _localctx = new OrExpressionContext(new ExpressionContext(_parentctx, _parentState));
                       this.pushNewRecursionContext(_localctx, _startState, CustomParser.RULE_expression);
-                      this.state = 219;
+                      this.state = 214;
 
                       if (!this.precpred(this._ctx, 2)) {
                         throw this.createFailedPredicateException("this.precpred(this._ctx, 2)");
                       }
 
-                      this.state = 220;
+                      this.state = 215;
                       this.match(CustomParser.OR);
-                      this.state = 221;
+                      this.state = 216;
                       this.expression(3);
                     }
                     break;
@@ -1159,7 +1140,7 @@ var CustomParser = /*#__PURE__*/function (_Parser) {
               }
             }
 
-            this.state = 226;
+            this.state = 221;
 
             this._errHandler.sync(this);
 
@@ -1190,7 +1171,7 @@ var CustomParser = /*#__PURE__*/function (_Parser) {
       this.enterRule(_localctx, 20, CustomParser.RULE_atom);
 
       try {
-        this.state = 233;
+        this.state = 228;
 
         this._errHandler.sync(this);
 
@@ -1199,7 +1180,7 @@ var CustomParser = /*#__PURE__*/function (_Parser) {
             _localctx = new TrueAtomContext(_localctx);
             this.enterOuterAlt(_localctx, 1);
             {
-              this.state = 227;
+              this.state = 222;
               this.match(CustomParser.TRUE);
             }
             break;
@@ -1208,7 +1189,7 @@ var CustomParser = /*#__PURE__*/function (_Parser) {
             _localctx = new FalseAtomContext(_localctx);
             this.enterOuterAlt(_localctx, 2);
             {
-              this.state = 228;
+              this.state = 223;
               this.match(CustomParser.FALSE);
             }
             break;
@@ -1217,7 +1198,7 @@ var CustomParser = /*#__PURE__*/function (_Parser) {
             _localctx = new NumberAtomContext(_localctx);
             this.enterOuterAlt(_localctx, 3);
             {
-              this.state = 229;
+              this.state = 224;
               this.numberLiteral();
             }
             break;
@@ -1226,7 +1207,7 @@ var CustomParser = /*#__PURE__*/function (_Parser) {
             _localctx = new TextAtomContext(_localctx);
             this.enterOuterAlt(_localctx, 4);
             {
-              this.state = 230;
+              this.state = 225;
               this.textLiteral();
             }
             break;
@@ -1235,7 +1216,7 @@ var CustomParser = /*#__PURE__*/function (_Parser) {
             _localctx = new FunctionCallAtomContext(_localctx);
             this.enterOuterAlt(_localctx, 5);
             {
-              this.state = 231;
+              this.state = 226;
               this.functionCall();
             }
             break;
@@ -1244,7 +1225,7 @@ var CustomParser = /*#__PURE__*/function (_Parser) {
             _localctx = new IdentifierAtomContext(_localctx);
             this.enterOuterAlt(_localctx, 6);
             {
-              this.state = 232;
+              this.state = 227;
               this.match(CustomParser.IDENTIFIER);
             }
             break;
@@ -1277,7 +1258,7 @@ var CustomParser = /*#__PURE__*/function (_Parser) {
       try {
         this.enterOuterAlt(_localctx, 1);
         {
-          this.state = 235;
+          this.state = 230;
           _la = this._input.LA(1);
 
           if (!((_la - 55 & ~0x1F) === 0 && (1 << _la - 55 & (1 << CustomParser.DECIMAL_NUMBER - 55 | 1 << CustomParser.HEX_NUMBER - 55 | 1 << CustomParser.BINARY_NUMBER - 55)) !== 0)) {
@@ -1318,7 +1299,7 @@ var CustomParser = /*#__PURE__*/function (_Parser) {
       var _la;
 
       try {
-        this.state = 253;
+        this.state = 248;
 
         this._errHandler.sync(this);
 
@@ -1327,9 +1308,9 @@ var CustomParser = /*#__PURE__*/function (_Parser) {
             _localctx = new SimpleTextLiteralContext(_localctx);
             this.enterOuterAlt(_localctx, 1);
             {
-              this.state = 237;
+              this.state = 232;
               this.match(CustomParser.QUOTE_SINGLE);
-              this.state = 241;
+              this.state = 236;
 
               this._errHandler.sync(this);
 
@@ -1338,18 +1319,18 @@ var CustomParser = /*#__PURE__*/function (_Parser) {
               while (_la === CustomParser.TEXT_CONTENT) {
                 {
                   {
-                    this.state = 238;
+                    this.state = 233;
                     this.match(CustomParser.TEXT_CONTENT);
                   }
                 }
-                this.state = 243;
+                this.state = 238;
 
                 this._errHandler.sync(this);
 
                 _la = this._input.LA(1);
               }
 
-              this.state = 244;
+              this.state = 239;
               this.match(CustomParser.QUOTE_SINGLE);
             }
             break;
@@ -1358,9 +1339,9 @@ var CustomParser = /*#__PURE__*/function (_Parser) {
             _localctx = new InterpolatedTextLiteralContext(_localctx);
             this.enterOuterAlt(_localctx, 2);
             {
-              this.state = 245;
+              this.state = 240;
               this.match(CustomParser.QUOTE_DOUBLE);
-              this.state = 249;
+              this.state = 244;
 
               this._errHandler.sync(this);
 
@@ -1369,18 +1350,18 @@ var CustomParser = /*#__PURE__*/function (_Parser) {
               while (_la === CustomParser.TEXT_CONTENT || _la === CustomParser.OPEN_BRACE) {
                 {
                   {
-                    this.state = 246;
+                    this.state = 241;
                     this.interpolatedText();
                   }
                 }
-                this.state = 251;
+                this.state = 246;
 
                 this._errHandler.sync(this);
 
                 _la = this._input.LA(1);
               }
 
-              this.state = 252;
+              this.state = 247;
               this.match(CustomParser.QUOTE_DOUBLE);
             }
             break;
@@ -1412,7 +1393,7 @@ var CustomParser = /*#__PURE__*/function (_Parser) {
       this.enterRule(_localctx, 26, CustomParser.RULE_interpolatedText);
 
       try {
-        this.state = 260;
+        this.state = 255;
 
         this._errHandler.sync(this);
 
@@ -1421,7 +1402,7 @@ var CustomParser = /*#__PURE__*/function (_Parser) {
             _localctx = new InterpolatedSimpleTextContext(_localctx);
             this.enterOuterAlt(_localctx, 1);
             {
-              this.state = 255;
+              this.state = 250;
               this.match(CustomParser.TEXT_CONTENT);
             }
             break;
@@ -1430,11 +1411,11 @@ var CustomParser = /*#__PURE__*/function (_Parser) {
             _localctx = new InterpolatedExpressionTextContext(_localctx);
             this.enterOuterAlt(_localctx, 2);
             {
-              this.state = 256;
+              this.state = 251;
               this.match(CustomParser.OPEN_BRACE);
-              this.state = 257;
+              this.state = 252;
               this.expression(0);
-              this.state = 258;
+              this.state = 253;
               this.match(CustomParser.CLOSE_BRACE);
             }
             break;
@@ -1468,63 +1449,27 @@ var CustomParser = /*#__PURE__*/function (_Parser) {
       var _la;
 
       try {
-        this.state = 274;
+        this.enterOuterAlt(_localctx, 1);
+        {
+          this.state = 257;
+          this.match(CustomParser.IDENTIFIER);
+          this.state = 258;
+          this.match(CustomParser.OPEN_PARENTHESIS);
+          this.state = 260;
 
-        this._errHandler.sync(this);
+          this._errHandler.sync(this);
 
-        switch (this._input.LA(1)) {
-          case CustomParser.LIST:
-            this.enterOuterAlt(_localctx, 1);
+          _la = this._input.LA(1);
+
+          if ((_la & ~0x1F) === 0 && (1 << _la & (1 << CustomParser.TRUE | 1 << CustomParser.FALSE | 1 << CustomParser.ADD | 1 << CustomParser.SUBTRACT)) !== 0 || (_la - 40 & ~0x1F) === 0 && (1 << _la - 40 & (1 << CustomParser.NOT - 40 | 1 << CustomParser.OPEN_PARENTHESIS - 40 | 1 << CustomParser.QUOTE_SINGLE - 40 | 1 << CustomParser.QUOTE_DOUBLE - 40 | 1 << CustomParser.IDENTIFIER - 40 | 1 << CustomParser.DECIMAL_NUMBER - 40 | 1 << CustomParser.HEX_NUMBER - 40 | 1 << CustomParser.BINARY_NUMBER - 40)) !== 0) {
             {
-              this.state = 262;
-              this.match(CustomParser.LIST);
-              this.state = 263;
-              this.match(CustomParser.OPEN_PARENTHESIS);
-              this.state = 265;
-
-              this._errHandler.sync(this);
-
-              _la = this._input.LA(1);
-
-              if ((_la & ~0x1F) === 0 && (1 << _la & (1 << CustomParser.TRUE | 1 << CustomParser.FALSE | 1 << CustomParser.LIST | 1 << CustomParser.ADD | 1 << CustomParser.SUBTRACT)) !== 0 || (_la - 40 & ~0x1F) === 0 && (1 << _la - 40 & (1 << CustomParser.NOT - 40 | 1 << CustomParser.OPEN_PARENTHESIS - 40 | 1 << CustomParser.QUOTE_SINGLE - 40 | 1 << CustomParser.QUOTE_DOUBLE - 40 | 1 << CustomParser.IDENTIFIER - 40 | 1 << CustomParser.DECIMAL_NUMBER - 40 | 1 << CustomParser.HEX_NUMBER - 40 | 1 << CustomParser.BINARY_NUMBER - 40)) !== 0) {
-                {
-                  this.state = 264;
-                  this.argumentList();
-                }
-              }
-
-              this.state = 267;
-              this.match(CustomParser.CLOSE_PARENTHESIS);
+              this.state = 259;
+              this.argumentList();
             }
-            break;
+          }
 
-          case CustomParser.IDENTIFIER:
-            this.enterOuterAlt(_localctx, 2);
-            {
-              this.state = 268;
-              this.match(CustomParser.IDENTIFIER);
-              this.state = 269;
-              this.match(CustomParser.OPEN_PARENTHESIS);
-              this.state = 271;
-
-              this._errHandler.sync(this);
-
-              _la = this._input.LA(1);
-
-              if ((_la & ~0x1F) === 0 && (1 << _la & (1 << CustomParser.TRUE | 1 << CustomParser.FALSE | 1 << CustomParser.LIST | 1 << CustomParser.ADD | 1 << CustomParser.SUBTRACT)) !== 0 || (_la - 40 & ~0x1F) === 0 && (1 << _la - 40 & (1 << CustomParser.NOT - 40 | 1 << CustomParser.OPEN_PARENTHESIS - 40 | 1 << CustomParser.QUOTE_SINGLE - 40 | 1 << CustomParser.QUOTE_DOUBLE - 40 | 1 << CustomParser.IDENTIFIER - 40 | 1 << CustomParser.DECIMAL_NUMBER - 40 | 1 << CustomParser.HEX_NUMBER - 40 | 1 << CustomParser.BINARY_NUMBER - 40)) !== 0) {
-                {
-                  this.state = 270;
-                  this.argumentList();
-                }
-              }
-
-              this.state = 273;
-              this.match(CustomParser.CLOSE_PARENTHESIS);
-            }
-            break;
-
-          default:
-            throw new antlr4ts_NoViableAltException__WEBPACK_IMPORTED_MODULE_10__.NoViableAltException(this);
+          this.state = 262;
+          this.match(CustomParser.CLOSE_PARENTHESIS);
         }
       } catch (re) {
         if (re instanceof antlr4ts_RecognitionException__WEBPACK_IMPORTED_MODULE_14__.RecognitionException) {
@@ -1554,9 +1499,9 @@ var CustomParser = /*#__PURE__*/function (_Parser) {
       try {
         this.enterOuterAlt(_localctx, 1);
         {
-          this.state = 276;
+          this.state = 264;
           this.expression(0);
-          this.state = 281;
+          this.state = 269;
 
           this._errHandler.sync(this);
 
@@ -1565,13 +1510,13 @@ var CustomParser = /*#__PURE__*/function (_Parser) {
           while (_la === CustomParser.COMMA) {
             {
               {
-                this.state = 277;
+                this.state = 265;
                 this.match(CustomParser.COMMA);
-                this.state = 278;
+                this.state = 266;
                 this.expression(0);
               }
             }
-            this.state = 283;
+            this.state = 271;
 
             this._errHandler.sync(this);
 
@@ -1602,20 +1547,20 @@ var CustomParser = /*#__PURE__*/function (_Parser) {
       this.enterRule(_localctx, 32, CustomParser.RULE_variableAssignment);
 
       try {
-        this.state = 305;
+        this.state = 293;
 
         this._errHandler.sync(this);
 
-        switch (this.interpreter.adaptivePredict(this._input, 24, this._ctx)) {
+        switch (this.interpreter.adaptivePredict(this._input, 22, this._ctx)) {
           case 1:
             _localctx = new AssignmentContext(_localctx);
             this.enterOuterAlt(_localctx, 1);
             {
-              this.state = 284;
+              this.state = 272;
               this.match(CustomParser.IDENTIFIER);
-              this.state = 285;
+              this.state = 273;
               this.match(CustomParser.ASSIGN);
-              this.state = 286;
+              this.state = 274;
               this.expression(0);
             }
             break;
@@ -1624,11 +1569,11 @@ var CustomParser = /*#__PURE__*/function (_Parser) {
             _localctx = new AddAssignmentContext(_localctx);
             this.enterOuterAlt(_localctx, 2);
             {
-              this.state = 287;
+              this.state = 275;
               this.match(CustomParser.IDENTIFIER);
-              this.state = 288;
+              this.state = 276;
               this.match(CustomParser.ADD_ASSIGN);
-              this.state = 289;
+              this.state = 277;
               this.expression(0);
             }
             break;
@@ -1637,11 +1582,11 @@ var CustomParser = /*#__PURE__*/function (_Parser) {
             _localctx = new SubtractAssignmentContext(_localctx);
             this.enterOuterAlt(_localctx, 3);
             {
-              this.state = 290;
+              this.state = 278;
               this.match(CustomParser.IDENTIFIER);
-              this.state = 291;
+              this.state = 279;
               this.match(CustomParser.SUBTRACT_ASSIGN);
-              this.state = 292;
+              this.state = 280;
               this.expression(0);
             }
             break;
@@ -1650,11 +1595,11 @@ var CustomParser = /*#__PURE__*/function (_Parser) {
             _localctx = new MultiplyAssignmentContext(_localctx);
             this.enterOuterAlt(_localctx, 4);
             {
-              this.state = 293;
+              this.state = 281;
               this.match(CustomParser.IDENTIFIER);
-              this.state = 294;
+              this.state = 282;
               this.match(CustomParser.MULTIPLY_ASSIGN);
-              this.state = 295;
+              this.state = 283;
               this.expression(0);
             }
             break;
@@ -1663,11 +1608,11 @@ var CustomParser = /*#__PURE__*/function (_Parser) {
             _localctx = new DivideAssignmentContext(_localctx);
             this.enterOuterAlt(_localctx, 5);
             {
-              this.state = 296;
+              this.state = 284;
               this.match(CustomParser.IDENTIFIER);
-              this.state = 297;
+              this.state = 285;
               this.match(CustomParser.DIVIDE_ASSIGN);
-              this.state = 298;
+              this.state = 286;
               this.expression(0);
             }
             break;
@@ -1676,11 +1621,11 @@ var CustomParser = /*#__PURE__*/function (_Parser) {
             _localctx = new RemainderAssignmentContext(_localctx);
             this.enterOuterAlt(_localctx, 6);
             {
-              this.state = 299;
+              this.state = 287;
               this.match(CustomParser.IDENTIFIER);
-              this.state = 300;
+              this.state = 288;
               this.match(CustomParser.REMAINDER_ASSIGN);
-              this.state = 301;
+              this.state = 289;
               this.expression(0);
             }
             break;
@@ -1689,11 +1634,11 @@ var CustomParser = /*#__PURE__*/function (_Parser) {
             _localctx = new PowerAssignmentContext(_localctx);
             this.enterOuterAlt(_localctx, 7);
             {
-              this.state = 302;
+              this.state = 290;
               this.match(CustomParser.IDENTIFIER);
-              this.state = 303;
+              this.state = 291;
               this.match(CustomParser.POWER_ASSIGN);
-              this.state = 304;
+              this.state = 292;
               this.expression(0);
             }
             break;
@@ -1728,11 +1673,11 @@ var CustomParser = /*#__PURE__*/function (_Parser) {
 
         this.enterOuterAlt(_localctx, 1);
         {
-          this.state = 307;
+          this.state = 295;
           this.match(CustomParser.IF);
-          this.state = 308;
+          this.state = 296;
           this.expression(0);
-          this.state = 310;
+          this.state = 298;
 
           this._errHandler.sync(this);
 
@@ -1741,61 +1686,61 @@ var CustomParser = /*#__PURE__*/function (_Parser) {
           do {
             {
               {
-                this.state = 309;
+                this.state = 297;
                 this.match(CustomParser.NEWLINE);
               }
             }
-            this.state = 312;
+            this.state = 300;
 
             this._errHandler.sync(this);
 
             _la = this._input.LA(1);
           } while (_la === CustomParser.NEWLINE);
 
-          this.state = 317;
+          this.state = 305;
 
           this._errHandler.sync(this);
 
           _la = this._input.LA(1);
 
-          while ((_la & ~0x1F) === 0 && (1 << _la & (1 << CustomParser.LIST | 1 << CustomParser.BREAK | 1 << CustomParser.CONSTANT | 1 << CustomParser.CONTINUE | 1 << CustomParser.FOR | 1 << CustomParser.GLOBAL | 1 << CustomParser.IF | 1 << CustomParser.FOREVER | 1 << CustomParser.RETURN | 1 << CustomParser.WHILE)) !== 0 || (_la - 41 & ~0x1F) === 0 && (1 << _la - 41 & (1 << CustomParser.LOGICAL - 41 | 1 << CustomParser.NUMBER - 41 | 1 << CustomParser.TEXT - 41 | 1 << CustomParser.IDENTIFIER - 41)) !== 0) {
+          while ((_la & ~0x1F) === 0 && (1 << _la & (1 << CustomParser.BREAK | 1 << CustomParser.CONSTANT | 1 << CustomParser.CONTINUE | 1 << CustomParser.FOR | 1 << CustomParser.FOREVER | 1 << CustomParser.GLOBAL | 1 << CustomParser.IF | 1 << CustomParser.RETURN | 1 << CustomParser.WHILE)) !== 0 || (_la - 41 & ~0x1F) === 0 && (1 << _la - 41 & (1 << CustomParser.LOGICAL - 41 | 1 << CustomParser.NUMBER - 41 | 1 << CustomParser.TEXT - 41 | 1 << CustomParser.IDENTIFIER - 41)) !== 0) {
             {
               {
-                this.state = 314;
+                this.state = 302;
                 this.innerStatement();
               }
             }
-            this.state = 319;
+            this.state = 307;
 
             this._errHandler.sync(this);
 
             _la = this._input.LA(1);
           }
 
-          this.state = 323;
+          this.state = 311;
 
           this._errHandler.sync(this);
 
-          _alt = this.interpreter.adaptivePredict(this._input, 27, this._ctx);
+          _alt = this.interpreter.adaptivePredict(this._input, 25, this._ctx);
 
           while (_alt !== 2 && _alt !== antlr4ts_atn_ATN__WEBPACK_IMPORTED_MODULE_7__.ATN.INVALID_ALT_NUMBER) {
             if (_alt === 1) {
               {
                 {
-                  this.state = 320;
+                  this.state = 308;
                   this.elseIfPart();
                 }
               }
             }
 
-            this.state = 325;
+            this.state = 313;
 
             this._errHandler.sync(this);
 
-            _alt = this.interpreter.adaptivePredict(this._input, 27, this._ctx);
+            _alt = this.interpreter.adaptivePredict(this._input, 25, this._ctx);
           }
 
-          this.state = 327;
+          this.state = 315;
 
           this._errHandler.sync(this);
 
@@ -1803,12 +1748,12 @@ var CustomParser = /*#__PURE__*/function (_Parser) {
 
           if (_la === CustomParser.ELSE) {
             {
-              this.state = 326;
+              this.state = 314;
               this.elsePart();
             }
           }
 
-          this.state = 329;
+          this.state = 317;
           this.match(CustomParser.END);
         }
       } catch (re) {
@@ -1839,13 +1784,13 @@ var CustomParser = /*#__PURE__*/function (_Parser) {
       try {
         this.enterOuterAlt(_localctx, 1);
         {
-          this.state = 331;
+          this.state = 319;
           this.match(CustomParser.ELSE);
-          this.state = 332;
+          this.state = 320;
           this.match(CustomParser.IF);
-          this.state = 333;
+          this.state = 321;
           this.expression(0);
-          this.state = 335;
+          this.state = 323;
 
           this._errHandler.sync(this);
 
@@ -1854,31 +1799,31 @@ var CustomParser = /*#__PURE__*/function (_Parser) {
           do {
             {
               {
-                this.state = 334;
+                this.state = 322;
                 this.match(CustomParser.NEWLINE);
               }
             }
-            this.state = 337;
+            this.state = 325;
 
             this._errHandler.sync(this);
 
             _la = this._input.LA(1);
           } while (_la === CustomParser.NEWLINE);
 
-          this.state = 342;
+          this.state = 330;
 
           this._errHandler.sync(this);
 
           _la = this._input.LA(1);
 
-          while ((_la & ~0x1F) === 0 && (1 << _la & (1 << CustomParser.LIST | 1 << CustomParser.BREAK | 1 << CustomParser.CONSTANT | 1 << CustomParser.CONTINUE | 1 << CustomParser.FOR | 1 << CustomParser.GLOBAL | 1 << CustomParser.IF | 1 << CustomParser.FOREVER | 1 << CustomParser.RETURN | 1 << CustomParser.WHILE)) !== 0 || (_la - 41 & ~0x1F) === 0 && (1 << _la - 41 & (1 << CustomParser.LOGICAL - 41 | 1 << CustomParser.NUMBER - 41 | 1 << CustomParser.TEXT - 41 | 1 << CustomParser.IDENTIFIER - 41)) !== 0) {
+          while ((_la & ~0x1F) === 0 && (1 << _la & (1 << CustomParser.BREAK | 1 << CustomParser.CONSTANT | 1 << CustomParser.CONTINUE | 1 << CustomParser.FOR | 1 << CustomParser.FOREVER | 1 << CustomParser.GLOBAL | 1 << CustomParser.IF | 1 << CustomParser.RETURN | 1 << CustomParser.WHILE)) !== 0 || (_la - 41 & ~0x1F) === 0 && (1 << _la - 41 & (1 << CustomParser.LOGICAL - 41 | 1 << CustomParser.NUMBER - 41 | 1 << CustomParser.TEXT - 41 | 1 << CustomParser.IDENTIFIER - 41)) !== 0) {
             {
               {
-                this.state = 339;
+                this.state = 327;
                 this.innerStatement();
               }
             }
-            this.state = 344;
+            this.state = 332;
 
             this._errHandler.sync(this);
 
@@ -1913,9 +1858,9 @@ var CustomParser = /*#__PURE__*/function (_Parser) {
       try {
         this.enterOuterAlt(_localctx, 1);
         {
-          this.state = 345;
+          this.state = 333;
           this.match(CustomParser.ELSE);
-          this.state = 347;
+          this.state = 335;
 
           this._errHandler.sync(this);
 
@@ -1924,31 +1869,31 @@ var CustomParser = /*#__PURE__*/function (_Parser) {
           do {
             {
               {
-                this.state = 346;
+                this.state = 334;
                 this.match(CustomParser.NEWLINE);
               }
             }
-            this.state = 349;
+            this.state = 337;
 
             this._errHandler.sync(this);
 
             _la = this._input.LA(1);
           } while (_la === CustomParser.NEWLINE);
 
-          this.state = 354;
+          this.state = 342;
 
           this._errHandler.sync(this);
 
           _la = this._input.LA(1);
 
-          while ((_la & ~0x1F) === 0 && (1 << _la & (1 << CustomParser.LIST | 1 << CustomParser.BREAK | 1 << CustomParser.CONSTANT | 1 << CustomParser.CONTINUE | 1 << CustomParser.FOR | 1 << CustomParser.GLOBAL | 1 << CustomParser.IF | 1 << CustomParser.FOREVER | 1 << CustomParser.RETURN | 1 << CustomParser.WHILE)) !== 0 || (_la - 41 & ~0x1F) === 0 && (1 << _la - 41 & (1 << CustomParser.LOGICAL - 41 | 1 << CustomParser.NUMBER - 41 | 1 << CustomParser.TEXT - 41 | 1 << CustomParser.IDENTIFIER - 41)) !== 0) {
+          while ((_la & ~0x1F) === 0 && (1 << _la & (1 << CustomParser.BREAK | 1 << CustomParser.CONSTANT | 1 << CustomParser.CONTINUE | 1 << CustomParser.FOR | 1 << CustomParser.FOREVER | 1 << CustomParser.GLOBAL | 1 << CustomParser.IF | 1 << CustomParser.RETURN | 1 << CustomParser.WHILE)) !== 0 || (_la - 41 & ~0x1F) === 0 && (1 << _la - 41 & (1 << CustomParser.LOGICAL - 41 | 1 << CustomParser.NUMBER - 41 | 1 << CustomParser.TEXT - 41 | 1 << CustomParser.IDENTIFIER - 41)) !== 0) {
             {
               {
-                this.state = 351;
+                this.state = 339;
                 this.innerStatement();
               }
             }
-            this.state = 356;
+            this.state = 344;
 
             this._errHandler.sync(this);
 
@@ -1972,28 +1917,32 @@ var CustomParser = /*#__PURE__*/function (_Parser) {
       return _localctx;
     }
   }, {
-    key: "forInStatement",
-    value: function forInStatement() {
-      var _localctx = new ForInStatementContext(this._ctx, this.state);
+    key: "forFromToStatement",
+    value: function forFromToStatement() {
+      var _localctx = new ForFromToStatementContext(this._ctx, this.state);
 
-      this.enterRule(_localctx, 40, CustomParser.RULE_forInStatement);
+      this.enterRule(_localctx, 40, CustomParser.RULE_forFromToStatement);
 
       var _la;
 
       try {
         this.enterOuterAlt(_localctx, 1);
         {
-          this.state = 357;
+          this.state = 345;
           this.match(CustomParser.FOR);
-          this.state = 358;
+          this.state = 346;
           this.type();
-          this.state = 359;
+          this.state = 347;
           this.match(CustomParser.IDENTIFIER);
-          this.state = 360;
-          this.match(CustomParser.IN);
-          this.state = 361;
+          this.state = 348;
+          this.match(CustomParser.FROM);
+          this.state = 349;
           this.expression(0);
-          this.state = 363;
+          this.state = 350;
+          this.match(CustomParser.TO);
+          this.state = 351;
+          this.expression(0);
+          this.state = 353;
 
           this._errHandler.sync(this);
 
@@ -2002,38 +1951,38 @@ var CustomParser = /*#__PURE__*/function (_Parser) {
           do {
             {
               {
-                this.state = 362;
+                this.state = 352;
                 this.match(CustomParser.NEWLINE);
               }
             }
-            this.state = 365;
+            this.state = 355;
 
             this._errHandler.sync(this);
 
             _la = this._input.LA(1);
           } while (_la === CustomParser.NEWLINE);
 
-          this.state = 370;
+          this.state = 360;
 
           this._errHandler.sync(this);
 
           _la = this._input.LA(1);
 
-          while ((_la & ~0x1F) === 0 && (1 << _la & (1 << CustomParser.LIST | 1 << CustomParser.BREAK | 1 << CustomParser.CONSTANT | 1 << CustomParser.CONTINUE | 1 << CustomParser.FOR | 1 << CustomParser.GLOBAL | 1 << CustomParser.IF | 1 << CustomParser.FOREVER | 1 << CustomParser.RETURN | 1 << CustomParser.WHILE)) !== 0 || (_la - 41 & ~0x1F) === 0 && (1 << _la - 41 & (1 << CustomParser.LOGICAL - 41 | 1 << CustomParser.NUMBER - 41 | 1 << CustomParser.TEXT - 41 | 1 << CustomParser.IDENTIFIER - 41)) !== 0) {
+          while ((_la & ~0x1F) === 0 && (1 << _la & (1 << CustomParser.BREAK | 1 << CustomParser.CONSTANT | 1 << CustomParser.CONTINUE | 1 << CustomParser.FOR | 1 << CustomParser.FOREVER | 1 << CustomParser.GLOBAL | 1 << CustomParser.IF | 1 << CustomParser.RETURN | 1 << CustomParser.WHILE)) !== 0 || (_la - 41 & ~0x1F) === 0 && (1 << _la - 41 & (1 << CustomParser.LOGICAL - 41 | 1 << CustomParser.NUMBER - 41 | 1 << CustomParser.TEXT - 41 | 1 << CustomParser.IDENTIFIER - 41)) !== 0) {
             {
               {
-                this.state = 367;
+                this.state = 357;
                 this.innerStatement();
               }
             }
-            this.state = 372;
+            this.state = 362;
 
             this._errHandler.sync(this);
 
             _la = this._input.LA(1);
           }
 
-          this.state = 373;
+          this.state = 363;
           this.match(CustomParser.END);
         }
       } catch (re) {
@@ -2064,11 +2013,11 @@ var CustomParser = /*#__PURE__*/function (_Parser) {
       try {
         this.enterOuterAlt(_localctx, 1);
         {
-          this.state = 375;
+          this.state = 365;
           this.match(CustomParser.WHILE);
-          this.state = 376;
+          this.state = 366;
           this.expression(0);
-          this.state = 378;
+          this.state = 368;
 
           this._errHandler.sync(this);
 
@@ -2077,38 +2026,38 @@ var CustomParser = /*#__PURE__*/function (_Parser) {
           do {
             {
               {
-                this.state = 377;
+                this.state = 367;
                 this.match(CustomParser.NEWLINE);
               }
             }
-            this.state = 380;
+            this.state = 370;
 
             this._errHandler.sync(this);
 
             _la = this._input.LA(1);
           } while (_la === CustomParser.NEWLINE);
 
-          this.state = 385;
+          this.state = 375;
 
           this._errHandler.sync(this);
 
           _la = this._input.LA(1);
 
-          while ((_la & ~0x1F) === 0 && (1 << _la & (1 << CustomParser.LIST | 1 << CustomParser.BREAK | 1 << CustomParser.CONSTANT | 1 << CustomParser.CONTINUE | 1 << CustomParser.FOR | 1 << CustomParser.GLOBAL | 1 << CustomParser.IF | 1 << CustomParser.FOREVER | 1 << CustomParser.RETURN | 1 << CustomParser.WHILE)) !== 0 || (_la - 41 & ~0x1F) === 0 && (1 << _la - 41 & (1 << CustomParser.LOGICAL - 41 | 1 << CustomParser.NUMBER - 41 | 1 << CustomParser.TEXT - 41 | 1 << CustomParser.IDENTIFIER - 41)) !== 0) {
+          while ((_la & ~0x1F) === 0 && (1 << _la & (1 << CustomParser.BREAK | 1 << CustomParser.CONSTANT | 1 << CustomParser.CONTINUE | 1 << CustomParser.FOR | 1 << CustomParser.FOREVER | 1 << CustomParser.GLOBAL | 1 << CustomParser.IF | 1 << CustomParser.RETURN | 1 << CustomParser.WHILE)) !== 0 || (_la - 41 & ~0x1F) === 0 && (1 << _la - 41 & (1 << CustomParser.LOGICAL - 41 | 1 << CustomParser.NUMBER - 41 | 1 << CustomParser.TEXT - 41 | 1 << CustomParser.IDENTIFIER - 41)) !== 0) {
             {
               {
-                this.state = 382;
+                this.state = 372;
                 this.innerStatement();
               }
             }
-            this.state = 387;
+            this.state = 377;
 
             this._errHandler.sync(this);
 
             _la = this._input.LA(1);
           }
 
-          this.state = 388;
+          this.state = 378;
           this.match(CustomParser.END);
         }
       } catch (re) {
@@ -2139,9 +2088,9 @@ var CustomParser = /*#__PURE__*/function (_Parser) {
       try {
         this.enterOuterAlt(_localctx, 1);
         {
-          this.state = 390;
+          this.state = 380;
           this.match(CustomParser.FOREVER);
-          this.state = 392;
+          this.state = 382;
 
           this._errHandler.sync(this);
 
@@ -2150,38 +2099,38 @@ var CustomParser = /*#__PURE__*/function (_Parser) {
           do {
             {
               {
-                this.state = 391;
+                this.state = 381;
                 this.match(CustomParser.NEWLINE);
               }
             }
-            this.state = 394;
+            this.state = 384;
 
             this._errHandler.sync(this);
 
             _la = this._input.LA(1);
           } while (_la === CustomParser.NEWLINE);
 
-          this.state = 399;
+          this.state = 389;
 
           this._errHandler.sync(this);
 
           _la = this._input.LA(1);
 
-          while ((_la & ~0x1F) === 0 && (1 << _la & (1 << CustomParser.LIST | 1 << CustomParser.BREAK | 1 << CustomParser.CONSTANT | 1 << CustomParser.CONTINUE | 1 << CustomParser.FOR | 1 << CustomParser.GLOBAL | 1 << CustomParser.IF | 1 << CustomParser.FOREVER | 1 << CustomParser.RETURN | 1 << CustomParser.WHILE)) !== 0 || (_la - 41 & ~0x1F) === 0 && (1 << _la - 41 & (1 << CustomParser.LOGICAL - 41 | 1 << CustomParser.NUMBER - 41 | 1 << CustomParser.TEXT - 41 | 1 << CustomParser.IDENTIFIER - 41)) !== 0) {
+          while ((_la & ~0x1F) === 0 && (1 << _la & (1 << CustomParser.BREAK | 1 << CustomParser.CONSTANT | 1 << CustomParser.CONTINUE | 1 << CustomParser.FOR | 1 << CustomParser.FOREVER | 1 << CustomParser.GLOBAL | 1 << CustomParser.IF | 1 << CustomParser.RETURN | 1 << CustomParser.WHILE)) !== 0 || (_la - 41 & ~0x1F) === 0 && (1 << _la - 41 & (1 << CustomParser.LOGICAL - 41 | 1 << CustomParser.NUMBER - 41 | 1 << CustomParser.TEXT - 41 | 1 << CustomParser.IDENTIFIER - 41)) !== 0) {
             {
               {
-                this.state = 396;
+                this.state = 386;
                 this.innerStatement();
               }
             }
-            this.state = 401;
+            this.state = 391;
 
             this._errHandler.sync(this);
 
             _la = this._input.LA(1);
           }
 
-          this.state = 402;
+          this.state = 392;
           this.match(CustomParser.END);
         }
       } catch (re) {
@@ -2210,7 +2159,7 @@ var CustomParser = /*#__PURE__*/function (_Parser) {
       try {
         this.enterOuterAlt(_localctx, 1);
         {
-          this.state = 404;
+          this.state = 394;
           this.match(CustomParser.BREAK);
         }
       } catch (re) {
@@ -2239,7 +2188,7 @@ var CustomParser = /*#__PURE__*/function (_Parser) {
       try {
         this.enterOuterAlt(_localctx, 1);
         {
-          this.state = 406;
+          this.state = 396;
           this.match(CustomParser.CONTINUE);
         }
       } catch (re) {
@@ -2270,17 +2219,17 @@ var CustomParser = /*#__PURE__*/function (_Parser) {
       try {
         this.enterOuterAlt(_localctx, 1);
         {
-          this.state = 408;
+          this.state = 398;
           this.match(CustomParser.RETURN);
-          this.state = 410;
+          this.state = 400;
 
           this._errHandler.sync(this);
 
           _la = this._input.LA(1);
 
-          if ((_la & ~0x1F) === 0 && (1 << _la & (1 << CustomParser.TRUE | 1 << CustomParser.FALSE | 1 << CustomParser.LIST | 1 << CustomParser.ADD | 1 << CustomParser.SUBTRACT)) !== 0 || (_la - 40 & ~0x1F) === 0 && (1 << _la - 40 & (1 << CustomParser.NOT - 40 | 1 << CustomParser.OPEN_PARENTHESIS - 40 | 1 << CustomParser.QUOTE_SINGLE - 40 | 1 << CustomParser.QUOTE_DOUBLE - 40 | 1 << CustomParser.IDENTIFIER - 40 | 1 << CustomParser.DECIMAL_NUMBER - 40 | 1 << CustomParser.HEX_NUMBER - 40 | 1 << CustomParser.BINARY_NUMBER - 40)) !== 0) {
+          if ((_la & ~0x1F) === 0 && (1 << _la & (1 << CustomParser.TRUE | 1 << CustomParser.FALSE | 1 << CustomParser.ADD | 1 << CustomParser.SUBTRACT)) !== 0 || (_la - 40 & ~0x1F) === 0 && (1 << _la - 40 & (1 << CustomParser.NOT - 40 | 1 << CustomParser.OPEN_PARENTHESIS - 40 | 1 << CustomParser.QUOTE_SINGLE - 40 | 1 << CustomParser.QUOTE_DOUBLE - 40 | 1 << CustomParser.IDENTIFIER - 40 | 1 << CustomParser.DECIMAL_NUMBER - 40 | 1 << CustomParser.HEX_NUMBER - 40 | 1 << CustomParser.BINARY_NUMBER - 40)) !== 0) {
             {
-              this.state = 409;
+              this.state = 399;
               this.expression(0);
             }
           }
@@ -2311,7 +2260,7 @@ var CustomParser = /*#__PURE__*/function (_Parser) {
       var _la;
 
       try {
-        this.state = 421;
+        this.state = 411;
 
         this._errHandler.sync(this);
 
@@ -2319,7 +2268,7 @@ var CustomParser = /*#__PURE__*/function (_Parser) {
           case CustomParser.NEWLINE:
             this.enterOuterAlt(_localctx, 1);
             {
-              this.state = 413;
+              this.state = 403;
 
               this._errHandler.sync(this);
 
@@ -2328,25 +2277,25 @@ var CustomParser = /*#__PURE__*/function (_Parser) {
               do {
                 {
                   {
-                    this.state = 412;
+                    this.state = 402;
                     this.match(CustomParser.NEWLINE);
                   }
                 }
-                this.state = 415;
+                this.state = 405;
 
                 this._errHandler.sync(this);
 
                 _la = this._input.LA(1);
               } while (_la === CustomParser.NEWLINE);
 
-              this.state = 418;
+              this.state = 408;
 
               this._errHandler.sync(this);
 
-              switch (this.interpreter.adaptivePredict(this._input, 41, this._ctx)) {
+              switch (this.interpreter.adaptivePredict(this._input, 39, this._ctx)) {
                 case 1:
                   {
-                    this.state = 417;
+                    this.state = 407;
                     this.match(CustomParser.EOF);
                   }
                   break;
@@ -2357,7 +2306,7 @@ var CustomParser = /*#__PURE__*/function (_Parser) {
           case CustomParser.EOF:
             this.enterOuterAlt(_localctx, 2);
             {
-              this.state = 420;
+              this.state = 410;
               this.match(CustomParser.EOF);
             }
             break;
@@ -2456,20 +2405,20 @@ var CustomParser = /*#__PURE__*/function (_Parser) {
 CustomParser.TEXT_CONTENT = 1;
 CustomParser.TRUE = 2;
 CustomParser.FALSE = 3;
-CustomParser.LIST = 4;
-CustomParser.BREAK = 5;
-CustomParser.CONSTANT = 6;
-CustomParser.CONTINUE = 7;
-CustomParser.ELSE = 8;
-CustomParser.END = 9;
-CustomParser.FOR = 10;
-CustomParser.FUNCTION = 11;
-CustomParser.GLOBAL = 12;
-CustomParser.IF = 13;
-CustomParser.IN = 14;
-CustomParser.FOREVER = 15;
-CustomParser.RETURN = 16;
-CustomParser.RETURNS = 17;
+CustomParser.BREAK = 4;
+CustomParser.CONSTANT = 5;
+CustomParser.CONTINUE = 6;
+CustomParser.ELSE = 7;
+CustomParser.END = 8;
+CustomParser.FOR = 9;
+CustomParser.FOREVER = 10;
+CustomParser.FROM = 11;
+CustomParser.FUNCTION = 12;
+CustomParser.GLOBAL = 13;
+CustomParser.IF = 14;
+CustomParser.RETURN = 15;
+CustomParser.RETURNS = 16;
+CustomParser.TO = 17;
 CustomParser.WHILE = 18;
 CustomParser.ASSIGN = 19;
 CustomParser.ADD = 20;
@@ -2537,18 +2486,18 @@ CustomParser.RULE_variableAssignment = 16;
 CustomParser.RULE_ifStatement = 17;
 CustomParser.RULE_elseIfPart = 18;
 CustomParser.RULE_elsePart = 19;
-CustomParser.RULE_forInStatement = 20;
+CustomParser.RULE_forFromToStatement = 20;
 CustomParser.RULE_whileStatement = 21;
 CustomParser.RULE_foreverStatement = 22;
 CustomParser.RULE_breakStatement = 23;
 CustomParser.RULE_continueStatement = 24;
 CustomParser.RULE_returnStatement = 25;
 CustomParser.RULE_eos = 26;
-CustomParser.ruleNames = ["program", "topStatement", "innerStatement", "statement", "globalStatement", "functionDeclaration", "parameterList", "variableDeclaration", "type", "expression", "atom", "numberLiteral", "textLiteral", "interpolatedText", "functionCall", "argumentList", "variableAssignment", "ifStatement", "elseIfPart", "elsePart", "forInStatement", "whileStatement", "foreverStatement", "breakStatement", "continueStatement", "returnStatement", "eos"];
-CustomParser._LITERAL_NAMES = [undefined, undefined, "'true'", "'false'", "'list'", "'break'", "'constant'", "'continue'", "'else'", "'end'", "'for'", "'function'", "'global'", "'if'", "'in'", "'forever'", "'return'", "'returns'", "'while'", "'='", "'+'", "'-'", "'*'", "'/'", "'%'", "'^'", "'+='", "'-='", "'*='", "'/='", "'%='", "'^='", "'<'", "'<='", "'>'", "'>='", "'=='", "'!='", undefined, undefined, undefined, "'logical'", "'number'", "'text'", "'('", "')'", "'['", "']'", "'{'", "'}'", "'.'", "','"];
-CustomParser._SYMBOLIC_NAMES = [undefined, "TEXT_CONTENT", "TRUE", "FALSE", "LIST", "BREAK", "CONSTANT", "CONTINUE", "ELSE", "END", "FOR", "FUNCTION", "GLOBAL", "IF", "IN", "FOREVER", "RETURN", "RETURNS", "WHILE", "ASSIGN", "ADD", "SUBTRACT", "MULTIPLY", "DIVIDE", "REMAINDER", "POWER", "ADD_ASSIGN", "SUBTRACT_ASSIGN", "MULTIPLY_ASSIGN", "DIVIDE_ASSIGN", "REMAINDER_ASSIGN", "POWER_ASSIGN", "LESS", "LESS_OR_EQUAL", "GREATER", "GREATER_OR_EQUAL", "EQUAL", "DIFFERENT", "AND", "OR", "NOT", "LOGICAL", "NUMBER", "TEXT", "OPEN_PARENTHESIS", "CLOSE_PARENTHESIS", "OPEN_BRACKET", "CLOSE_BRACKET", "OPEN_BRACE", "CLOSE_BRACE", "DOT", "COMMA", "QUOTE_SINGLE", "QUOTE_DOUBLE", "IDENTIFIER", "DECIMAL_NUMBER", "HEX_NUMBER", "BINARY_NUMBER", "NEWLINE", "WHITESPACE", "LINE_COMMENT", "BLOCK_COMMENT", "UNKNOWN", "SINGLE_QUOTE_NEWLINE", "DOUBLE_QUOTE_NEWLINE"];
+CustomParser.ruleNames = ["program", "topStatement", "innerStatement", "statement", "globalStatement", "functionDeclaration", "parameterList", "variableDeclaration", "type", "expression", "atom", "numberLiteral", "textLiteral", "interpolatedText", "functionCall", "argumentList", "variableAssignment", "ifStatement", "elseIfPart", "elsePart", "forFromToStatement", "whileStatement", "foreverStatement", "breakStatement", "continueStatement", "returnStatement", "eos"];
+CustomParser._LITERAL_NAMES = [undefined, undefined, "'true'", "'false'", "'break'", "'constant'", "'continue'", "'else'", "'end'", "'for'", "'forever'", "'from'", "'function'", "'global'", "'if'", "'return'", "'returns'", "'to'", "'while'", "'='", "'+'", "'-'", "'*'", "'/'", "'%'", "'^'", "'+='", "'-='", "'*='", "'/='", "'%='", "'^='", "'<'", "'<='", "'>'", "'>='", "'=='", "'!='", undefined, undefined, undefined, "'logical'", "'number'", "'text'", "'('", "')'", "'['", "']'", "'{'", "'}'", "'.'", "','"];
+CustomParser._SYMBOLIC_NAMES = [undefined, "TEXT_CONTENT", "TRUE", "FALSE", "BREAK", "CONSTANT", "CONTINUE", "ELSE", "END", "FOR", "FOREVER", "FROM", "FUNCTION", "GLOBAL", "IF", "RETURN", "RETURNS", "TO", "WHILE", "ASSIGN", "ADD", "SUBTRACT", "MULTIPLY", "DIVIDE", "REMAINDER", "POWER", "ADD_ASSIGN", "SUBTRACT_ASSIGN", "MULTIPLY_ASSIGN", "DIVIDE_ASSIGN", "REMAINDER_ASSIGN", "POWER_ASSIGN", "LESS", "LESS_OR_EQUAL", "GREATER", "GREATER_OR_EQUAL", "EQUAL", "DIFFERENT", "AND", "OR", "NOT", "LOGICAL", "NUMBER", "TEXT", "OPEN_PARENTHESIS", "CLOSE_PARENTHESIS", "OPEN_BRACKET", "CLOSE_BRACKET", "OPEN_BRACE", "CLOSE_BRACE", "DOT", "COMMA", "QUOTE_SINGLE", "QUOTE_DOUBLE", "IDENTIFIER", "DECIMAL_NUMBER", "HEX_NUMBER", "BINARY_NUMBER", "NEWLINE", "WHITESPACE", "LINE_COMMENT", "BLOCK_COMMENT", "UNKNOWN", "SINGLE_QUOTE_NEWLINE", "DOUBLE_QUOTE_NEWLINE"];
 CustomParser.VOCABULARY = new antlr4ts_VocabularyImpl__WEBPACK_IMPORTED_MODULE_16__.VocabularyImpl(CustomParser._LITERAL_NAMES, CustomParser._SYMBOLIC_NAMES, []);
-CustomParser._serializedATN = "\x03\uC91D\uCABA\u058D\uAFBA\u4F53\u0607\uEA8B\uC241\x03B\u01AA\x04\x02" + "\t\x02\x04\x03\t\x03\x04\x04\t\x04\x04\x05\t\x05\x04\x06\t\x06\x04\x07" + "\t\x07\x04\b\t\b\x04\t\t\t\x04\n\t\n\x04\v\t\v\x04\f\t\f\x04\r\t\r\x04" + "\x0E\t\x0E\x04\x0F\t\x0F\x04\x10\t\x10\x04\x11\t\x11\x04\x12\t\x12\x04" + "\x13\t\x13\x04\x14\t\x14\x04\x15\t\x15\x04\x16\t\x16\x04\x17\t\x17\x04" + "\x18\t\x18\x04\x19\t\x19\x04\x1A\t\x1A\x04\x1B\t\x1B\x04\x1C\t\x1C\x03" + "\x02\x07\x02:\n\x02\f\x02\x0E\x02=\v\x02\x03\x02\x07\x02@\n\x02\f\x02" + "\x0E\x02C\v\x02\x03\x03\x03\x03\x03\x03\x03\x03\x05\x03I\n\x03\x03\x04" + "\x03\x04\x03\x04\x03\x04\x03\x04\x03\x04\x03\x04\x03\x04\x03\x04\x03\x04" + "\x03\x04\x03\x04\x03\x04\x05\x04X\n\x04\x03\x05\x03\x05\x03\x05\x03\x05" + "\x03\x05\x03\x05\x03\x05\x03\x05\x03\x05\x03\x05\x03\x05\x03\x05\x03\x05" + "\x03\x05\x03\x05\x03\x05\x03\x05\x03\x05\x03\x05\x03\x05\x03\x05\x05\x05" + "o\n\x05\x03\x06\x03\x06\x03\x06\x03\x07\x03\x07\x03\x07\x03\x07\x05\x07" + "x\n\x07\x03\x07\x03\x07\x03\x07\x05\x07}\n\x07\x03\x07\x06\x07\x80\n\x07" + "\r\x07\x0E\x07\x81\x03\x07\x07\x07\x85\n\x07\f\x07\x0E\x07\x88\v\x07\x03" + "\x07\x03\x07\x03\b\x03\b\x03\b\x03\b\x03\b\x03\b\x07\b\x92\n\b\f\b\x0E" + "\b\x95\v\b\x03\t\x05\t\x98\n\t\x03\t\x03\t\x03\t\x03\t\x03\t\x03\n\x03" + "\n\x03\n\x03\n\x03\n\x03\n\x03\n\x03\n\x05\n\xA7\n\n\x03\v\x03\v\x03\v" + "\x03\v\x03\v\x03\v\x03\v\x03\v\x03\v\x03\v\x03\v\x03\v\x05\v\xB5\n\v\x03" + "\v\x03\v\x03\v\x03\v\x03\v\x03\v\x03\v\x03\v\x03\v\x03\v\x03\v\x03\v\x03" + "\v\x03\v\x03\v\x03\v\x03\v\x03\v\x03\v\x03\v\x03\v\x03\v\x03\v\x03\v\x03" + "\v\x03\v\x03\v\x03\v\x03\v\x03\v\x03\v\x03\v\x03\v\x03\v\x03\v\x03\v\x03" + "\v\x03\v\x03\v\x03\v\x03\v\x03\v\x07\v\xE1\n\v\f\v\x0E\v\xE4\v\v\x03\f" + "\x03\f\x03\f\x03\f\x03\f\x03\f\x05\f\xEC\n\f\x03\r\x03\r\x03\x0E\x03\x0E" + "\x07\x0E\xF2\n\x0E\f\x0E\x0E\x0E\xF5\v\x0E\x03\x0E\x03\x0E\x03\x0E\x07" + "\x0E\xFA\n\x0E\f\x0E\x0E\x0E\xFD\x0B\x0E\x03\x0E\x05\x0E\u0100\n\x0E\x03" + "\x0F\x03\x0F\x03\x0F\x03\x0F\x03\x0F\x05\x0F\u0107\n\x0F\x03\x10\x03\x10" + "\x03\x10\x05\x10\u010C\n\x10\x03\x10\x03\x10\x03\x10\x03\x10\x05\x10\u0112" + "\n\x10\x03\x10\x05\x10\u0115\n\x10\x03\x11\x03\x11\x03\x11\x07\x11\u011A" + "\n\x11\f\x11\x0E\x11\u011D\x0B\x11\x03\x12\x03\x12\x03\x12\x03\x12\x03\x12" + "\x03\x12\x03\x12\x03\x12\x03\x12\x03\x12\x03\x12\x03\x12\x03\x12\x03\x12" + "\x03\x12\x03\x12\x03\x12\x03\x12\x03\x12\x03\x12\x03\x12\x05\x12\u0134" + "\n\x12\x03\x13\x03\x13\x03\x13\x06\x13\u0139\n\x13\r\x13\x0E\x13\u013A" + "\x03\x13\x07\x13\u013E\n\x13\f\x13\x0E\x13\u0141\x0B\x13\x03\x13\x07\x13" + "\u0144\n\x13\f\x13\x0E\x13\u0147\x0B\x13\x03\x13\x05\x13\u014A\n\x13\x03" + "\x13\x03\x13\x03\x14\x03\x14\x03\x14\x03\x14\x06\x14\u0152\n\x14\r\x14" + "\x0E\x14\u0153\x03\x14\x07\x14\u0157\n\x14\f\x14\x0E\x14\u015A\x0B\x14\x03" + "\x15\x03\x15\x06\x15\u015E\n\x15\r\x15\x0E\x15\u015F\x03\x15\x07\x15\u0163" + "\n\x15\f\x15\x0E\x15\u0166\x0B\x15\x03\x16\x03\x16\x03\x16\x03\x16\x03\x16" + "\x03\x16\x06\x16\u016E\n\x16\r\x16\x0E\x16\u016F\x03\x16\x07\x16\u0173" + "\n\x16\f\x16\x0E\x16\u0176\x0B\x16\x03\x16\x03\x16\x03\x17\x03\x17\x03\x17" + "\x06\x17\u017D\n\x17\r\x17\x0E\x17\u017E\x03\x17\x07\x17\u0182\n\x17\f" + "\x17\x0E\x17\u0185\x0B\x17\x03\x17\x03\x17\x03\x18\x03\x18\x06\x18\u018B" + "\n\x18\r\x18\x0E\x18\u018C\x03\x18\x07\x18\u0190\n\x18\f\x18\x0E\x18\u0193" + "\v\x18\x03\x18\x03\x18\x03\x19\x03\x19\x03\x1A\x03\x1A\x03\x1B\x03\x1B" + "\x05\x1B\u019D\n\x1B\x03\x1C\x06\x1C\u01A0\n\x1C\r\x1C\x0E\x1C\u01A1\x03" + "\x1C\x05\x1C\u01A5\n\x1C\x03\x1C\x05\x1C\u01A8\n\x1C\x03\x1C\x02\x02\x03" + "\x14\x1D\x02\x02\x04\x02\x06\x02\b\x02\n\x02\f\x02\x0E\x02\x10\x02\x12" + "\x02\x14\x02\x16\x02\x18\x02\x1A\x02\x1C\x02\x1E\x02 \x02\"\x02$\x02&" + "\x02(\x02*\x02,\x02.\x020\x022\x024\x026\x02\x02\x03\x03\x029;\x02\u01DB" + "\x02;\x03\x02\x02\x02\x04H\x03\x02\x02\x02\x06W\x03\x02\x02\x02\bn\x03" + "\x02\x02\x02\np\x03\x02\x02\x02\fs\x03\x02\x02\x02\x0E\x8B\x03\x02\x02" + "\x02\x10\x97\x03\x02\x02\x02\x12\xA6\x03\x02\x02\x02\x14\xB4\x03\x02\x02" + "\x02\x16\xEB\x03\x02\x02\x02\x18\xED\x03\x02\x02\x02\x1A\xFF\x03\x02\x02" + "\x02\x1C\u0106\x03\x02\x02\x02\x1E\u0114\x03\x02\x02\x02 \u0116\x03\x02" + "\x02\x02\"\u0133\x03\x02\x02\x02$\u0135\x03\x02\x02\x02&\u014D\x03\x02" + "\x02\x02(\u015B\x03\x02\x02\x02*\u0167\x03\x02\x02\x02,\u0179\x03\x02" + "\x02\x02.\u0188\x03\x02\x02\x020\u0196\x03\x02\x02\x022\u0198\x03\x02" + "\x02\x024\u019A\x03\x02\x02\x026\u01A7\x03\x02\x02\x028:\x07<\x02\x02" + "98\x03\x02\x02\x02:=\x03\x02\x02\x02;9\x03\x02\x02\x02;<\x03\x02\x02\x02" + "<A\x03\x02\x02\x02=;\x03\x02\x02\x02>@\x05\x04\x03\x02?>\x03\x02\x02\x02" + "@C\x03\x02\x02\x02A?\x03\x02\x02\x02AB\x03\x02\x02\x02B\x03\x03\x02\x02" + "\x02CA\x03\x02\x02\x02DE\x05\f\x07\x02EF\x056\x1C\x02FI\x03\x02\x02\x02" + "GI\x05\b\x05\x02HD\x03\x02\x02\x02HG\x03\x02\x02\x02I\x05\x03\x02\x02" + "\x02JK\x05\n\x06\x02KL\x056\x1C\x02LX\x03\x02\x02\x02MN\x050\x19\x02N" + "O\x056\x1C\x02OX\x03\x02\x02\x02PQ\x052\x1A\x02QR\x056\x1C\x02RX\x03\x02" + "\x02\x02ST\x054\x1B\x02TU\x056\x1C\x02UX\x03\x02\x02\x02VX\x05\b\x05\x02" + "WJ\x03\x02\x02\x02WM\x03\x02\x02\x02WP\x03\x02\x02\x02WS\x03\x02\x02\x02" + "WV\x03\x02\x02\x02X\x07\x03\x02\x02\x02YZ\x05\x10\t\x02Z[\x056\x1C\x02" + "[o\x03\x02\x02\x02\\]\x05\"\x12\x02]^\x056\x1C\x02^o\x03\x02\x02\x02_" + "`\x05$\x13\x02`a\x056\x1C\x02ao\x03\x02\x02\x02bc\x05*\x16\x02cd\x056" + "\x1C\x02do\x03\x02\x02\x02ef\x05,\x17\x02fg\x056\x1C\x02go\x03\x02\x02" + "\x02hi\x05.\x18\x02ij\x056\x1C\x02jo\x03\x02\x02\x02kl\x05\x1E\x10\x02" + "lm\x056\x1C\x02mo\x03\x02\x02\x02nY\x03\x02\x02\x02n\\\x03\x02\x02\x02" + "n_\x03\x02\x02\x02nb\x03\x02\x02\x02ne\x03\x02\x02\x02nh\x03\x02\x02\x02" + "nk\x03\x02\x02\x02o\t\x03\x02\x02\x02pq\x07\x0E\x02\x02qr\x078\x02\x02" + "r\v\x03\x02\x02\x02st\x07\r\x02\x02tu\x078\x02\x02uw\x07.\x02\x02vx\x05" + "\x0E\b\x02wv\x03\x02\x02\x02wx\x03\x02\x02\x02xy\x03\x02\x02\x02y|\x07" + "/\x02\x02z{\x07\x13\x02\x02{}\x05\x12\n\x02|z\x03\x02\x02\x02|}\x03\x02" + "\x02\x02}\x7F\x03\x02\x02\x02~\x80\x07<\x02\x02\x7F~\x03\x02\x02\x02\x80" + "\x81\x03\x02\x02\x02\x81\x7F\x03\x02\x02\x02\x81\x82\x03\x02\x02\x02\x82" + "\x86\x03\x02\x02\x02\x83\x85\x05\x06\x04\x02\x84\x83\x03\x02\x02\x02\x85" + "\x88\x03\x02\x02\x02\x86\x84\x03\x02\x02\x02\x86\x87\x03\x02\x02\x02\x87" + "\x89\x03\x02\x02\x02\x88\x86\x03\x02\x02\x02\x89\x8A\x07\v\x02\x02\x8A" + "\r\x03\x02\x02\x02\x8B\x8C\x05\x12\n\x02\x8C\x93\x078\x02\x02\x8D\x8E" + "\x075\x02\x02\x8E\x8F\x05\x12\n\x02\x8F\x90\x078\x02\x02\x90\x92\x03\x02" + "\x02\x02\x91\x8D\x03\x02\x02\x02\x92\x95\x03\x02\x02\x02\x93\x91\x03\x02" + "\x02\x02\x93\x94\x03\x02\x02\x02\x94\x0F\x03\x02\x02\x02\x95\x93\x03\x02" + "\x02\x02\x96\x98\x07\b\x02\x02\x97\x96\x03\x02\x02\x02\x97\x98\x03\x02" + "\x02\x02\x98\x99\x03\x02\x02\x02\x99\x9A\x05\x12\n\x02\x9A\x9B\x078\x02" + "\x02\x9B\x9C\x07\x15\x02\x02\x9C\x9D\x05\x14\v\x02\x9D\x11\x03\x02\x02" + "\x02\x9E\xA7\x07+\x02\x02\x9F\xA7\x07,\x02\x02\xA0\xA7\x07-\x02\x02\xA1" + "\xA2\x07\x06\x02\x02\xA2\xA3\x07.\x02\x02\xA3\xA4\x05\x12\n\x02\xA4\xA5" + "\x07/\x02\x02\xA5\xA7\x03\x02\x02\x02\xA6\x9E\x03\x02\x02\x02\xA6\x9F" + "\x03\x02\x02\x02\xA6\xA0\x03\x02\x02\x02\xA6\xA1\x03\x02\x02\x02\xA7\x13" + "\x03\x02\x02\x02\xA8\xA9\b\v\x01\x02\xA9\xAA\x07.\x02\x02\xAA\xAB\x05" + "\x14\v\x02\xAB\xAC\x07/\x02\x02\xAC\xB5\x03\x02\x02\x02\xAD\xAE\x07\x16" + "\x02\x02\xAE\xB5\x05\x14\v\x14\xAF\xB0\x07\x17\x02\x02\xB0\xB5\x05\x14" + "\v\x13\xB1\xB2\x07*\x02\x02\xB2\xB5\x05\x14\v\x12\xB3\xB5\x05\x16\f\x02" + "\xB4\xA8\x03\x02\x02\x02\xB4\xAD\x03\x02\x02\x02\xB4\xAF\x03\x02\x02\x02" + "\xB4\xB1\x03\x02\x02\x02\xB4\xB3\x03\x02\x02\x02\xB5\xE2\x03\x02\x02\x02" + "\xB6\xB7\f\x11\x02\x02\xB7\xB8\x07\x1B\x02\x02\xB8\xE1\x05\x14\v\x11\xB9" + "\xBA\f\x10\x02\x02\xBA\xBB\x07\x18\x02\x02\xBB\xE1\x05\x14\v\x11\xBC\xBD" + "\f\x0F\x02\x02\xBD\xBE\x07\x19\x02\x02\xBE\xE1\x05\x14\v\x10\xBF\xC0\f" + "\x0E\x02\x02\xC0\xC1\x07\x1A\x02\x02\xC1\xE1\x05\x14\v\x0F\xC2\xC3\f\r" + "\x02\x02\xC3\xC4\x07\x16\x02\x02\xC4\xE1\x05\x14\v\x0E\xC5\xC6\f\f\x02" + "\x02\xC6\xC7\x07\x17\x02\x02\xC7\xE1\x05\x14\v\r\xC8\xC9\f\v\x02\x02\xC9" + "\xCA\x07\"\x02\x02\xCA\xE1\x05\x14\v\f\xCB\xCC\f\n\x02\x02\xCC\xCD\x07" + "#\x02\x02\xCD\xE1\x05\x14\v\v\xCE\xCF\f\t\x02\x02\xCF\xD0\x07$\x02\x02" + "\xD0\xE1\x05\x14\v\n\xD1\xD2\f\b\x02\x02\xD2\xD3\x07%\x02\x02\xD3\xE1" + "\x05\x14\v\t\xD4\xD5\f\x07\x02\x02\xD5\xD6\x07&\x02\x02\xD6\xE1\x05\x14" + "\v\b\xD7\xD8\f\x06\x02\x02\xD8\xD9\x07\'\x02\x02\xD9\xE1\x05\x14\v\x07" + "\xDA\xDB\f\x05\x02\x02\xDB\xDC\x07(\x02\x02\xDC\xE1\x05\x14\v\x06\xDD" + "\xDE\f\x04\x02\x02\xDE\xDF\x07)\x02\x02\xDF\xE1\x05\x14\v\x05\xE0\xB6" + "\x03\x02\x02\x02\xE0\xB9\x03\x02\x02\x02\xE0\xBC\x03\x02\x02\x02\xE0\xBF" + "\x03\x02\x02\x02\xE0\xC2\x03\x02\x02\x02\xE0\xC5\x03\x02\x02\x02\xE0\xC8" + "\x03\x02\x02\x02\xE0\xCB\x03\x02\x02\x02\xE0\xCE\x03\x02\x02\x02\xE0\xD1" + "\x03\x02\x02\x02\xE0\xD4\x03\x02\x02\x02\xE0\xD7\x03\x02\x02\x02\xE0\xDA" + "\x03\x02\x02\x02\xE0\xDD\x03\x02\x02\x02\xE1\xE4\x03\x02\x02\x02\xE2\xE0" + "\x03\x02\x02\x02\xE2\xE3\x03\x02\x02\x02\xE3\x15\x03\x02\x02\x02\xE4\xE2" + "\x03\x02\x02\x02\xE5\xEC\x07\x04\x02\x02\xE6\xEC\x07\x05\x02\x02\xE7\xEC" + "\x05\x18\r\x02\xE8\xEC\x05\x1A\x0E\x02\xE9\xEC\x05\x1E\x10\x02\xEA\xEC" + "\x078\x02\x02\xEB\xE5\x03\x02\x02\x02\xEB\xE6\x03\x02\x02\x02\xEB\xE7" + "\x03\x02\x02\x02\xEB\xE8\x03\x02\x02\x02\xEB\xE9\x03\x02\x02\x02\xEB\xEA" + "\x03\x02\x02\x02\xEC\x17\x03\x02\x02\x02\xED\xEE\t\x02\x02\x02\xEE\x19" + "\x03\x02\x02\x02\xEF\xF3\x076\x02\x02\xF0\xF2\x07\x03\x02\x02\xF1\xF0" + "\x03\x02\x02\x02\xF2\xF5\x03\x02\x02\x02\xF3\xF1\x03\x02\x02\x02\xF3\xF4" + "\x03\x02\x02\x02\xF4\xF6\x03\x02\x02\x02\xF5\xF3\x03\x02\x02\x02\xF6\u0100" + "\x076\x02\x02\xF7\xFB\x077\x02\x02\xF8\xFA\x05\x1C\x0F\x02\xF9\xF8\x03" + "\x02\x02\x02\xFA\xFD\x03\x02\x02\x02\xFB\xF9\x03\x02\x02\x02\xFB\xFC\x03" + "\x02\x02\x02\xFC\xFE\x03\x02\x02\x02\xFD\xFB\x03\x02\x02\x02\xFE\u0100" + "\x077\x02\x02\xFF\xEF\x03\x02\x02\x02\xFF\xF7\x03\x02\x02\x02\u0100\x1B" + "\x03\x02\x02\x02\u0101\u0107\x07\x03\x02\x02\u0102\u0103\x072\x02\x02" + "\u0103\u0104\x05\x14\x0B\x02\u0104\u0105\x073\x02\x02\u0105\u0107\x03\x02" + "\x02\x02\u0106\u0101\x03\x02\x02\x02\u0106\u0102\x03\x02\x02\x02\u0107" + "\x1D\x03\x02\x02\x02\u0108\u0109\x07\x06\x02\x02\u0109\u010B\x07.\x02" + "\x02\u010A\u010C\x05 \x11\x02\u010B\u010A\x03\x02\x02\x02\u010B\u010C" + "\x03\x02\x02\x02\u010C\u010D\x03\x02\x02\x02\u010D\u0115\x07/\x02\x02" + "\u010E\u010F\x078\x02\x02\u010F\u0111\x07.\x02\x02\u0110\u0112\x05 \x11" + "\x02\u0111\u0110\x03\x02\x02\x02\u0111\u0112\x03\x02\x02\x02\u0112\u0113" + "\x03\x02\x02\x02\u0113\u0115\x07/\x02\x02\u0114\u0108\x03\x02\x02\x02" + "\u0114\u010E\x03\x02\x02\x02\u0115\x1F\x03\x02\x02\x02\u0116\u011B\x05" + "\x14\x0B\x02\u0117\u0118\x075\x02\x02\u0118\u011A\x05\x14\x0B\x02\u0119\u0117" + "\x03\x02\x02\x02\u011A\u011D\x03\x02\x02\x02\u011B\u0119\x03\x02\x02\x02" + "\u011B\u011C\x03\x02\x02\x02\u011C!\x03\x02\x02\x02\u011D\u011B\x03\x02" + "\x02\x02\u011E\u011F\x078\x02\x02\u011F\u0120\x07\x15\x02\x02\u0120\u0134" + "\x05\x14\x0B\x02\u0121\u0122\x078\x02\x02\u0122\u0123\x07\x1C\x02\x02\u0123" + "\u0134\x05\x14\x0B\x02\u0124\u0125\x078\x02\x02\u0125\u0126\x07\x1D\x02" + "\x02\u0126\u0134\x05\x14\x0B\x02\u0127\u0128\x078\x02\x02\u0128\u0129\x07" + "\x1E\x02\x02\u0129\u0134\x05\x14\x0B\x02\u012A\u012B\x078\x02\x02\u012B" + "\u012C\x07\x1F\x02\x02\u012C\u0134\x05\x14\x0B\x02\u012D\u012E\x078\x02" + "\x02\u012E\u012F\x07 \x02\x02\u012F\u0134\x05\x14\x0B\x02\u0130\u0131\x07" + "8\x02\x02\u0131\u0132\x07!\x02\x02\u0132\u0134\x05\x14\x0B\x02\u0133\u011E" + "\x03\x02\x02\x02\u0133\u0121\x03\x02\x02\x02\u0133\u0124\x03\x02\x02\x02" + "\u0133\u0127\x03\x02\x02\x02\u0133\u012A\x03\x02\x02\x02\u0133\u012D\x03" + "\x02\x02\x02\u0133\u0130\x03\x02\x02\x02\u0134#\x03\x02\x02\x02\u0135" + "\u0136\x07\x0F\x02\x02\u0136\u0138\x05\x14\x0B\x02\u0137\u0139\x07<\x02" + "\x02\u0138\u0137\x03\x02\x02\x02\u0139\u013A\x03\x02\x02\x02\u013A\u0138" + "\x03\x02\x02\x02\u013A\u013B\x03\x02\x02\x02\u013B\u013F\x03\x02\x02\x02" + "\u013C\u013E\x05\x06\x04\x02\u013D\u013C\x03\x02\x02\x02\u013E\u0141\x03" + "\x02\x02\x02\u013F\u013D\x03\x02\x02\x02\u013F\u0140\x03\x02\x02\x02\u0140" + "\u0145\x03\x02\x02\x02\u0141\u013F\x03\x02\x02\x02\u0142\u0144\x05&\x14" + "\x02\u0143\u0142\x03\x02\x02\x02\u0144\u0147\x03\x02\x02\x02\u0145\u0143" + "\x03\x02\x02\x02\u0145\u0146\x03\x02\x02\x02\u0146\u0149\x03\x02\x02\x02" + "\u0147\u0145\x03\x02\x02\x02\u0148\u014A\x05(\x15\x02\u0149\u0148\x03" + "\x02\x02\x02\u0149\u014A\x03\x02\x02\x02\u014A\u014B\x03\x02\x02\x02\u014B" + "\u014C\x07\x0B\x02\x02\u014C%\x03\x02\x02\x02\u014D\u014E\x07\n\x02\x02" + "\u014E\u014F\x07\x0F\x02\x02\u014F\u0151\x05\x14\x0B\x02\u0150\u0152\x07" + "<\x02\x02\u0151\u0150\x03\x02\x02\x02\u0152\u0153\x03\x02\x02\x02\u0153" + "\u0151\x03\x02\x02\x02\u0153\u0154\x03\x02\x02\x02\u0154\u0158\x03\x02" + "\x02\x02\u0155\u0157\x05\x06\x04\x02\u0156\u0155\x03\x02\x02\x02\u0157" + "\u015A\x03\x02\x02\x02\u0158\u0156\x03\x02\x02\x02\u0158\u0159\x03\x02" + "\x02\x02\u0159'\x03\x02\x02\x02\u015A\u0158\x03\x02\x02\x02\u015B\u015D" + "\x07\n\x02\x02\u015C\u015E\x07<\x02\x02\u015D\u015C\x03\x02\x02\x02\u015E" + "\u015F\x03\x02\x02\x02\u015F\u015D\x03\x02\x02\x02\u015F\u0160\x03\x02" + "\x02\x02\u0160\u0164\x03\x02\x02\x02\u0161\u0163\x05\x06\x04\x02\u0162" + "\u0161\x03\x02\x02\x02\u0163\u0166\x03\x02\x02\x02\u0164\u0162\x03\x02" + "\x02\x02\u0164\u0165\x03\x02\x02\x02\u0165)\x03\x02\x02\x02\u0166\u0164" + "\x03\x02\x02\x02\u0167\u0168\x07\f\x02\x02\u0168\u0169\x05\x12\n\x02\u0169" + "\u016A\x078\x02\x02\u016A\u016B\x07\x10\x02\x02\u016B\u016D\x05\x14\x0B" + "\x02\u016C\u016E\x07<\x02\x02\u016D\u016C\x03\x02\x02\x02\u016E\u016F" + "\x03\x02\x02\x02\u016F\u016D\x03\x02\x02\x02\u016F\u0170\x03\x02\x02\x02" + "\u0170\u0174\x03\x02\x02\x02\u0171\u0173\x05\x06\x04\x02\u0172\u0171\x03" + "\x02\x02\x02\u0173\u0176\x03\x02\x02\x02\u0174\u0172\x03\x02\x02\x02\u0174" + "\u0175\x03\x02\x02\x02\u0175\u0177\x03\x02\x02\x02\u0176\u0174\x03\x02" + "\x02\x02\u0177\u0178\x07\x0B\x02\x02\u0178+\x03\x02\x02\x02\u0179\u017A" + "\x07\x14\x02\x02\u017A\u017C\x05\x14\x0B\x02\u017B\u017D\x07<\x02\x02\u017C" + "\u017B\x03\x02\x02\x02\u017D\u017E\x03\x02\x02\x02\u017E\u017C\x03\x02" + "\x02\x02\u017E\u017F\x03\x02\x02\x02\u017F\u0183\x03\x02\x02\x02\u0180" + "\u0182\x05\x06\x04\x02\u0181\u0180\x03\x02\x02\x02\u0182\u0185\x03\x02" + "\x02\x02\u0183\u0181\x03\x02\x02\x02\u0183\u0184\x03\x02\x02\x02\u0184" + "\u0186\x03\x02\x02\x02\u0185\u0183\x03\x02\x02\x02\u0186\u0187\x07\x0B\x02" + "\x02\u0187-\x03\x02\x02\x02\u0188\u018A\x07\x11\x02\x02\u0189\u018B\x07" + "<\x02\x02\u018A\u0189\x03\x02\x02\x02\u018B\u018C\x03\x02\x02\x02\u018C" + "\u018A\x03\x02\x02\x02\u018C\u018D\x03\x02\x02\x02\u018D\u0191\x03\x02" + "\x02\x02\u018E\u0190\x05\x06\x04\x02\u018F\u018E\x03\x02\x02\x02\u0190" + "\u0193\x03\x02\x02\x02\u0191\u018F\x03\x02\x02\x02\u0191\u0192\x03\x02" + "\x02\x02\u0192\u0194\x03\x02\x02\x02\u0193\u0191\x03\x02\x02\x02\u0194" + "\u0195\x07\x0B\x02\x02\u0195/\x03\x02\x02\x02\u0196\u0197\x07\x07\x02\x02" + "\u01971\x03\x02\x02\x02\u0198\u0199\x07\t\x02\x02\u01993\x03\x02\x02\x02" + "\u019A\u019C\x07\x12\x02\x02\u019B\u019D\x05\x14\x0B\x02\u019C\u019B\x03" + "\x02\x02\x02\u019C\u019D\x03\x02\x02\x02\u019D5\x03\x02\x02\x02\u019E" + "\u01A0\x07<\x02\x02\u019F\u019E\x03\x02\x02\x02\u01A0\u01A1\x03\x02\x02" + "\x02\u01A1\u019F\x03\x02\x02\x02\u01A1\u01A2\x03\x02\x02\x02\u01A2\u01A4" + "\x03\x02\x02\x02\u01A3\u01A5\x07\x02\x02\x03\u01A4\u01A3\x03\x02\x02\x02" + "\u01A4\u01A5\x03\x02\x02\x02\u01A5\u01A8\x03\x02\x02\x02\u01A6\u01A8\x07" + "\x02\x02\x03\u01A7\u019F\x03\x02\x02\x02\u01A7\u01A6\x03\x02\x02\x02\u01A8" + "7\x03\x02\x02\x02-;AHWnw|\x81\x86\x93\x97\xA6\xB4\xE0\xE2\xEB\xF3\xFB" + "\xFF\u0106\u010B\u0111\u0114\u011B\u0133\u013A\u013F\u0145\u0149\u0153" + "\u0158\u015F\u0164\u016F\u0174\u017E\u0183\u018C\u0191\u019C\u01A1\u01A4" + "\u01A7";
+CustomParser._serializedATN = "\x03\uC91D\uCABA\u058D\uAFBA\u4F53\u0607\uEA8B\uC241\x03B\u01A0\x04\x02" + "\t\x02\x04\x03\t\x03\x04\x04\t\x04\x04\x05\t\x05\x04\x06\t\x06\x04\x07" + "\t\x07\x04\b\t\b\x04\t\t\t\x04\n\t\n\x04\v\t\v\x04\f\t\f\x04\r\t\r\x04" + "\x0E\t\x0E\x04\x0F\t\x0F\x04\x10\t\x10\x04\x11\t\x11\x04\x12\t\x12\x04" + "\x13\t\x13\x04\x14\t\x14\x04\x15\t\x15\x04\x16\t\x16\x04\x17\t\x17\x04" + "\x18\t\x18\x04\x19\t\x19\x04\x1A\t\x1A\x04\x1B\t\x1B\x04\x1C\t\x1C\x03" + "\x02\x07\x02:\n\x02\f\x02\x0E\x02=\v\x02\x03\x02\x07\x02@\n\x02\f\x02" + "\x0E\x02C\v\x02\x03\x03\x03\x03\x03\x03\x03\x03\x05\x03I\n\x03\x03\x04" + "\x03\x04\x03\x04\x03\x04\x03\x04\x03\x04\x03\x04\x03\x04\x03\x04\x03\x04" + "\x03\x04\x03\x04\x03\x04\x05\x04X\n\x04\x03\x05\x03\x05\x03\x05\x03\x05" + "\x03\x05\x03\x05\x03\x05\x03\x05\x03\x05\x03\x05\x03\x05\x03\x05\x03\x05" + "\x03\x05\x03\x05\x03\x05\x03\x05\x03\x05\x03\x05\x03\x05\x03\x05\x05\x05" + "o\n\x05\x03\x06\x03\x06\x03\x06\x03\x07\x03\x07\x03\x07\x03\x07\x05\x07" + "x\n\x07\x03\x07\x03\x07\x03\x07\x05\x07}\n\x07\x03\x07\x06\x07\x80\n\x07" + "\r\x07\x0E\x07\x81\x03\x07\x07\x07\x85\n\x07\f\x07\x0E\x07\x88\v\x07\x03" + "\x07\x03\x07\x03\b\x03\b\x03\b\x03\b\x03\b\x03\b\x07\b\x92\n\b\f\b\x0E" + "\b\x95\v\b\x03\t\x05\t\x98\n\t\x03\t\x03\t\x03\t\x03\t\x03\t\x03\n\x03" + "\n\x03\n\x05\n\xA2\n\n\x03\v\x03\v\x03\v\x03\v\x03\v\x03\v\x03\v\x03\v" + "\x03\v\x03\v\x03\v\x03\v\x05\v\xB0\n\v\x03\v\x03\v\x03\v\x03\v\x03\v\x03" + "\v\x03\v\x03\v\x03\v\x03\v\x03\v\x03\v\x03\v\x03\v\x03\v\x03\v\x03\v\x03" + "\v\x03\v\x03\v\x03\v\x03\v\x03\v\x03\v\x03\v\x03\v\x03\v\x03\v\x03\v\x03" + "\v\x03\v\x03\v\x03\v\x03\v\x03\v\x03\v\x03\v\x03\v\x03\v\x03\v\x03\v\x03" + "\v\x07\v\xDC\n\v\f\v\x0E\v\xDF\v\v\x03\f\x03\f\x03\f\x03\f\x03\f\x03\f" + "\x05\f\xE7\n\f\x03\r\x03\r\x03\x0E\x03\x0E\x07\x0E\xED\n\x0E\f\x0E\x0E" + "\x0E\xF0\v\x0E\x03\x0E\x03\x0E\x03\x0E\x07\x0E\xF5\n\x0E\f\x0E\x0E\x0E" + "\xF8\v\x0E\x03\x0E\x05\x0E\xFB\n\x0E\x03\x0F\x03\x0F\x03\x0F\x03\x0F\x03" + "\x0F\x05\x0F\u0102\n\x0F\x03\x10\x03\x10\x03\x10\x05\x10\u0107\n\x10\x03" + "\x10\x03\x10\x03\x11\x03\x11\x03\x11\x07\x11\u010E\n\x11\f\x11\x0E\x11" + "\u0111\x0B\x11\x03\x12\x03\x12\x03\x12\x03\x12\x03\x12\x03\x12\x03\x12\x03" + "\x12\x03\x12\x03\x12\x03\x12\x03\x12\x03\x12\x03\x12\x03\x12\x03\x12\x03" + "\x12\x03\x12\x03\x12\x03\x12\x03\x12\x05\x12\u0128\n\x12\x03\x13\x03\x13" + "\x03\x13\x06\x13\u012D\n\x13\r\x13\x0E\x13\u012E\x03\x13\x07\x13\u0132" + "\n\x13\f\x13\x0E\x13\u0135\x0B\x13\x03\x13\x07\x13\u0138\n\x13\f\x13\x0E" + "\x13\u013B\x0B\x13\x03\x13\x05\x13\u013E\n\x13\x03\x13\x03\x13\x03\x14\x03" + "\x14\x03\x14\x03\x14\x06\x14\u0146\n\x14\r\x14\x0E\x14\u0147\x03\x14\x07" + "\x14\u014B\n\x14\f\x14\x0E\x14\u014E\x0B\x14\x03\x15\x03\x15\x06\x15\u0152" + "\n\x15\r\x15\x0E\x15\u0153\x03\x15\x07\x15\u0157\n\x15\f\x15\x0E\x15\u015A" + "\v\x15\x03\x16\x03\x16\x03\x16\x03\x16\x03\x16\x03\x16\x03\x16\x03\x16" + "\x06\x16\u0164\n\x16\r\x16\x0E\x16\u0165\x03\x16\x07\x16\u0169\n\x16\f" + "\x16\x0E\x16\u016C\x0B\x16\x03\x16\x03\x16\x03\x17\x03\x17\x03\x17\x06\x17" + "\u0173\n\x17\r\x17\x0E\x17\u0174\x03\x17\x07\x17\u0178\n\x17\f\x17\x0E" + "\x17\u017B\x0B\x17\x03\x17\x03\x17\x03\x18\x03\x18\x06\x18\u0181\n\x18\r" + "\x18\x0E\x18\u0182\x03\x18\x07\x18\u0186\n\x18\f\x18\x0E\x18\u0189\x0B\x18" + "\x03\x18\x03\x18\x03\x19\x03\x19\x03\x1A\x03\x1A\x03\x1B\x03\x1B\x05\x1B" + "\u0193\n\x1B\x03\x1C\x06\x1C\u0196\n\x1C\r\x1C\x0E\x1C\u0197\x03\x1C\x05" + "\x1C\u019B\n\x1C\x03\x1C\x05\x1C\u019E\n\x1C\x03\x1C\x02\x02\x03\x14\x1D" + "\x02\x02\x04\x02\x06\x02\b\x02\n\x02\f\x02\x0E\x02\x10\x02\x12\x02\x14" + "\x02\x16\x02\x18\x02\x1A\x02\x1C\x02\x1E\x02 \x02\"\x02$\x02&\x02(\x02" + "*\x02,\x02.\x020\x022\x024\x026\x02\x02\x03\x03\x029;\x02\u01CE\x02;\x03" + "\x02\x02\x02\x04H\x03\x02\x02\x02\x06W\x03\x02\x02\x02\bn\x03\x02\x02" + "\x02\np\x03\x02\x02\x02\fs\x03\x02\x02\x02\x0E\x8B\x03\x02\x02\x02\x10" + "\x97\x03\x02\x02\x02\x12\xA1\x03\x02\x02\x02\x14\xAF\x03\x02\x02\x02\x16" + "\xE6\x03\x02\x02\x02\x18\xE8\x03\x02\x02\x02\x1A\xFA\x03\x02\x02\x02\x1C" + "\u0101\x03\x02\x02\x02\x1E\u0103\x03\x02\x02\x02 \u010A\x03\x02\x02\x02" + "\"\u0127\x03\x02\x02\x02$\u0129\x03\x02\x02\x02&\u0141\x03\x02\x02\x02" + "(\u014F\x03\x02\x02\x02*\u015B\x03\x02\x02\x02,\u016F\x03\x02\x02\x02" + ".\u017E\x03\x02\x02\x020\u018C\x03\x02\x02\x022\u018E\x03\x02\x02\x02" + "4\u0190\x03\x02\x02\x026\u019D\x03\x02\x02\x028:\x07<\x02\x0298\x03\x02" + "\x02\x02:=\x03\x02\x02\x02;9\x03\x02\x02\x02;<\x03\x02\x02\x02<A\x03\x02" + "\x02\x02=;\x03\x02\x02\x02>@\x05\x04\x03\x02?>\x03\x02\x02\x02@C\x03\x02" + "\x02\x02A?\x03\x02\x02\x02AB\x03\x02\x02\x02B\x03\x03\x02\x02\x02CA\x03" + "\x02\x02\x02DE\x05\f\x07\x02EF\x056\x1C\x02FI\x03\x02\x02\x02GI\x05\b" + "\x05\x02HD\x03\x02\x02\x02HG\x03\x02\x02\x02I\x05\x03\x02\x02\x02JK\x05" + "\n\x06\x02KL\x056\x1C\x02LX\x03\x02\x02\x02MN\x050\x19\x02NO\x056\x1C" + "\x02OX\x03\x02\x02\x02PQ\x052\x1A\x02QR\x056\x1C\x02RX\x03\x02\x02\x02" + "ST\x054\x1B\x02TU\x056\x1C\x02UX\x03\x02\x02\x02VX\x05\b\x05\x02WJ\x03" + "\x02\x02\x02WM\x03\x02\x02\x02WP\x03\x02\x02\x02WS\x03\x02\x02\x02WV\x03" + "\x02\x02\x02X\x07\x03\x02\x02\x02YZ\x05\x10\t\x02Z[\x056\x1C\x02[o\x03" + "\x02\x02\x02\\]\x05\"\x12\x02]^\x056\x1C\x02^o\x03\x02\x02\x02_`\x05$" + "\x13\x02`a\x056\x1C\x02ao\x03\x02\x02\x02bc\x05*\x16\x02cd\x056\x1C\x02" + "do\x03\x02\x02\x02ef\x05,\x17\x02fg\x056\x1C\x02go\x03\x02\x02\x02hi\x05" + ".\x18\x02ij\x056\x1C\x02jo\x03\x02\x02\x02kl\x05\x1E\x10\x02lm\x056\x1C" + "\x02mo\x03\x02\x02\x02nY\x03\x02\x02\x02n\\\x03\x02\x02\x02n_\x03\x02" + "\x02\x02nb\x03\x02\x02\x02ne\x03\x02\x02\x02nh\x03\x02\x02\x02nk\x03\x02" + "\x02\x02o\t\x03\x02\x02\x02pq\x07\x0F\x02\x02qr\x078\x02\x02r\v\x03\x02" + "\x02\x02st\x07\x0E\x02\x02tu\x078\x02\x02uw\x07.\x02\x02vx\x05\x0E\b\x02" + "wv\x03\x02\x02\x02wx\x03\x02\x02\x02xy\x03\x02\x02\x02y|\x07/\x02\x02" + "z{\x07\x12\x02\x02{}\x05\x12\n\x02|z\x03\x02\x02\x02|}\x03\x02\x02\x02" + "}\x7F\x03\x02\x02\x02~\x80\x07<\x02\x02\x7F~\x03\x02\x02\x02\x80\x81\x03" + "\x02\x02\x02\x81\x7F\x03\x02\x02\x02\x81\x82\x03\x02\x02\x02\x82\x86\x03" + "\x02\x02\x02\x83\x85\x05\x06\x04\x02\x84\x83\x03\x02\x02\x02\x85\x88\x03" + "\x02\x02\x02\x86\x84\x03\x02\x02\x02\x86\x87\x03\x02\x02\x02\x87\x89\x03" + "\x02\x02\x02\x88\x86\x03\x02\x02\x02\x89\x8A\x07\n\x02\x02\x8A\r\x03\x02" + "\x02\x02\x8B\x8C\x05\x12\n\x02\x8C\x93\x078\x02\x02\x8D\x8E\x075\x02\x02" + "\x8E\x8F\x05\x12\n\x02\x8F\x90\x078\x02\x02\x90\x92\x03\x02\x02\x02\x91" + "\x8D\x03\x02\x02\x02\x92\x95\x03\x02\x02\x02\x93\x91\x03\x02\x02\x02\x93" + "\x94\x03\x02\x02\x02\x94\x0F\x03\x02\x02\x02\x95\x93\x03\x02\x02\x02\x96" + "\x98\x07\x07\x02\x02\x97\x96\x03\x02\x02\x02\x97\x98\x03\x02\x02\x02\x98" + "\x99\x03\x02\x02\x02\x99\x9A\x05\x12\n\x02\x9A\x9B\x078\x02\x02\x9B\x9C" + "\x07\x15\x02\x02\x9C\x9D\x05\x14\v\x02\x9D\x11\x03\x02\x02\x02\x9E\xA2" + "\x07+\x02\x02\x9F\xA2\x07,\x02\x02\xA0\xA2\x07-\x02\x02\xA1\x9E\x03\x02" + "\x02\x02\xA1\x9F\x03\x02\x02\x02\xA1\xA0\x03\x02\x02\x02\xA2\x13\x03\x02" + "\x02\x02\xA3\xA4\b\v\x01\x02\xA4\xA5\x07.\x02\x02\xA5\xA6\x05\x14\v\x02" + "\xA6\xA7\x07/\x02\x02\xA7\xB0\x03\x02\x02\x02\xA8\xA9\x07\x16\x02\x02" + "\xA9\xB0\x05\x14\v\x14\xAA\xAB\x07\x17\x02\x02\xAB\xB0\x05\x14\v\x13\xAC" + "\xAD\x07*\x02\x02\xAD\xB0\x05\x14\v\x12\xAE\xB0\x05\x16\f\x02\xAF\xA3" + "\x03\x02\x02\x02\xAF\xA8\x03\x02\x02\x02\xAF\xAA\x03\x02\x02\x02\xAF\xAC" + "\x03\x02\x02\x02\xAF\xAE\x03\x02\x02\x02\xB0\xDD\x03\x02\x02\x02\xB1\xB2" + "\f\x11\x02\x02\xB2\xB3\x07\x1B\x02\x02\xB3\xDC\x05\x14\v\x11\xB4\xB5\f" + "\x10\x02\x02\xB5\xB6\x07\x18\x02\x02\xB6\xDC\x05\x14\v\x11\xB7\xB8\f\x0F" + "\x02\x02\xB8\xB9\x07\x19\x02\x02\xB9\xDC\x05\x14\v\x10\xBA\xBB\f\x0E\x02" + "\x02\xBB\xBC\x07\x1A\x02\x02\xBC\xDC\x05\x14\v\x0F\xBD\xBE\f\r\x02\x02" + "\xBE\xBF\x07\x16\x02\x02\xBF\xDC\x05\x14\v\x0E\xC0\xC1\f\f\x02\x02\xC1" + "\xC2\x07\x17\x02\x02\xC2\xDC\x05\x14\v\r\xC3\xC4\f\v\x02\x02\xC4\xC5\x07" + "\"\x02\x02\xC5\xDC\x05\x14\v\f\xC6\xC7\f\n\x02\x02\xC7\xC8\x07#\x02\x02" + "\xC8\xDC\x05\x14\v\v\xC9\xCA\f\t\x02\x02\xCA\xCB\x07$\x02\x02\xCB\xDC" + "\x05\x14\v\n\xCC\xCD\f\b\x02\x02\xCD\xCE\x07%\x02\x02\xCE\xDC\x05\x14" + "\v\t\xCF\xD0\f\x07\x02\x02\xD0\xD1\x07&\x02\x02\xD1\xDC\x05\x14\v\b\xD2" + "\xD3\f\x06\x02\x02\xD3\xD4\x07\'\x02\x02\xD4\xDC\x05\x14\v\x07\xD5\xD6" + "\f\x05\x02\x02\xD6\xD7\x07(\x02\x02\xD7\xDC\x05\x14\v\x06\xD8\xD9\f\x04" + "\x02\x02\xD9\xDA\x07)\x02\x02\xDA\xDC\x05\x14\v\x05\xDB\xB1\x03\x02\x02" + "\x02\xDB\xB4\x03\x02\x02\x02\xDB\xB7\x03\x02\x02\x02\xDB\xBA\x03\x02\x02" + "\x02\xDB\xBD\x03\x02\x02\x02\xDB\xC0\x03\x02\x02\x02\xDB\xC3\x03\x02\x02" + "\x02\xDB\xC6\x03\x02\x02\x02\xDB\xC9\x03\x02\x02\x02\xDB\xCC\x03\x02\x02" + "\x02\xDB\xCF\x03\x02\x02\x02\xDB\xD2\x03\x02\x02\x02\xDB\xD5\x03\x02\x02" + "\x02\xDB\xD8\x03\x02\x02\x02\xDC\xDF\x03\x02\x02\x02\xDD\xDB\x03\x02\x02" + "\x02\xDD\xDE\x03\x02\x02\x02\xDE\x15\x03\x02\x02\x02\xDF\xDD\x03\x02\x02" + "\x02\xE0\xE7\x07\x04\x02\x02\xE1\xE7\x07\x05\x02\x02\xE2\xE7\x05\x18\r" + "\x02\xE3\xE7\x05\x1A\x0E\x02\xE4\xE7\x05\x1E\x10\x02\xE5\xE7\x078\x02" + "\x02\xE6\xE0\x03\x02\x02\x02\xE6\xE1\x03\x02\x02\x02\xE6\xE2\x03\x02\x02" + "\x02\xE6\xE3\x03\x02\x02\x02\xE6\xE4\x03\x02\x02\x02\xE6\xE5\x03\x02\x02" + "\x02\xE7\x17\x03\x02\x02\x02\xE8\xE9\t\x02\x02\x02\xE9\x19\x03\x02\x02" + "\x02\xEA\xEE\x076\x02\x02\xEB\xED\x07\x03\x02\x02\xEC\xEB\x03\x02\x02" + "\x02\xED\xF0\x03\x02\x02\x02\xEE\xEC\x03\x02\x02\x02\xEE\xEF\x03\x02\x02" + "\x02\xEF\xF1\x03\x02\x02\x02\xF0\xEE\x03\x02\x02\x02\xF1\xFB\x076\x02" + "\x02\xF2\xF6\x077\x02\x02\xF3\xF5\x05\x1C\x0F\x02\xF4\xF3\x03\x02\x02" + "\x02\xF5\xF8\x03\x02\x02\x02\xF6\xF4\x03\x02\x02\x02\xF6\xF7\x03\x02\x02" + "\x02\xF7\xF9\x03\x02\x02\x02\xF8\xF6\x03\x02\x02\x02\xF9\xFB\x077\x02" + "\x02\xFA\xEA\x03\x02\x02\x02\xFA\xF2\x03\x02\x02\x02\xFB\x1B\x03\x02\x02" + "\x02\xFC\u0102\x07\x03\x02\x02\xFD\xFE\x072\x02\x02\xFE\xFF\x05\x14\x0B" + "\x02\xFF\u0100\x073\x02\x02\u0100\u0102\x03\x02\x02\x02\u0101\xFC\x03" + "\x02\x02\x02\u0101\xFD\x03\x02\x02\x02\u0102\x1D\x03\x02\x02\x02\u0103" + "\u0104\x078\x02\x02\u0104\u0106\x07.\x02\x02\u0105\u0107\x05 \x11\x02" + "\u0106\u0105\x03\x02\x02\x02\u0106\u0107\x03\x02\x02\x02\u0107\u0108\x03" + "\x02\x02\x02\u0108\u0109\x07/\x02\x02\u0109\x1F\x03\x02\x02\x02\u010A" + "\u010F\x05\x14\x0B\x02\u010B\u010C\x075\x02\x02\u010C\u010E\x05\x14\x0B\x02" + "\u010D\u010B\x03\x02\x02\x02\u010E\u0111\x03\x02\x02\x02\u010F\u010D\x03" + "\x02\x02\x02\u010F\u0110\x03\x02\x02\x02\u0110!\x03\x02\x02\x02\u0111" + "\u010F\x03\x02\x02\x02\u0112\u0113\x078\x02\x02\u0113\u0114\x07\x15\x02" + "\x02\u0114\u0128\x05\x14\x0B\x02\u0115\u0116\x078\x02\x02\u0116\u0117\x07" + "\x1C\x02\x02\u0117\u0128\x05\x14\x0B\x02\u0118\u0119\x078\x02\x02\u0119" + "\u011A\x07\x1D\x02\x02\u011A\u0128\x05\x14\x0B\x02\u011B\u011C\x078\x02" + "\x02\u011C\u011D\x07\x1E\x02\x02\u011D\u0128\x05\x14\x0B\x02\u011E\u011F" + "\x078\x02\x02\u011F\u0120\x07\x1F\x02\x02\u0120\u0128\x05\x14\x0B\x02\u0121" + "\u0122\x078\x02\x02\u0122\u0123\x07 \x02\x02\u0123\u0128\x05\x14\x0B\x02" + "\u0124\u0125\x078\x02\x02\u0125\u0126\x07!\x02\x02\u0126\u0128\x05\x14" + "\x0B\x02\u0127\u0112\x03\x02\x02\x02\u0127\u0115\x03\x02\x02\x02\u0127\u0118" + "\x03\x02\x02\x02\u0127\u011B\x03\x02\x02\x02\u0127\u011E\x03\x02\x02\x02" + "\u0127\u0121\x03\x02\x02\x02\u0127\u0124\x03\x02\x02\x02\u0128#\x03\x02" + "\x02\x02\u0129\u012A\x07\x10\x02\x02\u012A\u012C\x05\x14\x0B\x02\u012B\u012D" + "\x07<\x02\x02\u012C\u012B\x03\x02\x02\x02\u012D\u012E\x03\x02\x02\x02" + "\u012E\u012C\x03\x02\x02\x02\u012E\u012F\x03\x02\x02\x02\u012F\u0133\x03" + "\x02\x02\x02\u0130\u0132\x05\x06\x04\x02\u0131\u0130\x03\x02\x02\x02\u0132" + "\u0135\x03\x02\x02\x02\u0133\u0131\x03\x02\x02\x02\u0133\u0134\x03\x02" + "\x02\x02\u0134\u0139\x03\x02\x02\x02\u0135\u0133\x03\x02\x02\x02\u0136" + "\u0138\x05&\x14\x02\u0137\u0136\x03\x02\x02\x02\u0138\u013B\x03\x02\x02" + "\x02\u0139\u0137\x03\x02\x02\x02\u0139\u013A\x03\x02\x02\x02\u013A\u013D" + "\x03\x02\x02\x02\u013B\u0139\x03\x02\x02\x02\u013C\u013E\x05(\x15\x02" + "\u013D\u013C\x03\x02\x02\x02\u013D\u013E\x03\x02\x02\x02\u013E\u013F\x03" + "\x02\x02\x02\u013F\u0140\x07\n\x02\x02\u0140%\x03\x02\x02\x02\u0141\u0142" + "\x07\t\x02\x02\u0142\u0143\x07\x10\x02\x02\u0143\u0145\x05\x14\x0B\x02\u0144" + "\u0146\x07<\x02\x02\u0145\u0144\x03\x02\x02\x02\u0146\u0147\x03\x02\x02" + "\x02\u0147\u0145\x03\x02\x02\x02\u0147\u0148\x03\x02\x02\x02\u0148\u014C" + "\x03\x02\x02\x02\u0149\u014B\x05\x06\x04\x02\u014A\u0149\x03\x02\x02\x02" + "\u014B\u014E\x03\x02\x02\x02\u014C\u014A\x03\x02\x02\x02\u014C\u014D\x03" + "\x02\x02\x02\u014D'\x03\x02\x02\x02\u014E\u014C\x03\x02\x02\x02\u014F" + "\u0151\x07\t\x02\x02\u0150\u0152\x07<\x02\x02\u0151\u0150\x03\x02\x02" + "\x02\u0152\u0153\x03\x02\x02\x02\u0153\u0151\x03\x02\x02\x02\u0153\u0154" + "\x03\x02\x02\x02\u0154\u0158\x03\x02\x02\x02\u0155\u0157\x05\x06\x04\x02" + "\u0156\u0155\x03\x02\x02\x02\u0157\u015A\x03\x02\x02\x02\u0158\u0156\x03" + "\x02\x02\x02\u0158\u0159\x03\x02\x02\x02\u0159)\x03\x02\x02\x02\u015A" + "\u0158\x03\x02\x02\x02\u015B\u015C\x07\x0B\x02\x02\u015C\u015D\x05\x12\n" + "\x02\u015D\u015E\x078\x02\x02\u015E\u015F\x07\r\x02\x02\u015F\u0160\x05" + "\x14\x0B\x02\u0160\u0161\x07\x13\x02\x02\u0161\u0163\x05\x14\x0B\x02\u0162" + "\u0164\x07<\x02\x02\u0163\u0162\x03\x02\x02\x02\u0164\u0165\x03\x02\x02" + "\x02\u0165\u0163\x03\x02\x02\x02\u0165\u0166\x03\x02\x02\x02\u0166\u016A" + "\x03\x02\x02\x02\u0167\u0169\x05\x06\x04\x02\u0168\u0167\x03\x02\x02\x02" + "\u0169\u016C\x03\x02\x02\x02\u016A\u0168\x03\x02\x02\x02\u016A\u016B\x03" + "\x02\x02\x02\u016B\u016D\x03\x02\x02\x02\u016C\u016A\x03\x02\x02\x02\u016D" + "\u016E\x07\n\x02\x02\u016E+\x03\x02\x02\x02\u016F\u0170\x07\x14\x02\x02" + "\u0170\u0172\x05\x14\x0B\x02\u0171\u0173\x07<\x02\x02\u0172\u0171\x03\x02" + "\x02\x02\u0173\u0174\x03\x02\x02\x02\u0174\u0172\x03\x02\x02\x02\u0174" + "\u0175\x03\x02\x02\x02\u0175\u0179\x03\x02\x02\x02\u0176\u0178\x05\x06" + "\x04\x02\u0177\u0176\x03\x02\x02\x02\u0178\u017B\x03\x02\x02\x02\u0179" + "\u0177\x03\x02\x02\x02\u0179\u017A\x03\x02\x02\x02\u017A\u017C\x03\x02" + "\x02\x02\u017B\u0179\x03\x02\x02\x02\u017C\u017D\x07\n\x02\x02\u017D-" + "\x03\x02\x02\x02\u017E\u0180\x07\f\x02\x02\u017F\u0181\x07<\x02\x02\u0180" + "\u017F\x03\x02\x02\x02\u0181\u0182\x03\x02\x02\x02\u0182\u0180\x03\x02" + "\x02\x02\u0182\u0183\x03\x02\x02\x02\u0183\u0187\x03\x02\x02\x02\u0184" + "\u0186\x05\x06\x04\x02\u0185\u0184\x03\x02\x02\x02\u0186\u0189\x03\x02" + "\x02\x02\u0187\u0185\x03\x02\x02\x02\u0187\u0188\x03\x02\x02\x02\u0188" + "\u018A\x03\x02\x02\x02\u0189\u0187\x03\x02\x02\x02\u018A\u018B\x07\n\x02" + "\x02\u018B/\x03\x02\x02\x02\u018C\u018D\x07\x06\x02\x02\u018D1\x03\x02" + "\x02\x02\u018E\u018F\x07\b\x02\x02\u018F3\x03\x02\x02\x02\u0190\u0192" + "\x07\x11\x02\x02\u0191\u0193\x05\x14\x0B\x02\u0192\u0191\x03\x02\x02\x02" + "\u0192\u0193\x03\x02\x02\x02\u01935\x03\x02\x02\x02\u0194\u0196\x07<\x02" + "\x02\u0195\u0194\x03\x02\x02\x02\u0196\u0197\x03\x02\x02\x02\u0197\u0195" + "\x03\x02\x02\x02\u0197\u0198\x03\x02\x02\x02\u0198\u019A\x03\x02\x02\x02" + "\u0199\u019B\x07\x02\x02\x03\u019A\u0199\x03\x02\x02\x02\u019A\u019B\x03" + "\x02\x02\x02\u019B\u019E\x03\x02\x02\x02\u019C\u019E\x07\x02\x02\x03\u019D" + "\u0195\x03\x02\x02\x02\u019D\u019C\x03\x02\x02\x02\u019E7\x03\x02\x02" + "\x02+;AHWnw|\x81\x86\x93\x97\xA1\xAF\xDB\xDD\xE6\xEE\xF6\xFA\u0101\u0106" + "\u010F\u0127\u012E\u0133\u0139\u013D\u0147\u014C\u0153\u0158\u0165\u016A" + "\u0174\u0179\u0182\u0187\u0192\u0197\u019A\u019D";
 var ProgramContext = /*#__PURE__*/function (_ParserRuleContext) {
   (0,_babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_4__["default"])(ProgramContext, _ParserRuleContext);
 
@@ -2731,9 +2680,9 @@ var StatementContext = /*#__PURE__*/function (_ParserRuleContext4) {
       return this.tryGetRuleContext(0, IfStatementContext);
     }
   }, {
-    key: "forInStatement",
-    value: function forInStatement() {
-      return this.tryGetRuleContext(0, ForInStatementContext);
+    key: "forFromToStatement",
+    value: function forFromToStatement() {
+      return this.tryGetRuleContext(0, ForFromToStatementContext);
     }
   }, {
     key: "whileStatement",
@@ -3134,65 +3083,15 @@ var TextTypeContext = /*#__PURE__*/function (_TypeContext3) {
 
   return TextTypeContext;
 }(TypeContext);
-var ListTypeContext = /*#__PURE__*/function (_TypeContext4) {
-  (0,_babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_4__["default"])(ListTypeContext, _TypeContext4);
-
-  var _super14 = _createSuper(ListTypeContext);
-
-  function ListTypeContext(ctx) {
-    var _this5;
-
-    (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1__["default"])(this, ListTypeContext);
-
-    _this5 = _super14.call(this, ctx.parent, ctx.invokingState);
-
-    _this5.copyFrom(ctx);
-
-    return _this5;
-  }
-
-  (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2__["default"])(ListTypeContext, [{
-    key: "LIST",
-    value: function LIST() {
-      return this.getToken(CustomParser.LIST, 0);
-    }
-  }, {
-    key: "OPEN_PARENTHESIS",
-    value: function OPEN_PARENTHESIS() {
-      return this.getToken(CustomParser.OPEN_PARENTHESIS, 0);
-    }
-  }, {
-    key: "type",
-    value: function type() {
-      return this.getRuleContext(0, TypeContext);
-    }
-  }, {
-    key: "CLOSE_PARENTHESIS",
-    value: function CLOSE_PARENTHESIS() {
-      return this.getToken(CustomParser.CLOSE_PARENTHESIS, 0);
-    }
-  }, {
-    key: "accept",
-    value: function accept(visitor) {
-      if (visitor.visitListType) {
-        return visitor.visitListType(this);
-      } else {
-        return visitor.visitChildren(this);
-      }
-    }
-  }]);
-
-  return ListTypeContext;
-}(TypeContext);
 var ExpressionContext = /*#__PURE__*/function (_ParserRuleContext10) {
   (0,_babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_4__["default"])(ExpressionContext, _ParserRuleContext10);
 
-  var _super15 = _createSuper(ExpressionContext);
+  var _super14 = _createSuper(ExpressionContext);
 
   function ExpressionContext(parent, invokingState) {
     (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1__["default"])(this, ExpressionContext);
 
-    return _super15.call(this, parent, invokingState);
+    return _super14.call(this, parent, invokingState);
   }
 
   (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2__["default"])(ExpressionContext, [{
@@ -3212,18 +3111,18 @@ var ExpressionContext = /*#__PURE__*/function (_ParserRuleContext10) {
 var ParenthesisExpressionContext = /*#__PURE__*/function (_ExpressionContext) {
   (0,_babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_4__["default"])(ParenthesisExpressionContext, _ExpressionContext);
 
-  var _super16 = _createSuper(ParenthesisExpressionContext);
+  var _super15 = _createSuper(ParenthesisExpressionContext);
 
   function ParenthesisExpressionContext(ctx) {
-    var _this6;
+    var _this5;
 
     (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1__["default"])(this, ParenthesisExpressionContext);
 
-    _this6 = _super16.call(this, ctx.parent, ctx.invokingState);
+    _this5 = _super15.call(this, ctx.parent, ctx.invokingState);
 
-    _this6.copyFrom(ctx);
+    _this5.copyFrom(ctx);
 
-    return _this6;
+    return _this5;
   }
 
   (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2__["default"])(ParenthesisExpressionContext, [{
@@ -3257,18 +3156,18 @@ var ParenthesisExpressionContext = /*#__PURE__*/function (_ExpressionContext) {
 var PlusExpressionContext = /*#__PURE__*/function (_ExpressionContext2) {
   (0,_babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_4__["default"])(PlusExpressionContext, _ExpressionContext2);
 
-  var _super17 = _createSuper(PlusExpressionContext);
+  var _super16 = _createSuper(PlusExpressionContext);
 
   function PlusExpressionContext(ctx) {
-    var _this7;
+    var _this6;
 
     (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1__["default"])(this, PlusExpressionContext);
 
-    _this7 = _super17.call(this, ctx.parent, ctx.invokingState);
+    _this6 = _super16.call(this, ctx.parent, ctx.invokingState);
 
-    _this7.copyFrom(ctx);
+    _this6.copyFrom(ctx);
 
-    return _this7;
+    return _this6;
   }
 
   (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2__["default"])(PlusExpressionContext, [{
@@ -3297,18 +3196,18 @@ var PlusExpressionContext = /*#__PURE__*/function (_ExpressionContext2) {
 var MinusExpressionContext = /*#__PURE__*/function (_ExpressionContext3) {
   (0,_babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_4__["default"])(MinusExpressionContext, _ExpressionContext3);
 
-  var _super18 = _createSuper(MinusExpressionContext);
+  var _super17 = _createSuper(MinusExpressionContext);
 
   function MinusExpressionContext(ctx) {
-    var _this8;
+    var _this7;
 
     (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1__["default"])(this, MinusExpressionContext);
 
-    _this8 = _super18.call(this, ctx.parent, ctx.invokingState);
+    _this7 = _super17.call(this, ctx.parent, ctx.invokingState);
 
-    _this8.copyFrom(ctx);
+    _this7.copyFrom(ctx);
 
-    return _this8;
+    return _this7;
   }
 
   (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2__["default"])(MinusExpressionContext, [{
@@ -3337,18 +3236,18 @@ var MinusExpressionContext = /*#__PURE__*/function (_ExpressionContext3) {
 var NotExpressionContext = /*#__PURE__*/function (_ExpressionContext4) {
   (0,_babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_4__["default"])(NotExpressionContext, _ExpressionContext4);
 
-  var _super19 = _createSuper(NotExpressionContext);
+  var _super18 = _createSuper(NotExpressionContext);
 
   function NotExpressionContext(ctx) {
-    var _this9;
+    var _this8;
 
     (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1__["default"])(this, NotExpressionContext);
 
-    _this9 = _super19.call(this, ctx.parent, ctx.invokingState);
+    _this8 = _super18.call(this, ctx.parent, ctx.invokingState);
 
-    _this9.copyFrom(ctx);
+    _this8.copyFrom(ctx);
 
-    return _this9;
+    return _this8;
   }
 
   (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2__["default"])(NotExpressionContext, [{
@@ -3377,18 +3276,18 @@ var NotExpressionContext = /*#__PURE__*/function (_ExpressionContext4) {
 var PowerExpressionContext = /*#__PURE__*/function (_ExpressionContext5) {
   (0,_babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_4__["default"])(PowerExpressionContext, _ExpressionContext5);
 
-  var _super20 = _createSuper(PowerExpressionContext);
+  var _super19 = _createSuper(PowerExpressionContext);
 
   function PowerExpressionContext(ctx) {
-    var _this10;
+    var _this9;
 
     (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1__["default"])(this, PowerExpressionContext);
 
-    _this10 = _super20.call(this, ctx.parent, ctx.invokingState);
+    _this9 = _super19.call(this, ctx.parent, ctx.invokingState);
 
-    _this10.copyFrom(ctx);
+    _this9.copyFrom(ctx);
 
-    return _this10;
+    return _this9;
   }
 
   (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2__["default"])(PowerExpressionContext, [{
@@ -3421,18 +3320,18 @@ var PowerExpressionContext = /*#__PURE__*/function (_ExpressionContext5) {
 var MultiplyExpressionContext = /*#__PURE__*/function (_ExpressionContext6) {
   (0,_babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_4__["default"])(MultiplyExpressionContext, _ExpressionContext6);
 
-  var _super21 = _createSuper(MultiplyExpressionContext);
+  var _super20 = _createSuper(MultiplyExpressionContext);
 
   function MultiplyExpressionContext(ctx) {
-    var _this11;
+    var _this10;
 
     (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1__["default"])(this, MultiplyExpressionContext);
 
-    _this11 = _super21.call(this, ctx.parent, ctx.invokingState);
+    _this10 = _super20.call(this, ctx.parent, ctx.invokingState);
 
-    _this11.copyFrom(ctx);
+    _this10.copyFrom(ctx);
 
-    return _this11;
+    return _this10;
   }
 
   (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2__["default"])(MultiplyExpressionContext, [{
@@ -3465,18 +3364,18 @@ var MultiplyExpressionContext = /*#__PURE__*/function (_ExpressionContext6) {
 var DivideExpressionContext = /*#__PURE__*/function (_ExpressionContext7) {
   (0,_babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_4__["default"])(DivideExpressionContext, _ExpressionContext7);
 
-  var _super22 = _createSuper(DivideExpressionContext);
+  var _super21 = _createSuper(DivideExpressionContext);
 
   function DivideExpressionContext(ctx) {
-    var _this12;
+    var _this11;
 
     (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1__["default"])(this, DivideExpressionContext);
 
-    _this12 = _super22.call(this, ctx.parent, ctx.invokingState);
+    _this11 = _super21.call(this, ctx.parent, ctx.invokingState);
 
-    _this12.copyFrom(ctx);
+    _this11.copyFrom(ctx);
 
-    return _this12;
+    return _this11;
   }
 
   (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2__["default"])(DivideExpressionContext, [{
@@ -3509,18 +3408,18 @@ var DivideExpressionContext = /*#__PURE__*/function (_ExpressionContext7) {
 var RemainderExpressionContext = /*#__PURE__*/function (_ExpressionContext8) {
   (0,_babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_4__["default"])(RemainderExpressionContext, _ExpressionContext8);
 
-  var _super23 = _createSuper(RemainderExpressionContext);
+  var _super22 = _createSuper(RemainderExpressionContext);
 
   function RemainderExpressionContext(ctx) {
-    var _this13;
+    var _this12;
 
     (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1__["default"])(this, RemainderExpressionContext);
 
-    _this13 = _super23.call(this, ctx.parent, ctx.invokingState);
+    _this12 = _super22.call(this, ctx.parent, ctx.invokingState);
 
-    _this13.copyFrom(ctx);
+    _this12.copyFrom(ctx);
 
-    return _this13;
+    return _this12;
   }
 
   (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2__["default"])(RemainderExpressionContext, [{
@@ -3553,18 +3452,18 @@ var RemainderExpressionContext = /*#__PURE__*/function (_ExpressionContext8) {
 var AddExpressionContext = /*#__PURE__*/function (_ExpressionContext9) {
   (0,_babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_4__["default"])(AddExpressionContext, _ExpressionContext9);
 
-  var _super24 = _createSuper(AddExpressionContext);
+  var _super23 = _createSuper(AddExpressionContext);
 
   function AddExpressionContext(ctx) {
-    var _this14;
+    var _this13;
 
     (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1__["default"])(this, AddExpressionContext);
 
-    _this14 = _super24.call(this, ctx.parent, ctx.invokingState);
+    _this13 = _super23.call(this, ctx.parent, ctx.invokingState);
 
-    _this14.copyFrom(ctx);
+    _this13.copyFrom(ctx);
 
-    return _this14;
+    return _this13;
   }
 
   (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2__["default"])(AddExpressionContext, [{
@@ -3597,18 +3496,18 @@ var AddExpressionContext = /*#__PURE__*/function (_ExpressionContext9) {
 var SubtractExpressionContext = /*#__PURE__*/function (_ExpressionContext10) {
   (0,_babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_4__["default"])(SubtractExpressionContext, _ExpressionContext10);
 
-  var _super25 = _createSuper(SubtractExpressionContext);
+  var _super24 = _createSuper(SubtractExpressionContext);
 
   function SubtractExpressionContext(ctx) {
-    var _this15;
+    var _this14;
 
     (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1__["default"])(this, SubtractExpressionContext);
 
-    _this15 = _super25.call(this, ctx.parent, ctx.invokingState);
+    _this14 = _super24.call(this, ctx.parent, ctx.invokingState);
 
-    _this15.copyFrom(ctx);
+    _this14.copyFrom(ctx);
 
-    return _this15;
+    return _this14;
   }
 
   (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2__["default"])(SubtractExpressionContext, [{
@@ -3641,18 +3540,18 @@ var SubtractExpressionContext = /*#__PURE__*/function (_ExpressionContext10) {
 var LessExpressionContext = /*#__PURE__*/function (_ExpressionContext11) {
   (0,_babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_4__["default"])(LessExpressionContext, _ExpressionContext11);
 
-  var _super26 = _createSuper(LessExpressionContext);
+  var _super25 = _createSuper(LessExpressionContext);
 
   function LessExpressionContext(ctx) {
-    var _this16;
+    var _this15;
 
     (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1__["default"])(this, LessExpressionContext);
 
-    _this16 = _super26.call(this, ctx.parent, ctx.invokingState);
+    _this15 = _super25.call(this, ctx.parent, ctx.invokingState);
 
-    _this16.copyFrom(ctx);
+    _this15.copyFrom(ctx);
 
-    return _this16;
+    return _this15;
   }
 
   (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2__["default"])(LessExpressionContext, [{
@@ -3685,18 +3584,18 @@ var LessExpressionContext = /*#__PURE__*/function (_ExpressionContext11) {
 var LessEqualExpressionContext = /*#__PURE__*/function (_ExpressionContext12) {
   (0,_babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_4__["default"])(LessEqualExpressionContext, _ExpressionContext12);
 
-  var _super27 = _createSuper(LessEqualExpressionContext);
+  var _super26 = _createSuper(LessEqualExpressionContext);
 
   function LessEqualExpressionContext(ctx) {
-    var _this17;
+    var _this16;
 
     (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1__["default"])(this, LessEqualExpressionContext);
 
-    _this17 = _super27.call(this, ctx.parent, ctx.invokingState);
+    _this16 = _super26.call(this, ctx.parent, ctx.invokingState);
 
-    _this17.copyFrom(ctx);
+    _this16.copyFrom(ctx);
 
-    return _this17;
+    return _this16;
   }
 
   (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2__["default"])(LessEqualExpressionContext, [{
@@ -3729,18 +3628,18 @@ var LessEqualExpressionContext = /*#__PURE__*/function (_ExpressionContext12) {
 var GreaterExpressionContext = /*#__PURE__*/function (_ExpressionContext13) {
   (0,_babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_4__["default"])(GreaterExpressionContext, _ExpressionContext13);
 
-  var _super28 = _createSuper(GreaterExpressionContext);
+  var _super27 = _createSuper(GreaterExpressionContext);
 
   function GreaterExpressionContext(ctx) {
-    var _this18;
+    var _this17;
 
     (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1__["default"])(this, GreaterExpressionContext);
 
-    _this18 = _super28.call(this, ctx.parent, ctx.invokingState);
+    _this17 = _super27.call(this, ctx.parent, ctx.invokingState);
 
-    _this18.copyFrom(ctx);
+    _this17.copyFrom(ctx);
 
-    return _this18;
+    return _this17;
   }
 
   (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2__["default"])(GreaterExpressionContext, [{
@@ -3773,18 +3672,18 @@ var GreaterExpressionContext = /*#__PURE__*/function (_ExpressionContext13) {
 var GreaterEqualExpressionContext = /*#__PURE__*/function (_ExpressionContext14) {
   (0,_babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_4__["default"])(GreaterEqualExpressionContext, _ExpressionContext14);
 
-  var _super29 = _createSuper(GreaterEqualExpressionContext);
+  var _super28 = _createSuper(GreaterEqualExpressionContext);
 
   function GreaterEqualExpressionContext(ctx) {
-    var _this19;
+    var _this18;
 
     (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1__["default"])(this, GreaterEqualExpressionContext);
 
-    _this19 = _super29.call(this, ctx.parent, ctx.invokingState);
+    _this18 = _super28.call(this, ctx.parent, ctx.invokingState);
 
-    _this19.copyFrom(ctx);
+    _this18.copyFrom(ctx);
 
-    return _this19;
+    return _this18;
   }
 
   (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2__["default"])(GreaterEqualExpressionContext, [{
@@ -3817,18 +3716,18 @@ var GreaterEqualExpressionContext = /*#__PURE__*/function (_ExpressionContext14)
 var EqualExpressionContext = /*#__PURE__*/function (_ExpressionContext15) {
   (0,_babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_4__["default"])(EqualExpressionContext, _ExpressionContext15);
 
-  var _super30 = _createSuper(EqualExpressionContext);
+  var _super29 = _createSuper(EqualExpressionContext);
 
   function EqualExpressionContext(ctx) {
-    var _this20;
+    var _this19;
 
     (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1__["default"])(this, EqualExpressionContext);
 
-    _this20 = _super30.call(this, ctx.parent, ctx.invokingState);
+    _this19 = _super29.call(this, ctx.parent, ctx.invokingState);
 
-    _this20.copyFrom(ctx);
+    _this19.copyFrom(ctx);
 
-    return _this20;
+    return _this19;
   }
 
   (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2__["default"])(EqualExpressionContext, [{
@@ -3861,18 +3760,18 @@ var EqualExpressionContext = /*#__PURE__*/function (_ExpressionContext15) {
 var DifferentExpressionContext = /*#__PURE__*/function (_ExpressionContext16) {
   (0,_babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_4__["default"])(DifferentExpressionContext, _ExpressionContext16);
 
-  var _super31 = _createSuper(DifferentExpressionContext);
+  var _super30 = _createSuper(DifferentExpressionContext);
 
   function DifferentExpressionContext(ctx) {
-    var _this21;
+    var _this20;
 
     (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1__["default"])(this, DifferentExpressionContext);
 
-    _this21 = _super31.call(this, ctx.parent, ctx.invokingState);
+    _this20 = _super30.call(this, ctx.parent, ctx.invokingState);
 
-    _this21.copyFrom(ctx);
+    _this20.copyFrom(ctx);
 
-    return _this21;
+    return _this20;
   }
 
   (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2__["default"])(DifferentExpressionContext, [{
@@ -3905,18 +3804,18 @@ var DifferentExpressionContext = /*#__PURE__*/function (_ExpressionContext16) {
 var AndExpressionContext = /*#__PURE__*/function (_ExpressionContext17) {
   (0,_babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_4__["default"])(AndExpressionContext, _ExpressionContext17);
 
-  var _super32 = _createSuper(AndExpressionContext);
+  var _super31 = _createSuper(AndExpressionContext);
 
   function AndExpressionContext(ctx) {
-    var _this22;
+    var _this21;
 
     (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1__["default"])(this, AndExpressionContext);
 
-    _this22 = _super32.call(this, ctx.parent, ctx.invokingState);
+    _this21 = _super31.call(this, ctx.parent, ctx.invokingState);
 
-    _this22.copyFrom(ctx);
+    _this21.copyFrom(ctx);
 
-    return _this22;
+    return _this21;
   }
 
   (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2__["default"])(AndExpressionContext, [{
@@ -3949,18 +3848,18 @@ var AndExpressionContext = /*#__PURE__*/function (_ExpressionContext17) {
 var OrExpressionContext = /*#__PURE__*/function (_ExpressionContext18) {
   (0,_babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_4__["default"])(OrExpressionContext, _ExpressionContext18);
 
-  var _super33 = _createSuper(OrExpressionContext);
+  var _super32 = _createSuper(OrExpressionContext);
 
   function OrExpressionContext(ctx) {
-    var _this23;
+    var _this22;
 
     (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1__["default"])(this, OrExpressionContext);
 
-    _this23 = _super33.call(this, ctx.parent, ctx.invokingState);
+    _this22 = _super32.call(this, ctx.parent, ctx.invokingState);
 
-    _this23.copyFrom(ctx);
+    _this22.copyFrom(ctx);
 
-    return _this23;
+    return _this22;
   }
 
   (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2__["default"])(OrExpressionContext, [{
@@ -3993,18 +3892,18 @@ var OrExpressionContext = /*#__PURE__*/function (_ExpressionContext18) {
 var AtomExpressionContext = /*#__PURE__*/function (_ExpressionContext19) {
   (0,_babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_4__["default"])(AtomExpressionContext, _ExpressionContext19);
 
-  var _super34 = _createSuper(AtomExpressionContext);
+  var _super33 = _createSuper(AtomExpressionContext);
 
   function AtomExpressionContext(ctx) {
-    var _this24;
+    var _this23;
 
     (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1__["default"])(this, AtomExpressionContext);
 
-    _this24 = _super34.call(this, ctx.parent, ctx.invokingState);
+    _this23 = _super33.call(this, ctx.parent, ctx.invokingState);
 
-    _this24.copyFrom(ctx);
+    _this23.copyFrom(ctx);
 
-    return _this24;
+    return _this23;
   }
 
   (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2__["default"])(AtomExpressionContext, [{
@@ -4028,12 +3927,12 @@ var AtomExpressionContext = /*#__PURE__*/function (_ExpressionContext19) {
 var AtomContext = /*#__PURE__*/function (_ParserRuleContext11) {
   (0,_babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_4__["default"])(AtomContext, _ParserRuleContext11);
 
-  var _super35 = _createSuper(AtomContext);
+  var _super34 = _createSuper(AtomContext);
 
   function AtomContext(parent, invokingState) {
     (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1__["default"])(this, AtomContext);
 
-    return _super35.call(this, parent, invokingState);
+    return _super34.call(this, parent, invokingState);
   }
 
   (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2__["default"])(AtomContext, [{
@@ -4053,18 +3952,18 @@ var AtomContext = /*#__PURE__*/function (_ParserRuleContext11) {
 var TrueAtomContext = /*#__PURE__*/function (_AtomContext) {
   (0,_babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_4__["default"])(TrueAtomContext, _AtomContext);
 
-  var _super36 = _createSuper(TrueAtomContext);
+  var _super35 = _createSuper(TrueAtomContext);
 
   function TrueAtomContext(ctx) {
-    var _this25;
+    var _this24;
 
     (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1__["default"])(this, TrueAtomContext);
 
-    _this25 = _super36.call(this, ctx.parent, ctx.invokingState);
+    _this24 = _super35.call(this, ctx.parent, ctx.invokingState);
 
-    _this25.copyFrom(ctx);
+    _this24.copyFrom(ctx);
 
-    return _this25;
+    return _this24;
   }
 
   (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2__["default"])(TrueAtomContext, [{
@@ -4088,18 +3987,18 @@ var TrueAtomContext = /*#__PURE__*/function (_AtomContext) {
 var FalseAtomContext = /*#__PURE__*/function (_AtomContext2) {
   (0,_babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_4__["default"])(FalseAtomContext, _AtomContext2);
 
-  var _super37 = _createSuper(FalseAtomContext);
+  var _super36 = _createSuper(FalseAtomContext);
 
   function FalseAtomContext(ctx) {
-    var _this26;
+    var _this25;
 
     (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1__["default"])(this, FalseAtomContext);
 
-    _this26 = _super37.call(this, ctx.parent, ctx.invokingState);
+    _this25 = _super36.call(this, ctx.parent, ctx.invokingState);
 
-    _this26.copyFrom(ctx);
+    _this25.copyFrom(ctx);
 
-    return _this26;
+    return _this25;
   }
 
   (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2__["default"])(FalseAtomContext, [{
@@ -4123,18 +4022,18 @@ var FalseAtomContext = /*#__PURE__*/function (_AtomContext2) {
 var NumberAtomContext = /*#__PURE__*/function (_AtomContext3) {
   (0,_babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_4__["default"])(NumberAtomContext, _AtomContext3);
 
-  var _super38 = _createSuper(NumberAtomContext);
+  var _super37 = _createSuper(NumberAtomContext);
 
   function NumberAtomContext(ctx) {
-    var _this27;
+    var _this26;
 
     (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1__["default"])(this, NumberAtomContext);
 
-    _this27 = _super38.call(this, ctx.parent, ctx.invokingState);
+    _this26 = _super37.call(this, ctx.parent, ctx.invokingState);
 
-    _this27.copyFrom(ctx);
+    _this26.copyFrom(ctx);
 
-    return _this27;
+    return _this26;
   }
 
   (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2__["default"])(NumberAtomContext, [{
@@ -4158,18 +4057,18 @@ var NumberAtomContext = /*#__PURE__*/function (_AtomContext3) {
 var TextAtomContext = /*#__PURE__*/function (_AtomContext4) {
   (0,_babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_4__["default"])(TextAtomContext, _AtomContext4);
 
-  var _super39 = _createSuper(TextAtomContext);
+  var _super38 = _createSuper(TextAtomContext);
 
   function TextAtomContext(ctx) {
-    var _this28;
+    var _this27;
 
     (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1__["default"])(this, TextAtomContext);
 
-    _this28 = _super39.call(this, ctx.parent, ctx.invokingState);
+    _this27 = _super38.call(this, ctx.parent, ctx.invokingState);
 
-    _this28.copyFrom(ctx);
+    _this27.copyFrom(ctx);
 
-    return _this28;
+    return _this27;
   }
 
   (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2__["default"])(TextAtomContext, [{
@@ -4193,18 +4092,18 @@ var TextAtomContext = /*#__PURE__*/function (_AtomContext4) {
 var FunctionCallAtomContext = /*#__PURE__*/function (_AtomContext5) {
   (0,_babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_4__["default"])(FunctionCallAtomContext, _AtomContext5);
 
-  var _super40 = _createSuper(FunctionCallAtomContext);
+  var _super39 = _createSuper(FunctionCallAtomContext);
 
   function FunctionCallAtomContext(ctx) {
-    var _this29;
+    var _this28;
 
     (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1__["default"])(this, FunctionCallAtomContext);
 
-    _this29 = _super40.call(this, ctx.parent, ctx.invokingState);
+    _this28 = _super39.call(this, ctx.parent, ctx.invokingState);
 
-    _this29.copyFrom(ctx);
+    _this28.copyFrom(ctx);
 
-    return _this29;
+    return _this28;
   }
 
   (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2__["default"])(FunctionCallAtomContext, [{
@@ -4228,18 +4127,18 @@ var FunctionCallAtomContext = /*#__PURE__*/function (_AtomContext5) {
 var IdentifierAtomContext = /*#__PURE__*/function (_AtomContext6) {
   (0,_babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_4__["default"])(IdentifierAtomContext, _AtomContext6);
 
-  var _super41 = _createSuper(IdentifierAtomContext);
+  var _super40 = _createSuper(IdentifierAtomContext);
 
   function IdentifierAtomContext(ctx) {
-    var _this30;
+    var _this29;
 
     (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1__["default"])(this, IdentifierAtomContext);
 
-    _this30 = _super41.call(this, ctx.parent, ctx.invokingState);
+    _this29 = _super40.call(this, ctx.parent, ctx.invokingState);
 
-    _this30.copyFrom(ctx);
+    _this29.copyFrom(ctx);
 
-    return _this30;
+    return _this29;
   }
 
   (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2__["default"])(IdentifierAtomContext, [{
@@ -4263,12 +4162,12 @@ var IdentifierAtomContext = /*#__PURE__*/function (_AtomContext6) {
 var NumberLiteralContext = /*#__PURE__*/function (_ParserRuleContext12) {
   (0,_babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_4__["default"])(NumberLiteralContext, _ParserRuleContext12);
 
-  var _super42 = _createSuper(NumberLiteralContext);
+  var _super41 = _createSuper(NumberLiteralContext);
 
   function NumberLiteralContext(parent, invokingState) {
     (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1__["default"])(this, NumberLiteralContext);
 
-    return _super42.call(this, parent, invokingState);
+    return _super41.call(this, parent, invokingState);
   }
 
   (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2__["default"])(NumberLiteralContext, [{
@@ -4307,12 +4206,12 @@ var NumberLiteralContext = /*#__PURE__*/function (_ParserRuleContext12) {
 var TextLiteralContext = /*#__PURE__*/function (_ParserRuleContext13) {
   (0,_babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_4__["default"])(TextLiteralContext, _ParserRuleContext13);
 
-  var _super43 = _createSuper(TextLiteralContext);
+  var _super42 = _createSuper(TextLiteralContext);
 
   function TextLiteralContext(parent, invokingState) {
     (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1__["default"])(this, TextLiteralContext);
 
-    return _super43.call(this, parent, invokingState);
+    return _super42.call(this, parent, invokingState);
   }
 
   (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2__["default"])(TextLiteralContext, [{
@@ -4332,18 +4231,18 @@ var TextLiteralContext = /*#__PURE__*/function (_ParserRuleContext13) {
 var SimpleTextLiteralContext = /*#__PURE__*/function (_TextLiteralContext) {
   (0,_babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_4__["default"])(SimpleTextLiteralContext, _TextLiteralContext);
 
-  var _super44 = _createSuper(SimpleTextLiteralContext);
+  var _super43 = _createSuper(SimpleTextLiteralContext);
 
   function SimpleTextLiteralContext(ctx) {
-    var _this31;
+    var _this30;
 
     (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1__["default"])(this, SimpleTextLiteralContext);
 
-    _this31 = _super44.call(this, ctx.parent, ctx.invokingState);
+    _this30 = _super43.call(this, ctx.parent, ctx.invokingState);
 
-    _this31.copyFrom(ctx);
+    _this30.copyFrom(ctx);
 
-    return _this31;
+    return _this30;
   }
 
   (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2__["default"])(SimpleTextLiteralContext, [{
@@ -4380,18 +4279,18 @@ var SimpleTextLiteralContext = /*#__PURE__*/function (_TextLiteralContext) {
 var InterpolatedTextLiteralContext = /*#__PURE__*/function (_TextLiteralContext2) {
   (0,_babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_4__["default"])(InterpolatedTextLiteralContext, _TextLiteralContext2);
 
-  var _super45 = _createSuper(InterpolatedTextLiteralContext);
+  var _super44 = _createSuper(InterpolatedTextLiteralContext);
 
   function InterpolatedTextLiteralContext(ctx) {
-    var _this32;
+    var _this31;
 
     (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1__["default"])(this, InterpolatedTextLiteralContext);
 
-    _this32 = _super45.call(this, ctx.parent, ctx.invokingState);
+    _this31 = _super44.call(this, ctx.parent, ctx.invokingState);
 
-    _this32.copyFrom(ctx);
+    _this31.copyFrom(ctx);
 
-    return _this32;
+    return _this31;
   }
 
   (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2__["default"])(InterpolatedTextLiteralContext, [{
@@ -4428,12 +4327,12 @@ var InterpolatedTextLiteralContext = /*#__PURE__*/function (_TextLiteralContext2
 var InterpolatedTextContext = /*#__PURE__*/function (_ParserRuleContext14) {
   (0,_babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_4__["default"])(InterpolatedTextContext, _ParserRuleContext14);
 
-  var _super46 = _createSuper(InterpolatedTextContext);
+  var _super45 = _createSuper(InterpolatedTextContext);
 
   function InterpolatedTextContext(parent, invokingState) {
     (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1__["default"])(this, InterpolatedTextContext);
 
-    return _super46.call(this, parent, invokingState);
+    return _super45.call(this, parent, invokingState);
   }
 
   (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2__["default"])(InterpolatedTextContext, [{
@@ -4453,18 +4352,18 @@ var InterpolatedTextContext = /*#__PURE__*/function (_ParserRuleContext14) {
 var InterpolatedSimpleTextContext = /*#__PURE__*/function (_InterpolatedTextCont) {
   (0,_babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_4__["default"])(InterpolatedSimpleTextContext, _InterpolatedTextCont);
 
-  var _super47 = _createSuper(InterpolatedSimpleTextContext);
+  var _super46 = _createSuper(InterpolatedSimpleTextContext);
 
   function InterpolatedSimpleTextContext(ctx) {
-    var _this33;
+    var _this32;
 
     (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1__["default"])(this, InterpolatedSimpleTextContext);
 
-    _this33 = _super47.call(this, ctx.parent, ctx.invokingState);
+    _this32 = _super46.call(this, ctx.parent, ctx.invokingState);
 
-    _this33.copyFrom(ctx);
+    _this32.copyFrom(ctx);
 
-    return _this33;
+    return _this32;
   }
 
   (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2__["default"])(InterpolatedSimpleTextContext, [{
@@ -4488,18 +4387,18 @@ var InterpolatedSimpleTextContext = /*#__PURE__*/function (_InterpolatedTextCont
 var InterpolatedExpressionTextContext = /*#__PURE__*/function (_InterpolatedTextCont2) {
   (0,_babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_4__["default"])(InterpolatedExpressionTextContext, _InterpolatedTextCont2);
 
-  var _super48 = _createSuper(InterpolatedExpressionTextContext);
+  var _super47 = _createSuper(InterpolatedExpressionTextContext);
 
   function InterpolatedExpressionTextContext(ctx) {
-    var _this34;
+    var _this33;
 
     (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1__["default"])(this, InterpolatedExpressionTextContext);
 
-    _this34 = _super48.call(this, ctx.parent, ctx.invokingState);
+    _this33 = _super47.call(this, ctx.parent, ctx.invokingState);
 
-    _this34.copyFrom(ctx);
+    _this33.copyFrom(ctx);
 
-    return _this34;
+    return _this33;
   }
 
   (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2__["default"])(InterpolatedExpressionTextContext, [{
@@ -4533,18 +4432,18 @@ var InterpolatedExpressionTextContext = /*#__PURE__*/function (_InterpolatedText
 var FunctionCallContext = /*#__PURE__*/function (_ParserRuleContext15) {
   (0,_babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_4__["default"])(FunctionCallContext, _ParserRuleContext15);
 
-  var _super49 = _createSuper(FunctionCallContext);
+  var _super48 = _createSuper(FunctionCallContext);
 
   function FunctionCallContext(parent, invokingState) {
     (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1__["default"])(this, FunctionCallContext);
 
-    return _super49.call(this, parent, invokingState);
+    return _super48.call(this, parent, invokingState);
   }
 
   (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2__["default"])(FunctionCallContext, [{
-    key: "LIST",
-    value: function LIST() {
-      return this.tryGetToken(CustomParser.LIST, 0);
+    key: "IDENTIFIER",
+    value: function IDENTIFIER() {
+      return this.getToken(CustomParser.IDENTIFIER, 0);
     }
   }, {
     key: "OPEN_PARENTHESIS",
@@ -4560,11 +4459,6 @@ var FunctionCallContext = /*#__PURE__*/function (_ParserRuleContext15) {
     key: "argumentList",
     value: function argumentList() {
       return this.tryGetRuleContext(0, ArgumentListContext);
-    }
-  }, {
-    key: "IDENTIFIER",
-    value: function IDENTIFIER() {
-      return this.tryGetToken(CustomParser.IDENTIFIER, 0);
     }
   }, {
     key: "ruleIndex",
@@ -4587,12 +4481,12 @@ var FunctionCallContext = /*#__PURE__*/function (_ParserRuleContext15) {
 var ArgumentListContext = /*#__PURE__*/function (_ParserRuleContext16) {
   (0,_babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_4__["default"])(ArgumentListContext, _ParserRuleContext16);
 
-  var _super50 = _createSuper(ArgumentListContext);
+  var _super49 = _createSuper(ArgumentListContext);
 
   function ArgumentListContext(parent, invokingState) {
     (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1__["default"])(this, ArgumentListContext);
 
-    return _super50.call(this, parent, invokingState);
+    return _super49.call(this, parent, invokingState);
   }
 
   (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2__["default"])(ArgumentListContext, [{
@@ -4634,12 +4528,12 @@ var ArgumentListContext = /*#__PURE__*/function (_ParserRuleContext16) {
 var VariableAssignmentContext = /*#__PURE__*/function (_ParserRuleContext17) {
   (0,_babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_4__["default"])(VariableAssignmentContext, _ParserRuleContext17);
 
-  var _super51 = _createSuper(VariableAssignmentContext);
+  var _super50 = _createSuper(VariableAssignmentContext);
 
   function VariableAssignmentContext(parent, invokingState) {
     (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1__["default"])(this, VariableAssignmentContext);
 
-    return _super51.call(this, parent, invokingState);
+    return _super50.call(this, parent, invokingState);
   }
 
   (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2__["default"])(VariableAssignmentContext, [{
@@ -4659,18 +4553,18 @@ var VariableAssignmentContext = /*#__PURE__*/function (_ParserRuleContext17) {
 var AssignmentContext = /*#__PURE__*/function (_VariableAssignmentCo) {
   (0,_babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_4__["default"])(AssignmentContext, _VariableAssignmentCo);
 
-  var _super52 = _createSuper(AssignmentContext);
+  var _super51 = _createSuper(AssignmentContext);
 
   function AssignmentContext(ctx) {
-    var _this35;
+    var _this34;
 
     (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1__["default"])(this, AssignmentContext);
 
-    _this35 = _super52.call(this, ctx.parent, ctx.invokingState);
+    _this34 = _super51.call(this, ctx.parent, ctx.invokingState);
 
-    _this35.copyFrom(ctx);
+    _this34.copyFrom(ctx);
 
-    return _this35;
+    return _this34;
   }
 
   (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2__["default"])(AssignmentContext, [{
@@ -4704,18 +4598,18 @@ var AssignmentContext = /*#__PURE__*/function (_VariableAssignmentCo) {
 var AddAssignmentContext = /*#__PURE__*/function (_VariableAssignmentCo2) {
   (0,_babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_4__["default"])(AddAssignmentContext, _VariableAssignmentCo2);
 
-  var _super53 = _createSuper(AddAssignmentContext);
+  var _super52 = _createSuper(AddAssignmentContext);
 
   function AddAssignmentContext(ctx) {
-    var _this36;
+    var _this35;
 
     (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1__["default"])(this, AddAssignmentContext);
 
-    _this36 = _super53.call(this, ctx.parent, ctx.invokingState);
+    _this35 = _super52.call(this, ctx.parent, ctx.invokingState);
 
-    _this36.copyFrom(ctx);
+    _this35.copyFrom(ctx);
 
-    return _this36;
+    return _this35;
   }
 
   (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2__["default"])(AddAssignmentContext, [{
@@ -4749,18 +4643,18 @@ var AddAssignmentContext = /*#__PURE__*/function (_VariableAssignmentCo2) {
 var SubtractAssignmentContext = /*#__PURE__*/function (_VariableAssignmentCo3) {
   (0,_babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_4__["default"])(SubtractAssignmentContext, _VariableAssignmentCo3);
 
-  var _super54 = _createSuper(SubtractAssignmentContext);
+  var _super53 = _createSuper(SubtractAssignmentContext);
 
   function SubtractAssignmentContext(ctx) {
-    var _this37;
+    var _this36;
 
     (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1__["default"])(this, SubtractAssignmentContext);
 
-    _this37 = _super54.call(this, ctx.parent, ctx.invokingState);
+    _this36 = _super53.call(this, ctx.parent, ctx.invokingState);
 
-    _this37.copyFrom(ctx);
+    _this36.copyFrom(ctx);
 
-    return _this37;
+    return _this36;
   }
 
   (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2__["default"])(SubtractAssignmentContext, [{
@@ -4794,18 +4688,18 @@ var SubtractAssignmentContext = /*#__PURE__*/function (_VariableAssignmentCo3) {
 var MultiplyAssignmentContext = /*#__PURE__*/function (_VariableAssignmentCo4) {
   (0,_babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_4__["default"])(MultiplyAssignmentContext, _VariableAssignmentCo4);
 
-  var _super55 = _createSuper(MultiplyAssignmentContext);
+  var _super54 = _createSuper(MultiplyAssignmentContext);
 
   function MultiplyAssignmentContext(ctx) {
-    var _this38;
+    var _this37;
 
     (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1__["default"])(this, MultiplyAssignmentContext);
 
-    _this38 = _super55.call(this, ctx.parent, ctx.invokingState);
+    _this37 = _super54.call(this, ctx.parent, ctx.invokingState);
 
-    _this38.copyFrom(ctx);
+    _this37.copyFrom(ctx);
 
-    return _this38;
+    return _this37;
   }
 
   (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2__["default"])(MultiplyAssignmentContext, [{
@@ -4839,18 +4733,18 @@ var MultiplyAssignmentContext = /*#__PURE__*/function (_VariableAssignmentCo4) {
 var DivideAssignmentContext = /*#__PURE__*/function (_VariableAssignmentCo5) {
   (0,_babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_4__["default"])(DivideAssignmentContext, _VariableAssignmentCo5);
 
-  var _super56 = _createSuper(DivideAssignmentContext);
+  var _super55 = _createSuper(DivideAssignmentContext);
 
   function DivideAssignmentContext(ctx) {
-    var _this39;
+    var _this38;
 
     (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1__["default"])(this, DivideAssignmentContext);
 
-    _this39 = _super56.call(this, ctx.parent, ctx.invokingState);
+    _this38 = _super55.call(this, ctx.parent, ctx.invokingState);
 
-    _this39.copyFrom(ctx);
+    _this38.copyFrom(ctx);
 
-    return _this39;
+    return _this38;
   }
 
   (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2__["default"])(DivideAssignmentContext, [{
@@ -4884,18 +4778,18 @@ var DivideAssignmentContext = /*#__PURE__*/function (_VariableAssignmentCo5) {
 var RemainderAssignmentContext = /*#__PURE__*/function (_VariableAssignmentCo6) {
   (0,_babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_4__["default"])(RemainderAssignmentContext, _VariableAssignmentCo6);
 
-  var _super57 = _createSuper(RemainderAssignmentContext);
+  var _super56 = _createSuper(RemainderAssignmentContext);
 
   function RemainderAssignmentContext(ctx) {
-    var _this40;
+    var _this39;
 
     (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1__["default"])(this, RemainderAssignmentContext);
 
-    _this40 = _super57.call(this, ctx.parent, ctx.invokingState);
+    _this39 = _super56.call(this, ctx.parent, ctx.invokingState);
 
-    _this40.copyFrom(ctx);
+    _this39.copyFrom(ctx);
 
-    return _this40;
+    return _this39;
   }
 
   (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2__["default"])(RemainderAssignmentContext, [{
@@ -4929,18 +4823,18 @@ var RemainderAssignmentContext = /*#__PURE__*/function (_VariableAssignmentCo6) 
 var PowerAssignmentContext = /*#__PURE__*/function (_VariableAssignmentCo7) {
   (0,_babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_4__["default"])(PowerAssignmentContext, _VariableAssignmentCo7);
 
-  var _super58 = _createSuper(PowerAssignmentContext);
+  var _super57 = _createSuper(PowerAssignmentContext);
 
   function PowerAssignmentContext(ctx) {
-    var _this41;
+    var _this40;
 
     (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1__["default"])(this, PowerAssignmentContext);
 
-    _this41 = _super58.call(this, ctx.parent, ctx.invokingState);
+    _this40 = _super57.call(this, ctx.parent, ctx.invokingState);
 
-    _this41.copyFrom(ctx);
+    _this40.copyFrom(ctx);
 
-    return _this41;
+    return _this40;
   }
 
   (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2__["default"])(PowerAssignmentContext, [{
@@ -4974,12 +4868,12 @@ var PowerAssignmentContext = /*#__PURE__*/function (_VariableAssignmentCo7) {
 var IfStatementContext = /*#__PURE__*/function (_ParserRuleContext18) {
   (0,_babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_4__["default"])(IfStatementContext, _ParserRuleContext18);
 
-  var _super59 = _createSuper(IfStatementContext);
+  var _super58 = _createSuper(IfStatementContext);
 
   function IfStatementContext(parent, invokingState) {
     (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1__["default"])(this, IfStatementContext);
 
-    return _super59.call(this, parent, invokingState);
+    return _super58.call(this, parent, invokingState);
   }
 
   (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2__["default"])(IfStatementContext, [{
@@ -5050,12 +4944,12 @@ var IfStatementContext = /*#__PURE__*/function (_ParserRuleContext18) {
 var ElseIfPartContext = /*#__PURE__*/function (_ParserRuleContext19) {
   (0,_babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_4__["default"])(ElseIfPartContext, _ParserRuleContext19);
 
-  var _super60 = _createSuper(ElseIfPartContext);
+  var _super59 = _createSuper(ElseIfPartContext);
 
   function ElseIfPartContext(parent, invokingState) {
     (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1__["default"])(this, ElseIfPartContext);
 
-    return _super60.call(this, parent, invokingState);
+    return _super59.call(this, parent, invokingState);
   }
 
   (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2__["default"])(ElseIfPartContext, [{
@@ -5112,12 +5006,12 @@ var ElseIfPartContext = /*#__PURE__*/function (_ParserRuleContext19) {
 var ElsePartContext = /*#__PURE__*/function (_ParserRuleContext20) {
   (0,_babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_4__["default"])(ElsePartContext, _ParserRuleContext20);
 
-  var _super61 = _createSuper(ElsePartContext);
+  var _super60 = _createSuper(ElsePartContext);
 
   function ElsePartContext(parent, invokingState) {
     (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1__["default"])(this, ElsePartContext);
 
-    return _super61.call(this, parent, invokingState);
+    return _super60.call(this, parent, invokingState);
   }
 
   (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2__["default"])(ElsePartContext, [{
@@ -5161,18 +5055,18 @@ var ElsePartContext = /*#__PURE__*/function (_ParserRuleContext20) {
 
   return ElsePartContext;
 }(antlr4ts_ParserRuleContext__WEBPACK_IMPORTED_MODULE_12__.ParserRuleContext);
-var ForInStatementContext = /*#__PURE__*/function (_ParserRuleContext21) {
-  (0,_babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_4__["default"])(ForInStatementContext, _ParserRuleContext21);
+var ForFromToStatementContext = /*#__PURE__*/function (_ParserRuleContext21) {
+  (0,_babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_4__["default"])(ForFromToStatementContext, _ParserRuleContext21);
 
-  var _super62 = _createSuper(ForInStatementContext);
+  var _super61 = _createSuper(ForFromToStatementContext);
 
-  function ForInStatementContext(parent, invokingState) {
-    (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1__["default"])(this, ForInStatementContext);
+  function ForFromToStatementContext(parent, invokingState) {
+    (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1__["default"])(this, ForFromToStatementContext);
 
-    return _super62.call(this, parent, invokingState);
+    return _super61.call(this, parent, invokingState);
   }
 
-  (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2__["default"])(ForInStatementContext, [{
+  (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2__["default"])(ForFromToStatementContext, [{
     key: "FOR",
     value: function FOR() {
       return this.getToken(CustomParser.FOR, 0);
@@ -5188,14 +5082,23 @@ var ForInStatementContext = /*#__PURE__*/function (_ParserRuleContext21) {
       return this.getToken(CustomParser.IDENTIFIER, 0);
     }
   }, {
-    key: "IN",
-    value: function IN() {
-      return this.getToken(CustomParser.IN, 0);
+    key: "FROM",
+    value: function FROM() {
+      return this.getToken(CustomParser.FROM, 0);
     }
   }, {
     key: "expression",
-    value: function expression() {
-      return this.getRuleContext(0, ExpressionContext);
+    value: function expression(i) {
+      if (i === undefined) {
+        return this.getRuleContexts(ExpressionContext);
+      } else {
+        return this.getRuleContext(i, ExpressionContext);
+      }
+    }
+  }, {
+    key: "TO",
+    value: function TO() {
+      return this.getToken(CustomParser.TO, 0);
     }
   }, {
     key: "END",
@@ -5223,30 +5126,30 @@ var ForInStatementContext = /*#__PURE__*/function (_ParserRuleContext21) {
   }, {
     key: "ruleIndex",
     get: function get() {
-      return CustomParser.RULE_forInStatement;
+      return CustomParser.RULE_forFromToStatement;
     }
   }, {
     key: "accept",
     value: function accept(visitor) {
-      if (visitor.visitForInStatement) {
-        return visitor.visitForInStatement(this);
+      if (visitor.visitForFromToStatement) {
+        return visitor.visitForFromToStatement(this);
       } else {
         return visitor.visitChildren(this);
       }
     }
   }]);
 
-  return ForInStatementContext;
+  return ForFromToStatementContext;
 }(antlr4ts_ParserRuleContext__WEBPACK_IMPORTED_MODULE_12__.ParserRuleContext);
 var WhileStatementContext = /*#__PURE__*/function (_ParserRuleContext22) {
   (0,_babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_4__["default"])(WhileStatementContext, _ParserRuleContext22);
 
-  var _super63 = _createSuper(WhileStatementContext);
+  var _super62 = _createSuper(WhileStatementContext);
 
   function WhileStatementContext(parent, invokingState) {
     (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1__["default"])(this, WhileStatementContext);
 
-    return _super63.call(this, parent, invokingState);
+    return _super62.call(this, parent, invokingState);
   }
 
   (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2__["default"])(WhileStatementContext, [{
@@ -5303,12 +5206,12 @@ var WhileStatementContext = /*#__PURE__*/function (_ParserRuleContext22) {
 var ForeverStatementContext = /*#__PURE__*/function (_ParserRuleContext23) {
   (0,_babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_4__["default"])(ForeverStatementContext, _ParserRuleContext23);
 
-  var _super64 = _createSuper(ForeverStatementContext);
+  var _super63 = _createSuper(ForeverStatementContext);
 
   function ForeverStatementContext(parent, invokingState) {
     (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1__["default"])(this, ForeverStatementContext);
 
-    return _super64.call(this, parent, invokingState);
+    return _super63.call(this, parent, invokingState);
   }
 
   (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2__["default"])(ForeverStatementContext, [{
@@ -5360,12 +5263,12 @@ var ForeverStatementContext = /*#__PURE__*/function (_ParserRuleContext23) {
 var BreakStatementContext = /*#__PURE__*/function (_ParserRuleContext24) {
   (0,_babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_4__["default"])(BreakStatementContext, _ParserRuleContext24);
 
-  var _super65 = _createSuper(BreakStatementContext);
+  var _super64 = _createSuper(BreakStatementContext);
 
   function BreakStatementContext(parent, invokingState) {
     (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1__["default"])(this, BreakStatementContext);
 
-    return _super65.call(this, parent, invokingState);
+    return _super64.call(this, parent, invokingState);
   }
 
   (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2__["default"])(BreakStatementContext, [{
@@ -5394,12 +5297,12 @@ var BreakStatementContext = /*#__PURE__*/function (_ParserRuleContext24) {
 var ContinueStatementContext = /*#__PURE__*/function (_ParserRuleContext25) {
   (0,_babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_4__["default"])(ContinueStatementContext, _ParserRuleContext25);
 
-  var _super66 = _createSuper(ContinueStatementContext);
+  var _super65 = _createSuper(ContinueStatementContext);
 
   function ContinueStatementContext(parent, invokingState) {
     (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1__["default"])(this, ContinueStatementContext);
 
-    return _super66.call(this, parent, invokingState);
+    return _super65.call(this, parent, invokingState);
   }
 
   (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2__["default"])(ContinueStatementContext, [{
@@ -5428,12 +5331,12 @@ var ContinueStatementContext = /*#__PURE__*/function (_ParserRuleContext25) {
 var ReturnStatementContext = /*#__PURE__*/function (_ParserRuleContext26) {
   (0,_babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_4__["default"])(ReturnStatementContext, _ParserRuleContext26);
 
-  var _super67 = _createSuper(ReturnStatementContext);
+  var _super66 = _createSuper(ReturnStatementContext);
 
   function ReturnStatementContext(parent, invokingState) {
     (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1__["default"])(this, ReturnStatementContext);
 
-    return _super67.call(this, parent, invokingState);
+    return _super66.call(this, parent, invokingState);
   }
 
   (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2__["default"])(ReturnStatementContext, [{
@@ -5467,12 +5370,12 @@ var ReturnStatementContext = /*#__PURE__*/function (_ParserRuleContext26) {
 var EosContext = /*#__PURE__*/function (_ParserRuleContext27) {
   (0,_babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_4__["default"])(EosContext, _ParserRuleContext27);
 
-  var _super68 = _createSuper(EosContext);
+  var _super67 = _createSuper(EosContext);
 
   function EosContext(parent, invokingState) {
     (0,_babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1__["default"])(this, EosContext);
 
-    return _super68.call(this, parent, invokingState);
+    return _super67.call(this, parent, invokingState);
   }
 
   (0,_babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2__["default"])(EosContext, [{
