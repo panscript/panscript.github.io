@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkpanscript=self.webpackChunkpanscript||[]).push([[8127],{8127:(n,r,e)=>{e.r(r),e.d(r,{default:()=>t});const t="// Write 'Hello, world!' to the console\r\nwrite(\"Hello, world!\")\r\n\r\n\r\n/*\r\n\r\nDo not know what to do?\r\nCheck out the examples!\r\n<----------------------\r\n\r\n*/"}}]);
